@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>jsoup爬虫 - </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+
+  <link rel="shortcut icon" href="/images/head/head1.jpeg" type="image/png" />
+  <meta name="description" content="爬取京东商品数据为例，保存数据库展示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsoup爬虫">
+<meta property="og:url" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="爬取京东商品数据为例，保存数据库展示">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621093710111.png">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/guoshuai/Documents/life/pre/blog/source/_posts/%E7%88%AC%E8%99%AB/image-20220621093843214.png">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621094041245.png">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621151519034.png">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621174713313.png">
+<meta property="og:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220622102545670.png">
+<meta property="article:published_time" content="2022-06-20T08:44:07.000Z">
+<meta property="article:modified_time" content="2022-06-23T06:16:45.178Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="springBoot">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621093710111.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1658217041686">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/background/xiaomai6.jpeg)"></div>
+    <div class="nexmoe-small" style="background-image: url(/images/background/lihui8.jpeg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head1.jpeg" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/head/head1.jpeg" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>14 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>12<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>6<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:gs990522_010817@163.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://gitee.com/gs990522/" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
+            <i class="nexmoefont icon-mayun"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/其他/">其他</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/后端/">后端</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/架构/">架构</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/db/" style="font-size: 13.33px;">db</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/springBoot/" style="font-size: 20px;">springBoot</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">14</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2022 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
+        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
+        
+        <div style="font-size: 12px">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+        
+        
+    </div> -->
+
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
+            <img data-src="/images/background/xiaomai10.jpeg" data-sizes="auto" alt="jsoup爬虫" class="lazyload">
+            <h1>jsoup爬虫</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年06月20日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+        </div>
+
+        <article>
+            <p>爬取京东商品数据为例，保存数据库展示</p>
+<span id="more"></span>
+
+<h3 id="一、Jsoup概述"><a href="#一、Jsoup概述" class="headerlink" title="一、Jsoup概述"></a>一、Jsoup概述</h3><h4 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h4><p>jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，</p>
+<p>可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。</p>
+<h4 id="1-2、主要功能"><a href="#1-2、主要功能" class="headerlink" title="1.2、主要功能"></a>1.2、主要功能</h4><p>1、从一个URL，文件或字符串中解析HTML</p>
+<p>2、使用DOM或CSS选择器来查找、取出数据</p>
+<p>3、可操作HTML元素、属性、文本</p>
+<p>注意：jsoup是基于MIT协议发布的，可放心使用于商业项目。</p>
+<h3 id="二-网页分析"><a href="#二-网页分析" class="headerlink" title="二.网页分析"></a>二.网页分析</h3><h4 id="2-1搜索参数"><a href="#2-1搜索参数" class="headerlink" title="2.1搜索参数"></a>2.1搜索参数</h4><p>1.首先我们打开京东搜索的网页，通过开发者工具可以发现，输入框的id是keyword。</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621093710111.png" alt="image-20220621093710111" class="lazyload"></p>
+<p>2.随后我们找到整个商品的div，如下图所示，它的id为“J_goodsList”</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/guoshuai/Documents/life/pre/blog/source/_posts/%E7%88%AC%E8%99%AB/image-20220621093843214.png" alt="image-20220621093843214" class="lazyload"></p>
+<p>3.分析这个div，就能找到li下面每个手机参数（图片，名称，价格等）</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621094041245.png" alt="image-20220621094041245" class="lazyload"></p>
+<h3 id="三-数据爬取"><a href="#三-数据爬取" class="headerlink" title="三.数据爬取"></a>三.数据爬取</h3><p>1.新建项目，编写数据爬取的utils</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621151519034.png" alt="image-20220621151519034" class="lazyload"></p>
+<pre><code class="java">package com.guo.jsopdemo.utils;
+
+import com.guo.jsopdemo.dto.Goods;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+public class HtmlUtils &#123;
+
+
+    public static void main(String[] args) throws Exception &#123;
+        //搜索词可以更换，此处以java为例
+        List goodList = ParseJD(&quot;苹果&quot;);
+        for (Object o : goodList) &#123;
+            System.out.println(o);
+            System.out.println(&quot;======================&quot;);
+        &#125;
+    &#125;
+
+
+    public static List&lt;Goods&gt; ParseJD(String keywords) throws Exception &#123;
+        //获取url请求
+        String url = &quot;https://search.jd.com/Search?keyword=&quot; + keywords;
+        //解析网页,Jsoup返回的是Document对象（浏览器Document对象）
+        Document document = Jsoup.parse(new URL(url), 10000);
+        //所有在js中使用的方法，这里都能使用
+        Element element = document.getElementById(&quot;J_goodsList&quot;);
+        //在获得网页内容后，获取所有的li标签
+        Elements elements = element.getElementsByTag(&quot;li&quot;);
+        ArrayList&lt;Goods&gt; goodList = new ArrayList&lt;Goods&gt;();
+
+        //获取元素的标签后，再获取标签中的内容
+        for (Element el : elements) &#123;
+            String skuCode = el.attr(&quot;data-sku&quot;);
+            //关于图片特别多的网站，所拥有的图片都是延迟加载的(懒加载)
+            // source-data-lazy-img
+//            String img = el.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;source-data-lazy-img&quot;);
+            String img = el.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;data-lazy-img&quot;);
+            String price = el.getElementsByClass(&quot;p-price&quot;).eq(0).text();
+            String name = el.getElementsByClass(&quot;p-name&quot;).eq(0).text();
+            Goods goods = new Goods();
+            goods.setSkuCode(skuCode);
+            goods.setType(keywords);
+            goods.setTitle(name);
+            goods.setImg(img);
+            goods.setPrice(price);
+            goodList.add(goods);
+        &#125;
+        return goodList;
+    &#125;
+&#125;
+</code></pre>
+<p>2.发现只能处理一页面的数据，尝试点击下一页，分析填充分页面参数</p>
+<p>一页为30条，页面分页参数为page</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/image-20220621174713313.png" alt="image-20220621174713313" class="lazyload"></p>
+<p>增加分页参数and休眠（图片懒加载，太快图片刷不出来）</p>
+<pre><code class="java">package com.guo.jsop.utils;
+
+import com.guo.jsop.dto.Goods;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+public class HtmlUtils &#123;
+
+
+    public static void main(String[] args) throws Exception &#123;
+        //搜索词可以更换，此处以java为例
+        List goodList = parseJD(&quot;苹果&quot;, 35);
+        int i = 0;
+        for (Object o : goodList) &#123;
+            i++;
+            System.out.println(&quot;第&quot; + i + &quot;条：&quot; + o.toString());
+            System.out.println(&quot;======================&quot;);
+        &#125;
+    &#125;
+
+
+    public static List&lt;Goods&gt; parseJD(String keywords, Integer num) throws Exception &#123;
+        //计算分页
+        //最大取整
+        int page = (int) Math.ceil(num / 30) + 1;
+        ArrayList&lt;Goods&gt; goodList = new ArrayList&lt;Goods&gt;();
+        for (int j = 1; j &lt;= page; j++) &#123;
+            //获取url请求
+            String url = &quot;https://search.jd.com/Search?keyword=&quot; + keywords + &quot;&amp;page=&quot; + page;
+            //睡眠1s 给懒加载的图片一点时间
+            Thread.sleep(1000);
+            //解析网页,Jsoup返回的是Document对象（浏览器Document对象）
+            Document document = Jsoup.parse(new URL(url), 10000);
+            //所有在js中使用的方法，这里都能使用
+            Element element = document.getElementById(&quot;J_goodsList&quot;);
+            //在获得网页内容后，获取所有的li标签
+            Elements elements = element.getElementsByTag(&quot;li&quot;);
+
+            //获取元素的标签后，再获取标签中的内容
+            for (Element el : elements) &#123;
+                String skuCode = el.attr(&quot;data-sku&quot;);
+                //关于图片特别多的网站，所拥有的图片都是延迟加载的(懒加载)
+                // source-data-lazy-img
+//            String img = el.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;source-data-lazy-img&quot;);
+                String img = el.getElementsByTag(&quot;img&quot;).eq(0).attr(&quot;data-lazy-img&quot;);
+                String price = el.getElementsByClass(&quot;p-price&quot;).eq(0).text();
+                String name = el.getElementsByClass(&quot;p-name&quot;).eq(0).text();
+                Goods goods = new Goods();
+                goods.setSkuCode(skuCode);
+                goods.setType(keywords);
+                goods.setTitle(name);
+                goods.setImg(img);
+                goods.setPrice(price);
+                goodList.add(goods);
+            &#125;
+        &#125;
+
+        return goodList;
+    &#125;
+&#125;
+</code></pre>
+<p>运行效果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/06/20/%E7%88%AC%E8%99%AB/image-20220622102545670.png" alt="image-20220622102545670" class="lazyload"></p>
+<h3 id="四-数据存储"><a href="#四-数据存储" class="headerlink" title="四.数据存储"></a>四.数据存储</h3><p>1.配置yml文件连接数据库</p>
+<pre><code class="yml">server:
+  port: 8123
+# 日志配置
+logging:
+  level:
+    com.watone: debug
+    org.springframework: info
+spring:
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://数据库地址:3306/jsoup_goods?allowMultiQueries=true
+    username: root
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.guo.jsop.dto
+</code></pre>
+<p>2.数据库表 type是为了区分爬下来的不同类型数据</p>
+<p>CREATE TABLE <code>goods</code> (<br>  <code>id</code> int NOT NULL AUTO_INCREMENT,<br>  <code>type</code> varchar(255) DEFAULT NULL,<br>  <code>title</code> varchar(255) DEFAULT NULL,<br>  <code>img</code> varchar(255) DEFAULT NULL,<br>  <code>price</code> varchar(255) DEFAULT NULL,<br>  <code>sku_code</code> varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>)<br>) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;31 DEFAULT CHARSET&#x3D;utf8mb4 COLLATE&#x3D;utf8mb4_0900_ai_ci;</p>
+<p>3.实体</p>
+<pre><code>package com.guo.jsop.dto;
+
+import lombok.Data;
+
+@Data
+public class Goods &#123;
+
+
+    private Integer id;
+
+    /**
+     * 搜索关键字的类型
+     */
+    private String type;
+
+    private String title;
+
+    private String img;
+
+    private String price;
+
+    private String skuCode;
+
+&#125;
+</code></pre>
+<p>4.service and mapper.yml</p>
+<pre><code>@Resource
+private GoodsMapper goodsMapper;
+
+@Override
+public Boolean grabGoods(String type, Integer num) &#123;
+    try &#123;
+        List&lt;Goods&gt; goods = HtmlUtils.parseJD(type, num);
+        //删除老的type商品
+        goodsMapper.delete(type);
+        goodsMapper.insert(goods);
+        return true;
+    &#125; catch (Exception e) &#123;
+        throw new RuntimeException(e);
+    &#125;
+&#125;
+</code></pre>
+<pre><code>&lt;insert id=&quot;insert&quot; parameterType=&quot;java.util.List&quot;&gt;
+   insert into goods (type,title,img,price,sku_code) values
+   &lt;foreach collection =&quot;goods&quot; item=&quot;t&quot; separator =&quot;,&quot;&gt;
+      (#&#123;t.type&#125;, #&#123;t.title&#125;, #&#123;t.img&#125;,#&#123;t.price&#125;,#&#123;t.skuCode&#125;)
+   &lt;/foreach&gt;
+&lt;/insert&gt;
+
+&lt;delete id=&quot;delete&quot; parameterType=&quot;java.lang.String&quot;&gt;
+   delete from goods where type = #&#123;type&#125;
+&lt;/delete&gt;
+</code></pre>
+<p>5.调用方式</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8123/grabGoods?type=java&amp;num=3">http://localhost:8123/grabGoods?type=java&amp;num=3</a></p>
+<p>git地址</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/guo0817/jsop_demo.git">https://gitee.com/guo0817/jsop_demo.git</a></p>
+
+        </article>
+
+        
+            
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Java/" rel="tag">Java</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/springBoot/" rel="tag">springBoot</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'n2r75MzpGHpVu7oWmnAQjwNx-gzGzoHsz',
+        appKey: 'ukVyTvnQEQ1EdRW3Q2cmtjke'
+    })
+</script>
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw #242424;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh #242424;
+            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard"></div>
+    <div class="qweather-logo">
+
+    </div>
+
+</div>
+<style>
+    .qweather{
+        position: relative;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+  WIDGET = {
+    "CONFIG": {
+      "layout": "2",
+      "width": "260",
+      "height": "220",
+      "background": "5",
+      "dataColor": "e67249",
+      "borderRadius": "15",
+      "key": "f74d1e1690e6432d801e97fa2f05a162"
+    }
+  }
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+            </div>
+        
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1658217041688"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+<!-- hexo injector body_end start -->
+<script src="/js/clock.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0d9ebcd3.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "0d9ebcd3"
+  });
+  daovoice('update');
+</script>
+
