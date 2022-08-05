@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/2022/08/05/excal%E5%AF%BC%E5%87%BA%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98%E5%A4%A7%E5%9D%91/843A55E6-648C-4545-80D1-ABC02BE14C50.png">
 <meta property="og:image" content="http://example.com/2022/08/05/excal%E5%AF%BC%E5%87%BA%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98%E5%A4%A7%E5%9D%91/image-20220805112930051.png">
 <meta property="article:published_time" content="2022-08-05T02:55:26.000Z">
-<meta property="article:modified_time" content="2022-08-05T03:35:10.152Z">
+<meta property="article:modified_time" content="2022-08-05T03:41:36.601Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="easyExcal">
 <meta property="article:tag" content="excal">
@@ -40,7 +40,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1659670534428">
+  <link rel="stylesheet" href="/css/style.css?v=1659671009512">
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -247,7 +247,7 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2022年08月05日</a>
-    <a><i class="nexmoefont icon-areachart"></i>268 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>264 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
@@ -276,9 +276,15 @@
 </ul>
 </li>
 <li><p>开启内存处理模式（不推荐，1W数据以内可以考虑，大了很容易OOM）</p>
-<p>&#96;&#96;&#96;java<br>    EasyExcel<br>    .write(fileName, DemoData.class)<br>    &#x2F;&#x2F; 核心这个配置 开始内存处理模式<br>    .inMemory(Boolean.TRUE)<br>    .sheet(“模板”)<br>    .doWrite(data());</p>
 </li>
 </ul>
+<pre><code class="java">          EasyExcel
+          .write(fileName, DemoData.class)
+          // 核心这个配置 开始内存处理模式
+          .inMemory(Boolean.TRUE)
+          .sheet(&quot;模板&quot;)
+          .doWrite(data());
+</code></pre>
 
         </article>
 
@@ -1026,7 +1032,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1659670534430"></script>
+<script src="/js/app.js?v=1659671009513"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -1043,6 +1049,10 @@
 
 
 <!-- hexo injector body_end start -->
+<script src="/js/clock.js"></script>
+
+<script src="/js/webapp.js"></script>
+
 <script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
 
 <script src="/lib/codeBlock/codeBlockFuction.js"></script>
@@ -1055,13 +1065,9 @@
 
 <link rel="stylesheet" href="/lib/codeBlock/matery.css">
 
-<script src="/js/clock.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script src="/js/search.js"></script>
-
-<script src="/js/webapp.js"></script>
 <!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 
