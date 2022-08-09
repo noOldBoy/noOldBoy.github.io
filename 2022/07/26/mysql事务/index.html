@@ -23,11 +23,23 @@
 <meta property="og:site_name">
 <meta property="og:description" content="MySQL事务and使用方式总结">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809152501444.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809152841859.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153259333.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153823426.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153835281.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155555306.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155618386.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155651167.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155716177.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155726646.png">
+<meta property="og:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155735490.png">
 <meta property="article:published_time" content="2022-07-26T05:59:55.000Z">
-<meta property="article:modified_time" content="2022-08-09T03:47:48.365Z">
+<meta property="article:modified_time" content="2022-08-09T08:09:50.037Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="db">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809152501444.png">
   <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
   <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
   <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
@@ -36,7 +48,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1660016985742">
+  <link rel="stylesheet" href="/css/style.css?v=1660032612674">
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -61,8 +73,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div class="nexmoe-count-item"><span>文章</span>23 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
-        <div class="nexmoe-count-item"><span>标签</span>19<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>文章</span>22 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>18<div class="item-radius"></div><div class="item-radius item-right"></div></div>
         <div class="nexmoe-count-item"><span>分类</span>6<div class="item-radius"></div><div class="item-radius item-right"></div></div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -166,7 +178,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/数据库/">数据库</a>
-          <span class="category-list-count">6</span>
+          <span class="category-list-count">5</span>
         </li>
 
         
@@ -187,7 +199,7 @@
   
   <div class="nexmoe-widget-wrap">
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/easyExcal/" style="font-size: 10px;">easyExcal</a> <a href="/tags/excal/" style="font-size: 13.33px;">excal</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/springBoot/" style="font-size: 20px;">springBoot</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/db/" style="font-size: 20px;">db</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/easyExcal/" style="font-size: 10px;">easyExcal</a> <a href="/tags/excal/" style="font-size: 13.33px;">excal</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/springBoot/" style="font-size: 20px;">springBoot</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
     </div>
     
   </div>
@@ -197,7 +209,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">文章归档</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">23</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">22</span></li></ul>
     </div>
   </div>
 
@@ -243,8 +255,8 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月26日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1.5k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.9k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
 </div>
 
         <div class="nexmoe-post-right">
@@ -267,15 +279,14 @@
 <h6 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h6><p>  对银行转帐事务，不管事务成功还是失败，应该保证事务结束后表中A和B的存款总额跟事务执行前一致。</p>
 <h5 id="3-隔离性"><a href="#3-隔离性" class="headerlink" title="3.隔离性"></a>3.隔离性</h5><p>概念：</p>
 <p>事务之前互不影响，当不同的事务同时操纵相同的数据时，每个事务都有各自的完整数据空间。</p>
-<h5 id="4-持久性"><a href="#4-持久性" class="headerlink" title="4.持久性"></a>4.持久性</h5><p>概念：</p>
-<p>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中</p>
-<h4 id="三、事务之间的相互影响"><a href="#三、事务之间的相互影响" class="headerlink" title="三、事务之间的相互影响"></a>三、事务之间的相互影响</h4><h5 id="1-脏读"><a href="#1-脏读" class="headerlink" title="1.脏读"></a>1.脏读</h5><h6 id="概念：-2"><a href="#概念：-2" class="headerlink" title="概念："></a>概念：</h6><p>脏读是指读到了其他事物未提交的数据，未提交的事物可能会回滚。然后你读到的数据会跟数据库实际数据不一致，产生脏读。</p>
+<h5 id="4-持久性"><a href="#4-持久性" class="headerlink" title="4.持久性"></a>4.持久性</h5><h6 id="概念：-2"><a href="#概念：-2" class="headerlink" title="概念："></a>概念：</h6><p>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中</p>
+<h4 id="三、事务之间的相互影响"><a href="#三、事务之间的相互影响" class="headerlink" title="三、事务之间的相互影响"></a>三、事务之间的相互影响</h4><h5 id="1-脏读"><a href="#1-脏读" class="headerlink" title="1.脏读"></a>1.脏读</h5><h6 id="概念：-3"><a href="#概念：-3" class="headerlink" title="概念："></a>概念：</h6><p>脏读是指读到了其他事物未提交的数据，未提交的事物可能会回滚。然后你读到的数据会跟数据库实际数据不一致，产生脏读。</p>
 <h6 id="案例：-1"><a href="#案例：-1" class="headerlink" title="案例："></a>案例：</h6><p>比如事务B执行过程中修改了数据X,在未提交前,事务A读取了X,而事务B却回滚了,这样事务A就形成了脏读。 也就是说,当前事务读到的数据是别的事务想要修改成为的但是没有修改成功的数据。</p>
-<h5 id="2-不可重复读"><a href="#2-不可重复读" class="headerlink" title="2.不可重复读"></a>2.不可重复读</h5><h6 id="概念：-3"><a href="#概念：-3" class="headerlink" title="概念："></a>概念：</h6><p>一个事物内多次查询出来的数据不一致。原因：查询前后间隔有其他事物提交，更改了数据</p>
+<h5 id="2-不可重复读"><a href="#2-不可重复读" class="headerlink" title="2.不可重复读"></a>2.不可重复读</h5><h6 id="概念：-4"><a href="#概念：-4" class="headerlink" title="概念："></a>概念：</h6><p>一个事物内多次查询出来的数据不一致。原因：查询前后间隔有其他事物提交，更改了数据</p>
 <h6 id="案例：-2"><a href="#案例：-2" class="headerlink" title="案例："></a>案例：</h6><p>  事务A第一次查询得到一行记录row1，事务B提交修改后，事务A第二次查询得到row1，但列内容发生了变化。</p>
-<h5 id="3-幻读"><a href="#3-幻读" class="headerlink" title="3.幻读"></a>3.幻读</h5><h6 id="概念：-4"><a href="#概念：-4" class="headerlink" title="概念："></a>概念：</h6><p>前后多次读取数据不一致，一个事物对表中的数据修改涉及所有的行。在事物提交前，有另一个事物在表中插入数据，作前一个事务的用户会发现表中还有没有修改的数据行，就好象发生了幻觉一样。</p>
+<h5 id="3-幻读"><a href="#3-幻读" class="headerlink" title="3.幻读"></a>3.幻读</h5><h6 id="概念：-5"><a href="#概念：-5" class="headerlink" title="概念："></a>概念：</h6><p>前后多次读取数据不一致，一个事物对表中的数据修改涉及所有的行。在事物提交前，有另一个事物在表中插入数据，作前一个事务的用户会发现表中还有没有修改的数据行，就好象发生了幻觉一样。</p>
 <h6 id="案列："><a href="#案列：" class="headerlink" title="案列："></a>案列：</h6><p>  假设事务A对某些行的内容作了更改，但是还未提交，此时事务B插入了与事务A更改前的记录相同的记录行，并且在事务A提交之前先提交了，而这时，在事务A中查询，会发现好像刚刚的更改对于某些数据未起作用，但其实是事务B刚插入进来的，让用户感觉很魔幻，感觉出现了幻觉，这就叫幻读。</p>
-<h5 id="4-丢失更新"><a href="#4-丢失更新" class="headerlink" title="4.丢失更新"></a>4.丢失更新</h5><h6 id="概念：-5"><a href="#概念：-5" class="headerlink" title="概念："></a>概念：</h6><p>两个事务同时读取同一条记录，A 先修改记录，B 也修改记录（B 不知道 A 修改过），B 提交数据后 B 的修改结果覆盖了 A 的修改结果。</p>
+<h5 id="4-丢失更新"><a href="#4-丢失更新" class="headerlink" title="4.丢失更新"></a>4.丢失更新</h5><h6 id="概念：-6"><a href="#概念：-6" class="headerlink" title="概念："></a>概念：</h6><p>两个事务同时读取同一条记录，A 先修改记录，B 也修改记录（B 不知道 A 修改过），B 提交数据后 B 的修改结果覆盖了 A 的修改结果。</p>
 <h6 id="案例：-3"><a href="#案例：-3" class="headerlink" title="案例："></a>案例：</h6><p>案列<br>A 30 -&gt;40 事务先完成<br>B 30 -&gt;50 事务后完成<br>B的事务结果会覆盖A的事务结果，最终值为50</p>
 <h4 id="四、事务的隔离级别"><a href="#四、事务的隔离级别" class="headerlink" title="四、事务的隔离级别"></a>四、事务的隔离级别</h4><h5 id="1-事物隔离级别分类"><a href="#1-事物隔离级别分类" class="headerlink" title="1.事物隔离级别分类"></a>1.事物隔离级别分类</h5><ul>
 <li>&#x3D;&#x3D;read uncommitted&#x3D;&#x3D;（<code>==**未提交读**==</code>）：读取尚未提交的数据 — 会产生脏读</li>
@@ -305,6 +316,77 @@
 <p>global   替换为  session</p>
 <h5 id="3-2查看当前隔离级别"><a href="#3-2查看当前隔离级别" class="headerlink" title="3.2查看当前隔离级别"></a>3.2查看当前隔离级别</h5><h5 id="当前会话隔离级别"><a href="#当前会话隔离级别" class="headerlink" title="当前会话隔离级别"></a>当前会话隔离级别</h5><p>select @@tx_isolation;<!--8.0之前版本--></p>
 <p>select @@transaction_isolation;<!--8.0以后版本--></p>
+<h4 id="五、事务控制语句"><a href="#五、事务控制语句" class="headerlink" title="五、事务控制语句"></a>五、事务控制语句</h4><h5 id="事务开启"><a href="#事务开启" class="headerlink" title="事务开启"></a>事务开启</h5><p> <code>BEGIN ｜ START TRANSACTION</code></p>
+<p>显式地开启一个事务。</p>
+<h5 id="提交事务"><a href="#提交事务" class="headerlink" title="提交事务"></a>提交事务</h5><p><code>COMMIT ｜ COMMIT WORK：</code></p>
+<p>提交事务，并使已对数据库进行的所有修改变为永久性的。</p>
+<h5 id="回滚事务"><a href="#回滚事务" class="headerlink" title="回滚事务"></a>回滚事务</h5><p><code>ROLLBACK ｜ ROLLBACK WORK</code></p>
+<p>回滚会结束用户的事务，并撤销正在进行的所有未提交的修改。</p>
+<h5 id="标记回滚点"><a href="#标记回滚点" class="headerlink" title="标记回滚点"></a>标记回滚点</h5><p><code>SAVEPOINT S1</code></p>
+<p>使用 SAVEPOINT 允许在事务中创建一个回滚点，一个事务中可以有多个 SAVEPOINT。”S1” 代表回滚点名称。</p>
+<h5 id="回滚到回滚点"><a href="#回滚到回滚点" class="headerlink" title="回滚到回滚点"></a>回滚到回滚点</h5><p><code>ROLLBACK TO [SAVEPOINT] S1</code></p>
+<p>把事务回滚到标记点。</p>
+<h4 id="六、事务操作示例"><a href="#六、事务操作示例" class="headerlink" title="六、事务操作示例"></a>六、事务操作示例</h4><h5 id="1-创建测试数据库"><a href="#1-创建测试数据库" class="headerlink" title="1.创建测试数据库"></a>1.创建测试数据库</h5><pre><code class="mysql">CREATE TABLE info ( id INT ( 10 ) PRIMARY KEY NOT NULL, NAME VARCHAR ( 40 ), money DOUBLE );
+
+INSERT INTO info
+VALUES
+    ( 1, &#39;A&#39;, 1000 );
+INSERT INTO info
+VALUES
+    ( 2, &#39;B&#39;, 1000 );
+</code></pre>
+<h5 id="2-测试创建提交事务"><a href="#2-测试创建提交事务" class="headerlink" title="2.测试创建提交事务"></a>2.测试创建提交事务</h5><pre><code class="mysql">begin;
+update info set money= money - 100 where name=&#39;A&#39;;
+select * from info;
+commit;
+</code></pre>
+<p>运行结果：</p>
+<p>因为是在一个事务里 ，查询到的结果就是update后的结果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809152501444.png" alt="image-20220809152501444" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809152841859.png" alt="image-20220809152841859" class="lazyload"></p>
+<h5 id="3-测试回滚事务"><a href="#3-测试回滚事务" class="headerlink" title="3.测试回滚事务"></a>3.测试回滚事务</h5><pre><code class="mysql">    BEGIN;
+    update info set money= money + 100 where name=&#39;A&#39;;
+  select * from info;
+    rollback;
+    select * from info
+</code></pre>
+<p>运行结果：</p>
+<p>结果1因为是在事务里面，查到了update的数据。	<code>rollback</code>回滚会结束事务，所以结果2查到的是回滚后，操作前原本的数据</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153259333.png" alt="image-20220809153259333" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153823426.png" alt="image-20220809153823426" class="lazyload"></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809153835281.png" alt="image-20220809153835281" class="lazyload"></p>
+<h5 id="4-测试多点回滚"><a href="#4-测试多点回滚" class="headerlink" title="4.测试多点回滚"></a>4.测试多点回滚</h5><pre><code class="mysql">    BEGIN;
+    SELECT * from info;
+    update info set money= money + 100 where name=&#39;A&#39;;
+    select * from info;
+    savepoint gs1;
+    update info set money= money + 100 where name=&#39;B&#39;;
+  select * from info;
+    savepoint gs2;
+    insert into info values(3,&#39;C&#39;,1000);
+    select * from info;
+    rollback to gs1;
+    select * from info;
+</code></pre>
+<p>运行结果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155555306.png" alt="image-20220809155555306" class="lazyload"></p>
+<p>结果1:原数据</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155618386.png" alt="image-20220809155618386" class="lazyload"></p>
+<p>结果2:数据update name&#x3D;A 加100的结果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155651167.png" alt="image-20220809155651167" class="lazyload"></p>
+<p>结果3:数据update name&#x3D;B 加100的结果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155716177.png" alt="image-20220809155716177" class="lazyload"></p>
+<p>结果4:insert语句后的结果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155726646.png" alt="image-20220809155726646" class="lazyload"></p>
+<p>结果5:回滚到节点gs1的结果</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/image-20220809155735490.png" alt="image-20220809155735490" class="lazyload"></p>
+<h4 id="七、事务提交方式"><a href="#七、事务提交方式" class="headerlink" title="七、事务提交方式"></a>七、事务提交方式</h4><h5 id="查看当前提交方式"><a href="#查看当前提交方式" class="headerlink" title="查看当前提交方式"></a>查看当前提交方式</h5><p>SHOW VARIABLES LIKE ‘AUTOCOMMIT’;</p>
+<h5 id="自动提交"><a href="#自动提交" class="headerlink" title="自动提交"></a>自动提交</h5><p>SET AUTOCOMMIT&#x3D;1;</p>
+<h5 id="手动提交"><a href="#手动提交" class="headerlink" title="手动提交"></a>手动提交</h5><p>SET AUTOCOMMIT&#x3D;1;</p>
+<!--如果没有开启自动提交，当前会话连接的 mysql 的所有操作都会当成一个事务直到你输入 rollback|commit；当前事务才算结束。当前事务结束前新的 mysql 连接时无法读取到任何当前会话的操作结果。
+如果开起了自动提交，mysql 会把每个 sql 语句当成一个事务，然后自动的 commit。
+当然无论开启与否，begin; commit|rollback; 都是独立的事务。-->
+
 
         </article>
 
@@ -1052,7 +1134,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1660016985742"></script>
+<script src="/js/app.js?v=1660032612675"></script>
 
 <script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -1071,7 +1153,9 @@
 <!-- hexo injector body_end start -->
 <script src="/js/clock.js"></script>
 
-<script src="/js/webapp.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
 
 <script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
 
@@ -1085,9 +1169,7 @@
 
 <link rel="stylesheet" href="/lib/codeBlock/matery.css">
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<script src="/js/search.js"></script>
+<script src="/js/webapp.js"></script>
 <!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 
