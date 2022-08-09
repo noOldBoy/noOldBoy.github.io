@@ -37,7 +37,6 @@
         <category>后端</category>
       </categories>
       <tags>
-        <tag>easyExcal</tag>
         <tag>excal</tag>
       </tags>
   </entry>
@@ -71,7 +70,7 @@
 <h4 id="四、事务的隔离级别"><a href="#四、事务的隔离级别" class="headerlink" title="四、事务的隔离级别"></a>四、事务的隔离级别</h4><h5 id="1-事物隔离级别分类"><a href="#1-事物隔离级别分类" class="headerlink" title="1.事物隔离级别分类"></a>1.事物隔离级别分类</h5><ul>
 <li>&#x3D;&#x3D;read uncommitted&#x3D;&#x3D;（<code>==**未提交读**==</code>）：读取尚未提交的数据 — 会产生脏读</li>
 </ul>
-<p>​       <!--可以读到事务未提交的变更，会产生脏读问题--></p>
+<p>​       注：可以读到事务未提交的变更，会产生脏读问题</p>
 <ul>
 <li><p>&#x3D;&#x3D;read committed&#x3D;&#x3D;（<code>==提交读==</code>）：读取已经提交的数据 — 可以解决脏读</p>
    <!--只能读取到已经提交的数据。Oracle 等多数数据库默认都是该级别。-->
@@ -79,10 +78,11 @@
 <li><p>&#x3D;&#x3D;repeatable read&#x3D;&#x3D;（<code>==可重复度==</code>）：重读读取 — 可以解决脏读和不可重复读（mysql 默认）</p>
 </li>
 </ul>
-<p>​      <!--可重复读。无论其他事务是否修改并提交了数据，在这个事务中看到的数据值始终不受其他事务影响。--></p>
+<p>​       注：可重复读。无论其他事务是否修改并提交了数据，在这个事务中看到的数据值始终不受其他事务影响。</p>
 <ul>
 <li><p>&#x3D;&#x3D;serializable&#x3D;&#x3D;（<code>串行化</code>）可以解决脏读，不可重复读，幻读-相当于锁表的表锁</p>
-<!--完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞。--></li>
+<p>注：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞。</p>
+</li>
 </ul>
 <h5 id="2-事务隔离级别作用范围"><a href="#2-事务隔离级别作用范围" class="headerlink" title="2.事务隔离级别作用范围"></a>2.事务隔离级别作用范围</h5><ul>
 <li>全局级：对所有的会话有效</li>
@@ -163,16 +163,14 @@ commit;
 <h4 id="七、事务提交方式"><a href="#七、事务提交方式" class="headerlink" title="七、事务提交方式"></a>七、事务提交方式</h4><h5 id="查看当前提交方式"><a href="#查看当前提交方式" class="headerlink" title="查看当前提交方式"></a>查看当前提交方式</h5><p>SHOW VARIABLES LIKE ‘AUTOCOMMIT’;</p>
 <h5 id="自动提交"><a href="#自动提交" class="headerlink" title="自动提交"></a>自动提交</h5><p>SET AUTOCOMMIT&#x3D;1;</p>
 <h5 id="手动提交"><a href="#手动提交" class="headerlink" title="手动提交"></a>手动提交</h5><p>SET AUTOCOMMIT&#x3D;1;</p>
-<!--如果没有开启自动提交，当前会话连接的 mysql 的所有操作都会当成一个事务直到你输入 rollback|commit；当前事务才算结束。当前事务结束前新的 mysql 连接时无法读取到任何当前会话的操作结果。
-如果开起了自动提交，mysql 会把每个 sql 语句当成一个事务，然后自动的 commit。
-当然无论开启与否，begin; commit|rollback; 都是独立的事务。-->
-
+<p>注：如果没有开启自动提交，当前会话连接的 mysql 的所有操作都会当成一个事务直到你输入 rollback|commit；当前事务才算结束。当前事务结束前新的 mysql 连接时无法读取到任何当前会话的操作结果。<br>如果开起了自动提交，mysql 会把每个 sql 语句当成一个事务，然后自动的 commit。<br>当然无论开启与否，begin; commit|rollback; 都是独立的事务。</p>
 ]]></content>
       <categories>
         <category>数据库</category>
       </categories>
       <tags>
         <tag>db</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -246,6 +244,7 @@ commit;
       </categories>
       <tags>
         <tag>db</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -298,6 +297,7 @@ insert into test(id, name) values(4, &quot;test4&quot;);
       </categories>
       <tags>
         <tag>db</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -924,7 +924,7 @@ Host github.com
         <category>其他</category>
       </categories>
       <tags>
-        <tag>浏览器</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -2175,6 +2175,7 @@ public Boolean grabGoods(String type, Integer num) &#123;
         <tag>springBoot</tag>
         <tag>爬虫</tag>
         <tag>Java</tag>
+        <tag>jsoup</tag>
       </tags>
   </entry>
   <entry>
@@ -2890,8 +2891,8 @@ public List&lt;User&gt; select(User user) &#123;
       </categories>
       <tags>
         <tag>springBoot</tag>
-        <tag>db</tag>
         <tag>Java</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -2902,7 +2903,7 @@ public List&lt;User&gt; select(User user) &#123;
         <category>前端</category>
       </categories>
       <tags>
-        <tag>小程序</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
