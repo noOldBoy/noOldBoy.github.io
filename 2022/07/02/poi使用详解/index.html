@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>poi使用详解 - </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+
+  <link rel="shortcut icon" href="/images/head/head1.jpeg" type="image/png" />
+  <meta name="description" content="poi导入导出，合并单元格，下拉框，导出不可修改全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="poi使用详解">
+<meta property="og:url" content="http://example.com/2022/07/02/poi%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="poi导入导出，合并单元格，下拉框，导出不可修改全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://img2.tuicool.com/JZjauuv.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/IRvMfm3.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/BzAzE3.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/nmQ3uaR.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/jIZ3Qbi.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/7nquMbi.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/iYbuIr6.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/uYnyYrq.png!web">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657095397412.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657101643055.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657109923870.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657115559297.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657121171427.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657130244283.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657136647452.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657144453282.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657149455195.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657154457109.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657163995951.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657169453851.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657180557178.png">
+<meta property="og:image" content="http://img0.tuicool.com/F7VRzie.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/U3IVVb.png!web">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657239309416.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657246496031.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657255395658.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657265865471.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657273527071.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657283209142.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657289454785.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657296333941.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657300702342.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657309309211.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657313999368.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657319923255.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657327114167.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657332279310.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657348053794.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657355086179.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657365555993.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/601464/201503/041657374451322.png">
+<meta property="og:image" content="http://img2.tuicool.com/eamiEff.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/YZR3Urv.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/BRZ7Ff.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/6ZjuQj.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/muYB73n.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/eeQbQv.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/AzM7FfZ.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/e6Zvyy.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/Ef6zaen.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/7RzeAj.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/QJneuq2.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/fuau6rB.png!web">
+<meta property="og:image" content="http://img1.tuicool.com/FVfAnu.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/Y3m22aa.png!web">
+<meta property="og:image" content="http://img2.tuicool.com/7fiU3m.png!web">
+<meta property="og:image" content="http://img0.tuicool.com/naAvmu.png!web">
+<meta property="article:published_time" content="2022-07-02T03:12:08.000Z">
+<meta property="article:modified_time" content="2022-08-05T02:53:15.810Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="poi">
+<meta property="article:tag" content="excal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img2.tuicool.com/JZjauuv.png!web">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1660119884420">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/background/xiaomai6.jpeg)"></div>
+    <div class="nexmoe-small" style="background-image: url(/images/background/lihui8.jpeg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head1.jpeg" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/head/head1.jpeg" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>24 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>23<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>6<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:gs990522_010817@163.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/noOldBoy/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://gitee.com/gs990522/" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
+            <i class="nexmoefont icon-mayun"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/其他/">其他</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/后端/">后端</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/架构/">架构</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/db/" style="font-size: 16.67px;">db</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/excal/" style="font-size: 13.33px;">excal</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/jsoup/" style="font-size: 10px;">jsoup</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/springBoot/" style="font-size: 20px;">springBoot</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">事务</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">24</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2022 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
+        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
+        
+        <div style="font-size: 12px">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+        
+        
+    </div> -->
+
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
+            <img data-src="/images/cha/9.jpeg" data-sizes="auto" alt="poi使用详解" class="lazyload">
+            <h1>poi使用详解</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年07月02日</a>
+    <a><i class="nexmoefont icon-areachart"></i>6k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 29 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+        </div>
+
+        <article>
+            <p>poi导入导出，合并单元格，下拉框，导出不可修改全</p>
+<span id="more"></span>
+
+<h3 id="POI结构与常用类"><a href="#POI结构与常用类" class="headerlink" title="POI结构与常用类"></a>POI结构与常用类</h3><p><strong>(1)POI介绍</strong></p>
+<p>   Apache POI是Apache软件基金会的开源项目，POI提供API给Java程序对Microsoft Office格式档案读和写的功能。 .NET的开发人员则可以利用NPOI (POI for .NET) 来存取 Microsoft Office文档的功能。</p>
+<p><strong>(2)POI结构说明</strong></p>
+<p><strong>包名称说明</strong></p>
+<p>HSSF提供读写Microsoft Excel XLS格式档案的功能。</p>
+<p>XSSF提供读写Microsoft Excel OOXML XLSX格式档案的功能。</p>
+<p>HWPF提供读写Microsoft Word DOC格式档案的功能。</p>
+<p>HSLF提供读写Microsoft PowerPoint格式档案的功能。</p>
+<p>HDGF提供读Microsoft Visio格式档案的功能。</p>
+<p>HPBF提供读Microsoft Publisher格式档案的功能。</p>
+<p>HSMF提供读Microsoft Outlook格式档案的功能。</p>
+<p><strong>(3)POI常用类说明</strong></p>
+<p><strong>常用的类和方法</strong><br>HSSFWorkbook ：工作簿，代表一个excel的整个文档<br>HSSFWorkbook(); &#x2F;&#x2F; 创建一个新的工作簿<br>HSSFWorkbook(InputStream inputStream); &#x2F;&#x2F; 创建一个关联输入流的工作簿，可以将一个excel<strong>文件封装成工作簿</strong><br>HSSFSheet createSheet(String sheetname); 创建一个新的Sheet<br>HSSFSheet getSheet(String sheetName); 通过名称获取Sheet<br>HSSFSheet getSheetAt(int index); &#x2F;&#x2F; 通过索引获取Sheet，索引从0开始<br>HSSFCellStyle createCellStyle()； 创建单元格样式<br>int getNumberOfSheets(); 获取sheet的个数<br>setActiveSheet(int index); 设置默认选中的工作表<br>write();<br>write(File newFile);<br>write(OutputStream stream);<br><strong>HSSFSheet：工作表</strong><br>HSSFRow createRow(int rownum); 创建新行，需要指定行号，行号从0开始<br>HSSFRow getRow(int index); 根据索引获取指定的行<br>int addMergedRegion(CellRangeAddress region); 合并单元格<br>CellRangeAddress(int firstRow, int lastRow, int firstCol, int lastCol); 单元格范围, 用于合并单元格，需要指定要合并的首行、最后一行、首列、最后一列。<br>autoSizeColumn(int column); 自动调整列的宽度来适应内容<br>getLastRowNum(); 获取最后的行的索引，没有行或者只有一行的时候返回0<br>setColumnWidth(int columnIndex, int width); 设置某一列的宽度，width&#x3D;字符个数 * 256，例如20个字符的宽度就是20 * 256<br><strong>HSSFRow ：行</strong><br>HSSFCell createCell(int column); 创建新的单元格<br>HSSFCell setCell(shot index);<br>HSSFCell getCell(shot index);<br>HSSFCell getCell(CellReference.convertColStringToIndex(“A”)); 根据列名英文字母获取。<br>setRowStyle(HSSFCellStyle style); 设置行样式<br>short getLastCellNum(); 获取最后的单元格号，如果单元格有第一个开始算，lastCellNum就是列的个数<br>setHeightInPoints(float height); 设置行的高度<br><strong>HSSFCell：单元格</strong><br>setCellValue(String value); 设置单元格的值<br>setCellType(); 设置单元格类型，如 字符串、数字、布尔等<br>setCellStyle(); 设置单元格样式<br>String getStringCellValue(); 获取单元格中的字符串值<br>setCellStyle(HSSFCellStyle style); 设置单元格样式，例如字体、加粗、格式化<br>setCellFormula(String formula); 设置计算公式，计算的结果作为单元格的值，也提供了异常常用的函数，如求和”sum(A1,C1)”、日期函数、字符串相关函数、CountIf和SumIf函数、随机数函数等<br><strong>HSSFCellStyle ：单元格样式</strong><br>setFont(Font font); 为单元格设置字体样式<br>setAlignment(HorizontalAlignment align); &#x2F;&#x2F; 设置水平对齐方式<br>setVerticalAlignment(VerticalAlignment align); &#x2F;&#x2F; 设置垂直对齐方式<br>setFillPattern(FillPatternType fp);<br>setFillForegroundColor(short bg); 设置前景色<br>setFillBackgroundColor(short bg); 设置背景颜色<br><strong>HSSFFont：字体，</strong><br>setColor(short color); &#x2F;&#x2F; 设置字体颜色<br>setBold(boolean bold); &#x2F;&#x2F; 设置是否粗体<br>setItalic(boolean italic); 设置倾斜<br>setUnderline(byte underline); 设置下划线<br><strong>HSSFName：名称</strong><br>HSSFDataFormat ：日期格式化<br>HSSFHeader ： Sheet的头部<br>HSSFFooter ：Sheet的尾部<br>HSSFDateUtil ：日期工具<br>HSSFPrintSetup ：打印设置<br>HSSFErrorConstants：错误信息表</p>
+<h3 id="基础示例"><a href="#基础示例" class="headerlink" title="基础示例"></a>基础示例</h3><p><strong>创建Workbook和Sheet</strong></p>
+<ol>
+<li><code>public class Test00</code></li>
+<li><code>&#123;</code></li>
+<li><code> public static void main(String[] args) throws IOException</code></li>
+<li><code> &#123;</code></li>
+<li><code> String filePath=&quot;d:\\users\\lizw\\桌面\\POI\\sample.xls&quot;;//文件路径</code></li>
+<li><code> HSSFWorkbook workbook = new HSSFWorkbook();//创建Excel文件(Workbook)</code></li>
+<li><code> HSSFSheet sheet = workbook.createSheet();//创建工作表(Sheet)</code></li>
+<li><code>sheet = workbook.createSheet(&quot;Test&quot;);//创建工作表(Sheet)</code></li>
+<li><code> FileOutputStream out = new FileOutputStream(filePath);</code></li>
+<li><code>workbook.write(out);//保存Excel文件</code></li>
+<li><code>out.close();//关闭文件流</code></li>
+<li><code> System.out.println(&quot;OK!&quot;);</code></li>
+<li><code> &#125;</code></li>
+<li><code>&#125;</code></li>
+</ol>
+<p><strong>(2)创建单元格</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);// 创建行,从0开始</code></li>
+<li><code>HSSFCell cell = row.createCell(0);// 创建行的单元格,也是从0开始</code></li>
+<li><code>cell.setCellValue(&quot;李志伟&quot;);// 设置单元格内容</code></li>
+<li><code>row.createCell(1).setCellValue(false);// 设置单元格内容,重载</code></li>
+<li><code>row.createCell(2).setCellValue(new Date());// 设置单元格内容,重载</code></li>
+<li><code>row.createCell(3).setCellValue(12.345);// 设置单元格内容,重载</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/JZjauuv.png!web" alt="img" class="lazyload"></p>
+<p><strong>(3)创建文档摘要信息</strong></p>
+<ol>
+<li><code>workbook.createInformationProperties();//创建文档信息</code></li>
+<li><code>DocumentSummaryInformation dsi=workbook.getDocumentSummaryInformation();//摘要信息</code></li>
+<li><code>dsi.setCategory(&quot;类别:Excel文件&quot;);//类别</code></li>
+<li><code>dsi.setManager(&quot;管理者:李志伟&quot;);//管理者</code></li>
+<li><code>dsi.setCompany(&quot;公司:--&quot;);//公司</code></li>
+<li><code>SummaryInformation si = workbook.getSummaryInformation();//摘要信息</code></li>
+<li><code>si.setSubject(&quot;主题:--&quot;);//主题</code></li>
+<li><code>si.setTitle(&quot;标题:测试文档&quot;);//标题</code></li>
+<li><code>si.setAuthor(&quot;作者:李志伟&quot;);//作者</code></li>
+<li><code>si.setComments(&quot;备注:POI测试文档&quot;);//备注</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/IRvMfm3.png!web" alt="img" class="lazyload"></p>
+<p><strong>(4)创建批注</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFPatriarch patr = sheet.createDrawingPatriarch();</code></li>
+<li><code>HSSFClientAnchor anchor = patr.createAnchor(0, 0, 0, 0, 5, 1, 8,3);//创建批注位置</code></li>
+<li><code>HSSFComment comment = patr.createCellComment(anchor);//创建批注</code></li>
+<li><code>comment.setString(new HSSFRichTextString(&quot;这是一个批注段落！&quot;));//设置批注内容</code></li>
+<li><code>comment.setAuthor(&quot;李志伟&quot;);//设置批注作者</code></li>
+<li><code>comment.setVisible(true);//设置批注默认显示</code></li>
+<li><code>HSSFCell cell = sheet.createRow(2).createCell(1);</code></li>
+<li><code>cell.setCellValue(&quot;测试&quot;);</code></li>
+<li><code>cell.setCellComment(comment);//把批注赋值给单元格</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/BzAzE3.png!web" alt="img" class="lazyload"></p>
+<p>   创建批注位置HSSFPatriarch.createAnchor(dx1, dy1, dx2, dy2, col1, row1, col2, row2)方法参数说明：</p>
+<ol>
+<li><code>dx1 第1个单元格中x轴的偏移量</code></li>
+<li><code>dy1 第1个单元格中y轴的偏移量</code></li>
+<li><code>dx2 第2个单元格中x轴的偏移量</code></li>
+<li><code>dy2 第2个单元格中y轴的偏移量</code></li>
+<li><code>col1 第1个单元格的列号</code></li>
+<li><code>row1 第1个单元格的行号</code></li>
+<li><code>col2 第2个单元格的列号</code></li>
+<li><code>row2 第2个单元格的行号</code></li>
+</ol>
+<p><strong>(5)创建页眉和页脚</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFHeader header =sheet.getHeader();//得到页眉</code></li>
+<li><code>header.setLeft(&quot;页眉左边&quot;);</code></li>
+<li><code>header.setRight(&quot;页眉右边&quot;);</code></li>
+<li><code>header.setCenter(&quot;页眉中间&quot;);</code></li>
+<li><code>HSSFFooter footer =sheet.getFooter();//得到页脚</code></li>
+<li><code>footer.setLeft(&quot;页脚左边&quot;);</code></li>
+<li><code>footer.setRight(&quot;页脚右边&quot;);</code></li>
+<li><code>footer.setCenter(&quot;页脚中间&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/nmQ3uaR.png!web" alt="img" class="lazyload"></p>
+<p>   也可以使用Office自带的标签定义，你可以通过HSSFHeader或HSSFFooter访问到它们，都是静态属性，列表如下：</p>
+<ol>
+<li><code>HSSFHeader.tab &amp;A 表名</code></li>
+<li><code>HSSFHeader.file &amp;F 文件名</code></li>
+<li><code>HSSFHeader.startBold &amp;B 粗体开始</code></li>
+<li><code>HSSFHeader.endBold &amp;B 粗体结束</code></li>
+<li><code>HSSFHeader.startUnderline &amp;U 下划线开始</code></li>
+<li><code>HSSFHeader.endUnderline &amp;U 下划线结束</code></li>
+<li><code>HSSFHeader.startDoubleUnderline &amp;E 双下划线开始</code></li>
+<li><code>HSSFHeader.endDoubleUnderline &amp;E 双下划线结束</code></li>
+<li><code>HSSFHeader.time &amp;T 时间</code></li>
+<li><code>HSSFHeader.date &amp;D 日期</code></li>
+<li><code>HSSFHeader.numPages &amp;N 总页面数</code></li>
+<li><code>HSSFHeader.page &amp;P 当前页号</code></li>
+</ol>
+<h2 id="3-Excel的单元格操作"><a href="#3-Excel的单元格操作" class="headerlink" title="3.Excel的单元格操作"></a>3.Excel的单元格操作</h2><p><strong>(1)设置格式</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row=sheet.createRow(0);</code></li>
+<li><code>//设置日期格式--使用Excel内嵌的格式</code></li>
+<li><code>HSSFCell cell=row.createCell(0);</code></li>
+<li><code>cell.setCellValue(new Date());</code></li>
+<li><code>HSSFCellStyle style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(HSSFDataFormat.getBuiltinFormat(&quot;m/d/yy h:mm&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+<li><code>//设置保留2位小数--使用Excel内嵌的格式</code></li>
+<li><code>cell=row.createCell(1);</code></li>
+<li><code>cell.setCellValue(12.3456789);</code></li>
+<li><code>style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(HSSFDataFormat.getBuiltinFormat(&quot;0.00&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+<li><code>//设置货币格式--使用自定义的格式</code></li>
+<li><code>cell=row.createCell(2);</code></li>
+<li><code>cell.setCellValue(12345.6789);</code></li>
+<li><code>style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(workbook.createDataFormat().getFormat(&quot;￥#,##0&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+<li><code>//设置百分比格式--使用自定义的格式</code></li>
+<li><code>cell=row.createCell(3);</code></li>
+<li><code>cell.setCellValue(0.123456789);</code></li>
+<li><code>style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(workbook.createDataFormat().getFormat(&quot;0.00%&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+<li><code>//设置中文大写格式--使用自定义的格式</code></li>
+<li><code>cell=row.createCell(4);</code></li>
+<li><code>cell.setCellValue(12345);</code></li>
+<li><code>style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(workbook.createDataFormat().getFormat(&quot;[DbNum2][$-804]0&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+<li><code>//设置科学计数法格式--使用自定义的格式</code></li>
+<li><code>cell=row.createCell(5);</code></li>
+<li><code>cell.setCellValue(12345);</code></li>
+<li><code>style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(workbook.createDataFormat().getFormat(&quot;0.00E+00&quot;));</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/jIZ3Qbi.png!web" alt="img" class="lazyload"></p>
+<p>   <strong>HSSFDataFormat.getFormat和HSSFDataFormat.getBuiltinFormat的区别：</strong> 当使用Excel内嵌的（或者说预定义）的格式时，直接用HSSFDataFormat.getBuiltinFormat静态方法即可。当使用自己定义的格式时，必须先调用HSSFWorkbook.createDataFormat()，因为这时在底层会先找有没有匹配的内嵌FormatRecord，如果没有就会新建一个FormatRecord，所以必须先调用这个方法，然后你就可以用获得的HSSFDataFormat实例的getFormat方法了，当然相对而言这种方式比较麻烦，所以内嵌格式还是用HSSFDataFormat.getBuiltinFormat静态方法更加直接一些。</p>
+<p><strong>(2)合并单元格</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row=sheet.createRow(0);</code></li>
+<li><code>//合并列</code></li>
+<li><code>HSSFCell cell=row.createCell(0);</code></li>
+<li><code>cell.setCellValue(&quot;合并列&quot;);</code></li>
+<li><code>CellRangeAddress region=new CellRangeAddress(0, 0, 0, 5);</code></li>
+<li><code>sheet.addMergedRegion(region);</code></li>
+<li><code>//合并行</code></li>
+<li><code>cell=row.createCell(6);</code></li>
+<li><code>cell.setCellValue(&quot;合并行&quot;);</code></li>
+<li><code>region=new CellRangeAddress(0, 5, 6, 6);</code></li>
+<li><code>sheet.addMergedRegion(region);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/7nquMbi.png!web" alt="img" class="lazyload"></p>
+<p>   CellRangeAddress对象其实就是表示一个区域，其构造方法如下：CellRangeAddress(firstRow, lastRow, firstCol, lastCol)，参数的说明：</p>
+<ol>
+<li><p><code>firstRow 区域中第一个单元格的行号</code></p>
+</li>
+<li><p><code>lastRow 区域中最后一个单元格的行号</code></p>
+</li>
+<li><p><code>firstCol 区域中第一个单元格的列号</code></p>
+</li>
+<li><p><code>lastCol 区域中最后一个单元格的列号</code></p>
+<p><strong>提示：</strong> 即使你没有用CreateRow和CreateCell创建过行或单元格，也完全可以直接创建区域然后把这一区域合并，Excel的区域合并信息是单独存储的，和RowRecord、ColumnInfoRecord不存在直接关系。</p>
+</li>
+</ol>
+<p><strong>(3)单元格对齐</strong></p>
+<ol>
+<li><code>HSSFCell cell=row.createCell(0);</code></li>
+<li><code>cell.setCellValue(&quot;单元格对齐&quot;);</code></li>
+<li><code>HSSFCellStyle style=workbook.createCellStyle();</code></li>
+<li><code>style.setAlignment(HSSFCellStyle.ALIGN_CENTER);//水平居中</code></li>
+<li><code>style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//垂直居中</code></li>
+<li><code>style.setWrapText(true);//自动换行</code></li>
+<li><code>style.setIndention((short)5);//缩进</code></li>
+<li><code>style.setRotation((short)60);//文本旋转，这里的取值是从-90到90，而不是0-180度。</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/iYbuIr6.png!web" alt="img" class="lazyload"></p>
+<p>   水平对齐相关参数</p>
+<ol>
+<li><p><code>如果是左侧对齐就是 HSSFCellStyle.ALIGN_FILL;</code></p>
+</li>
+<li><p><code>如果是居中对齐就是 HSSFCellStyle.ALIGN_CENTER;</code></p>
+</li>
+<li><p><code>如果是右侧对齐就是 HSSFCellStyle.ALIGN_RIGHT;</code></p>
+</li>
+<li><p><code>如果是跨列举中就是 HSSFCellStyle.ALIGN_CENTER_SELECTION;</code></p>
+</li>
+<li><p><code>如果是两端对齐就是 HSSFCellStyle.ALIGN_JUSTIFY;</code></p>
+</li>
+<li><p><code>如果是填充就是 HSSFCellStyle.ALIGN_FILL;</code></p>
+<p>垂直对齐相关参数</p>
+</li>
+<li><p><code>如果是靠上就是 HSSFCellStyle.VERTICAL_TOP;</code></p>
+</li>
+<li><p><code>如果是居中就是 HSSFCellStyle.VERTICAL_CENTER;</code></p>
+</li>
+<li><p><code>如果是靠下就是 HSSFCellStyle.VERTICAL_BOTTOM;</code></p>
+</li>
+<li><p><code>如果是两端对齐就是 HSSFCellStyle.VERTICAL_JUSTIFY;</code></p>
+</li>
+</ol>
+<p><strong>(4)使用边框</strong></p>
+<p>   边框和其他单元格设置一样也是调用CellStyle接口，CellStyle有2种和边框相关的属性，分别是:</p>
+<table>
+<thead>
+<tr>
+<th>边框相关属性</th>
+<th>说明</th>
+<th>范例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Border+ 方向</td>
+<td>边框类型</td>
+<td>BorderLeft, BorderRight 等</td>
+</tr>
+<tr>
+<td>方向 +BorderColor</td>
+<td>边框颜色</td>
+<td>TopBorderColor,BottomBorderColor 等</td>
+</tr>
+</tbody></table>
+<ol>
+<li><code>HSSFCell cell=row.createCell(1);</code></li>
+<li><code>cell.setCellValue(&quot;设置边框&quot;);</code></li>
+<li><code>HSSFCellStyle style=workbook.createCellStyle();</code></li>
+<li><code>style.setBorderTop(HSSFCellStyle.BORDER_DOTTED);//上边框</code></li>
+<li><code>style.setBorderBottom(HSSFCellStyle.BORDER_THICK);//下边框</code></li>
+<li><code>style.setBorderLeft(HSSFCellStyle.BORDER_DOUBLE);//左边框</code></li>
+<li><code>style.setBorderRight(HSSFCellStyle.BORDER_SLANTED_DASH_DOT);//右边框</code></li>
+<li><code>style.setTopBorderColor(HSSFColor.RED.index);//上边框颜色</code></li>
+<li><code>style.setBottomBorderColor(HSSFColor.BLUE.index);//下边框颜色</code></li>
+<li><code>style.setLeftBorderColor(HSSFColor.GREEN.index);//左边框颜色</code></li>
+<li><code>style.setRightBorderColor(HSSFColor.PINK.index);//右边框颜色</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/uYnyYrq.png!web" alt="img" class="lazyload"></p>
+<p>   其中边框类型分为以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>边框范例图</th>
+<th>对应的静态值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657095397412.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_DOTTED</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657101643055.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_HAIR</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657109923870.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_DASH_DOT_DOT</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657115559297.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_DASH_DOT</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657121171427.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_DASHED</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657130244283.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_THIN</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657136647452.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_MEDIUM_DASH_DOT_DOT</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657144453282.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_SLANTED_DASH_DOT</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657149455195.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_MEDIUM_DASH_DOT</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657154457109.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_MEDIUM_DASHED</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657163995951.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_MEDIUM</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657169453851.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_THICK</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657180557178.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BORDER_DOUBLE</td>
+</tr>
+</tbody></table>
+<p><strong>(5)设置字体</strong></p>
+<ol>
+<li><code>HSSFCell cell = row.createCell(1);</code></li>
+<li><code>cell.setCellValue(&quot;设置字体&quot;);</code></li>
+<li><code>HSSFCellStyle style = workbook.createCellStyle();</code></li>
+<li><code>HSSFFont font = workbook.createFont();</code></li>
+<li><code>font.setFontName(&quot;华文行楷&quot;);//设置字体名称</code></li>
+<li><code>font.setFontHeightInPoints((short)28);//设置字号</code></li>
+<li><code>font.setColor(HSSFColor.RED.index);//设置字体颜色</code></li>
+<li><code>font.setUnderline(FontFormatting.U_SINGLE);//设置下划线</code></li>
+<li><code>font.setTypeOffset(FontFormatting.SS_SUPER);//设置上标下标</code></li>
+<li><code>font.setStrikeout(true);//设置删除线</code></li>
+<li><code>style.setFont(font);</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/F7VRzie.png!web" alt="img" class="lazyload"></p>
+<p>下划线选项值：</p>
+<p>单下划线 FontFormatting.U_SINGLE</p>
+<p>双下划线 FontFormatting.U_DOUBLE</p>
+<p>会计用单下划线 FontFormatting.U_SINGLE_ACCOUNTING</p>
+<p>会计用双下划线 FontFormatting.U_DOUBLE_ACCOUNTING</p>
+<p>无下划线 FontFormatting.U_NONE</p>
+<p>   上标下标选项值：</p>
+<p>上标 FontFormatting.SS_SUPER</p>
+<p>下标 FontFormatting.SS_SUB</p>
+<p>普通，默认值 FontFormatting.SS_NONE</p>
+<p><strong>(6)背景和纹理</strong></p>
+<ol>
+<li><code>HSSFCellStyle style = workbook.createCellStyle();</code></li>
+<li><code>style.setFillForegroundColor(HSSFColor.GREEN.index);//设置图案颜色</code></li>
+<li><code>style.setFillBackgroundColor(HSSFColor.RED.index);//设置图案背景色</code></li>
+<li><code>style.setFillPattern(HSSFCellStyle.SQUARES);//设置图案样式</code></li>
+<li><code>cell.setCellStyle(style);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/U3IVVb.png!web" alt="img" class="lazyload"></p>
+<p>   图案样式及其对应的值：</p>
+<table>
+<thead>
+<tr>
+<th>图案样式</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657239309416.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. NO_FILL</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657246496031.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. ALT_BARS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657255395658.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. FINE_DOTS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657265865471.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. SPARSE_DOTS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657273527071.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. LESS_DOTS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657283209142.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. LEAST_DOTS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657289454785.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BRICKS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657296333941.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. BIG_SPOTS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657300702342.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THICK_FORWARD_DIAG</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657309309211.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THICK_BACKWARD_DIAG</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657313999368.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THICK_VERT_BANDS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657319923255.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THICK_HORZ_BANDS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657327114167.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THIN_HORZ_BANDS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657332279310.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THIN_VERT_BANDS</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657348053794.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THIN_BACKWARD_DIAG</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657355086179.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. THIN_FORWARD_DIAG</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657365555993.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. SQUARES</td>
+</tr>
+<tr>
+<td><img data-fancybox="gallery" data-sizes="auto" data-src="https://images0.cnblogs.com/blog/601464/201503/041657374451322.png" alt="img" class="lazyload"></td>
+<td>HSSFCellStyle. DIAMONDS</td>
+</tr>
+</tbody></table>
+<p><strong>(7)设置宽度和高度</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(1);</code></li>
+<li><code>HSSFCell cell = row.createCell(1);</code></li>
+<li><code>cell.setCellValue(&quot;123456789012345678901234567890&quot;);</code></li>
+<li><code>sheet.setColumnWidth(1, 31 * 256);//设置第一列的宽度是31个字符宽度</code></li>
+<li><code>row.setHeightInPoints(50);//设置行的高度是50个点</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/eamiEff.png!web" alt="img" class="lazyload"></p>
+<p>   这里你会发现一个有趣的现象，setColumnWidth的第二个参数要乘以256，这是怎么回事呢？其实，这个参数的单位是1&#x2F;256个字符宽度，也就是说，这里是把B列的宽度设置为了31个字符。</p>
+<p>   设置行高使用HSSFRow对象的setHeight和setHeightInPoints方法，这两个方法的区别在于setHeightInPoints的单位是点，而setHeight的单位是1&#x2F;20个点，所以setHeight的值永远是setHeightInPoints的20倍。</p>
+<p>   你也可以使用HSSFSheet.setDefaultColumnWidth、HSSFSheet.setDefaultRowHeight和HSSFSheet.setDefaultRowHeightInPoints方法设置默认的列宽或行高。</p>
+<p><strong>(8)判断单元格是否为日期</strong></p>
+<p>   判断单元格是否为日期类型，使用DateUtil.isCellDateFormatted(cell)方法，例如：</p>
+<ol>
+<li><code>HSSFCell cell = row.createCell(1);</code></li>
+<li><code>cell.setCellValue(new Date());//设置日期数据</code></li>
+<li><code>System.out.println(DateUtil.isCellDateFormatted(cell));//输出：false</code></li>
+<li><code>HSSFCellStyle style =workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(HSSFDataFormat.getBuiltinFormat(&quot;m/d/yy h:mm&quot;));</code></li>
+<li><code>cell.setCellStyle(style);//设置日期样式</code></li>
+<li><code>System.out.println(DateUtil.isCellDateFormatted(cell));//输出：true</code></li>
+</ol>
+<h2 id="4-使用Excel公式"><a href="#4-使用Excel公式" class="headerlink" title="4.使用Excel公式"></a>4.使用Excel公式</h2><p><strong>(1)基本计算</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>HSSFCell cell = row.createCell(0);</code></li>
+<li><code>cell.setCellFormula(&quot;2+3*4&quot;);//设置公式</code></li>
+<li><code>cell = row.createCell(1);</code></li>
+<li><code>cell.setCellValue(10);</code></li>
+<li><code>cell = row.createCell(2);</code></li>
+<li><code>cell.setCellFormula(&quot;A1*B1&quot;);//设置公式</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/YZR3Urv.png!web" alt="img" class="lazyload"></p>
+<p><strong>(2)SUM函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(1);</code></li>
+<li><code>row.createCell(1).setCellValue(2);</code></li>
+<li><code>row.createCell(2).setCellValue(3);</code></li>
+<li><code>row.createCell(3).setCellValue(4);</code></li>
+<li><code>row.createCell(4).setCellValue(5);</code></li>
+<li><code>row = sheet.createRow(1);</code></li>
+<li><code>row.createCell(0).setCellFormula(&quot;sum(A1,C1)&quot;);//等价于&quot;A1+C1&quot;</code></li>
+<li><code>row.createCell(1).setCellFormula(&quot;sum(B1:D1)&quot;);//等价于&quot;B1+C1+D1&quot;</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/BRZ7Ff.png!web" alt="img" class="lazyload"></p>
+<p><strong>(3)日期函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFCellStyle style=workbook.createCellStyle();</code></li>
+<li><code>style.setDataFormat(workbook.createDataFormat().getFormat(&quot;yyyy-mm-dd&quot;));</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>Calendar date=Calendar.getInstance();//日历对象</code></li>
+<li><code>HSSFCell cell=row.createCell(0);</code></li>
+<li><code>date.set(2011,2, 7);</code></li>
+<li><code>cell.setCellValue(date.getTime());</code></li>
+<li><code>cell.setCellStyle(style);//第一个单元格开始时间设置完成</code></li>
+<li><code>cell=row.createCell(1);</code></li>
+<li><code>date.set(2014,4, 25);</code></li>
+<li><code>cell.setCellValue(date.getTime());</code></li>
+<li><code>cell.setCellStyle(style);//第一个单元格结束时间设置完成</code></li>
+<li><code>cell=row.createCell(3);</code></li>
+<li><code>cell.setCellFormula(&quot;CONCATENATE(DATEDIF(A1,B1,\&quot;y\&quot;),\&quot;年\&quot;)&quot;);</code></li>
+<li><code>cell=row.createCell(4);</code></li>
+<li><code>cell.setCellFormula(&quot;CONCATENATE(DATEDIF(A1,B1,\&quot;m\&quot;),\&quot;月\&quot;)&quot;);</code></li>
+<li><code>cell=row.createCell(5);</code></li>
+<li><code>cell.setCellFormula(&quot;CONCATENATE(DATEDIF(A1,B1,\&quot;d\&quot;),\&quot;日\&quot;)&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/6ZjuQj.png!web" alt="img" class="lazyload"></p>
+<p>以上代码中的公式说明：</p>
+<p>   DATEDIF(A1,B1,&quot;y&quot;) ：取得 A1 单元格的日期与 B1 单元格的日期的时间间隔。 ( “ y ” : 表示以年为单位 , ” m ”表示以月为单位 ; ” d ”表示以天为单位 ) 。</p>
+<p>​      CONCATENATE( str1,str2, … ) ：连接字符串。</p>
+<p>​      更多 Excel 的日期函数可参考：<a target="_blank" rel="noopener" href="http://tonyqus.sinaapp.com/archives/286">http://tonyqus.sinaapp.com/archives/286</a></p>
+<p><strong>(4)字符串相关函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(&quot;abcdefg&quot;);</code></li>
+<li><code>row.createCell(1).setCellValue(&quot;aa bb cc dd ee fF GG&quot;);</code></li>
+<li><code>row.createCell(3).setCellFormula(&quot;UPPER(A1)&quot;);</code></li>
+<li><code>row.createCell(4).setCellFormula(&quot;PROPER(B1)&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/muYB73n.png!web" alt="img" class="lazyload"></p>
+<p>以上代码中的公式说明：</p>
+<p>   UPPER( String ) ：将文本转换成大写形式。</p>
+<p>​      PROPER( String ) ：将文字串的首字母及任何非字母字符之后的首字母转换成大写。将其余的字母转换成小写。</p>
+<p>​      更多 Excel 的字符串函数可参考：<a target="_blank" rel="noopener" href="http://tonyqus.sinaapp.com/archives/289">http://tonyqus.sinaapp.com/archives/289</a></p>
+<p><strong>(5)IF函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(12);</code></li>
+<li><code>row.createCell(1).setCellValue(23);</code></li>
+<li><code>row.createCell(3).setCellFormula(&quot;IF(A1&gt;B1,\&quot;A1大于B1\&quot;,\&quot;A1小于等于B1\&quot;)&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/eeQbQv.png!web" alt="img" class="lazyload"></p>
+<p>   以上代码中的公式说明：</p>
+<p>​      IF(logical_test,value_if_true,value_if_false)用来用作逻辑判断。其中Logical_test表示计算结果为 TRUE 或 FALSE 的任意值或表达式 ; value_if_true表示当表达式Logical_test的值为TRUE时的返回值；value_if_false表示当表达式Logical_test的值为FALSE时的返回值。</p>
+<p><strong>(6)CountIf和SumIf函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(57);</code></li>
+<li><code>row.createCell(1).setCellValue(89);</code></li>
+<li><code>row.createCell(2).setCellValue(56);</code></li>
+<li><code>row.createCell(3).setCellValue(67);</code></li>
+<li><code>row.createCell(4).setCellValue(60);</code></li>
+<li><code>row.createCell(5).setCellValue(73);</code></li>
+<li><code>row.createCell(7).setCellFormula(&quot;COUNTIF(A1:F1,\&quot;&gt;=60\&quot;)&quot;);</code></li>
+<li><code>row.createCell(8).setCellFormula(&quot;SUMIF(A1:F1,\&quot;&gt;=60\&quot;,A1:F1)&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/AzM7FfZ.png!web" alt="img" class="lazyload"></p>
+<p>   以上代码中的公式说明：</p>
+<p>​      COUNTIF(range,criteria)：满足某条件的计数的函数。参数range：需要进行读数的计数；参数criteria：条件表达式，只有当满足此条件时才进行计数。</p>
+<p>​      SumIF(criteria_range, criteria,sum_range)：用于统计某区域内满足某条件的值的求和。参数criteria_range：条件测试区域，第二个参数Criteria中的条件将与此区域中的值进行比较；参数criteria：条件测试值，满足条件的对应的sum_range项将进行求和计算；参数sum_range：汇总数据所在区域，求和时会排除掉不满足Criteria条件的对应的项。</p>
+<p><strong>(7)Lookup函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(0);</code></li>
+<li><code>row.createCell(1).setCellValue(59);</code></li>
+<li><code>row.createCell(2).setCellValue(&quot;不及格&quot;);</code></li>
+<li><code>row = sheet.createRow(1);</code></li>
+<li><code>row.createCell(0).setCellValue(60);</code></li>
+<li><code>row.createCell(1).setCellValue(69);</code></li>
+<li><code>row.createCell(2).setCellValue(&quot;及格&quot;);</code></li>
+<li><code>row = sheet.createRow(2);</code></li>
+<li><code>row.createCell(0).setCellValue(70);</code></li>
+<li><code>row.createCell(1).setCellValue(79);</code></li>
+<li><code>row.createCell(2).setCellValue(&quot;良好&quot;);</code></li>
+<li><code>row = sheet.createRow(3);</code></li>
+<li><code>row.createCell(0).setCellValue(80);</code></li>
+<li><code>row.createCell(1).setCellValue(100);</code></li>
+<li><code>row.createCell(2).setCellValue(&quot;优秀&quot;);</code></li>
+<li><code>row = sheet.createRow(4);</code></li>
+<li><code>row.createCell(0).setCellValue(75);</code></li>
+<li><code>row.createCell(1).setCellFormula(&quot;LOOKUP(A5,$A$1:$A$4,$C$1:$C$4)&quot;);</code></li>
+<li><code>row.createCell(2).setCellFormula(&quot;VLOOKUP(A5,$A$1:$C$4,3,true)&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/e6Zvyy.png!web" alt="img" class="lazyload"></p>
+<p>以上代码中的公式说明：</p>
+<p>   LOOKUP(lookup_value,lookup_vector,result_vector) ，第一个参数：需要查找的内容，本例中指向 A5 单元格，也就是 75 ；第二个参数：比较对象区域，本例中的成绩需要与 $A$1:$A$4 中的各单元格中的值进行比较；第三个参数：查找结果区域，如果匹配到会将此区域中对应的数据返回。如本例中返回$C$1:$C$4 中对应的值。</p>
+<p>可能有人会问，字典中没有 75 对应的成绩啊，那么 Excel 中怎么匹配的呢？答案是模糊匹配，并且 LOOKUP 函数只支持模糊匹配。 Excel 会在 $A$1:$A$4 中找小于 75 的最大值，也就是 A3 对应的 70 ，然后将对应的 $C$1:$C$4 区域中的 C3 中的值返回，这就是最终结果“良好”的由来。</p>
+<p>   VLOOKUP(lookup_value,lookup_area,result_col,is_fuzzy ) ，第一个参数：需要查找的内容，这里是 A5 单元格；第二个参数：需要比较的表，这里是 $A$1:$C$4 ，注意 VLOOKUP 匹配时只与表中的第一列进行匹配。第三个参数：匹配结果对应的列序号。这里要对应的是成绩列，所以为 3 。第四个参数：指明是否模糊匹配。例子中的 TRUE 表示模糊匹配，与上例中一样。匹配到的是第三行。如果将此参数改为 FALSE ，因为在表中的第 1 列中找不到 75 ，所以会报“#N&#x2F;A ”的计算错误。</p>
+<p>另外，还有与 VLOKUP 类似的 HLOOKUP 。不同的是 VLOOKUP 用于在表格或数值数组的首列查找指定的数值，并由此返回表格或数组当前行中指定列处的数值。而HLOOKUP 用于在表格或数值数组的首行查找指定的数值，并由此返回表格或数组当前列中指定行处的数值。读者可以自已去尝试。</p>
+<p><strong>(8)随机数函数</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellFormula(&quot;RAND()&quot;);//取0-1之间的随机数</code></li>
+<li><code>row.createCell(1).setCellFormula(&quot;int(RAND()*100)&quot;);//取0-100之间的随机整数</code></li>
+<li><code>row.createCell(2).setCellFormula(&quot;rand()*10+10&quot;);//取10-20之间的随机实数</code></li>
+<li><code>row.createCell(3).setCellFormula(&quot;CHAR(INT(RAND()*26)+97)&quot;);//随机小写字母</code></li>
+<li><code>row.createCell(4).setCellFormula(&quot;CHAR(INT(RAND()*26)+65)&quot;);//随机大写字母</code></li>
+<li><code>//随机大小写字母</code></li>
+<li><code>row.createCell(5).setCellFormula(&quot;CHAR(INT(RAND()*26)+if(INT(RAND()*2)=0,97,65))&quot;);</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/Ef6zaen.png!web" alt="img" class="lazyload"></p>
+<p>   以上代码中的公式说明：</p>
+<p>​      上面几例中除了用到RAND函数以外，还用到了CHAR函数用来将ASCII码换为字母，INT函数用来取整。值得注意的是INT函数不会四舍五入，无论小数点后是多少都会被舍去。</p>
+<p><strong>(9)获得公式的返回值</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(0);</code></li>
+<li><code>row.createCell(0).setCellValue(7);//A1</code></li>
+<li><code>row.createCell(1).setCellValue(8);//B1</code></li>
+<li><code>HSSFCell cell=row.createCell(2);</code></li>
+<li><code>cell.setCellFormula(&quot;A1*B1+14&quot;);</code></li>
+<li><code>HSSFFormulaEvaluator e = newHSSFFormulaEvaluator(workbook);</code></li>
+<li><code>cell = e.evaluateInCell(cell);//若Excel文件不是POI创建的，则不必调用此方法</code></li>
+<li><code>System.out.println(&quot;公式计算结果：&quot;+cell.getNumericCellValue());</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/7RzeAj.png!web" alt="img" class="lazyload"></p>
+<h2 id="5-使用图形"><a href="#5-使用图形" class="headerlink" title="5.使用图形"></a>5.使用图形</h2><p><strong>(1)画线</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFPatriarch patriarch=sheet.createDrawingPatriarch();</code></li>
+<li><code>HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 0, 0,(short)1, 0,(short)4, 4);</code></li>
+<li><code>HSSFSimpleShape line = patriarch.createSimpleShape(anchor);</code></li>
+<li><code>line.setShapeType(HSSFSimpleShape.OBJECT_TYPE_LINE);//设置图形类型</code></li>
+<li><code>line.setLineStyle(HSSFShape.LINESTYLE_SOLID);//设置图形样式</code></li>
+<li><code>line.setLineWidth(6350);//在POI中线的宽度12700表示1pt,所以这里是0.5pt粗的线条。</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/QJneuq2.png!web" alt="img" class="lazyload"></p>
+<p>   通常，利用POI画图主要有以下几个步骤：</p>
+<p>​      \1. 创建一个Patriarch（注意，一个sheet中通常只创建一个Patriarch对象）；</p>
+<p>​      \2. 创建一个Anchor，以确定图形的位置；</p>
+<p>​      \3. 调用Patriarch创建图形；</p>
+<p>​      \4. 设置图形类型(直线，矩形，圆形等)及样式（颜色，粗细等）。</p>
+<p>   关于HSSFClientAnchor(dx1,dy1,dx2,dy2,col1,row1,col2,row2)的参数，有必要在这里说明一下：</p>
+<p>​      dx1：起始单元格的x偏移量，如例子中的0表示直线起始位置距B1单元格左侧的距离；</p>
+<p>​      dy1：起始单元格的y偏移量，如例子中的0表示直线起始位置距B1单元格上侧的距离；</p>
+<p>​      dx2：终止单元格的x偏移量，如例子中的0表示直线起始位置距E5单元格左侧的距离；</p>
+<p>​      dy2：终止单元格的y偏移量，如例子中的0表示直线起始位置距E5单元格上侧的距离；</p>
+<p>​      col1：起始单元格列序号，从0开始计算；</p>
+<p>​      row1：起始单元格行序号，从0开始计算，如例子中col1&#x3D;1,row1&#x3D;0就表示起始单元格为B1；</p>
+<p>​      col2：终止单元格列序号，从0开始计算；</p>
+<p>​      row2：终止单元格行序号，从0开始计算，如例子中col2&#x3D;4,row2&#x3D;4就表示起始单元格为E5；</p>
+<p>   最后，关于LineStyle属性，有如下一些可选值，对应的效果分别如图所示：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/fuau6rB.png!web" alt="img" class="lazyload"></p>
+<p><strong>(2)画矩形</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFPatriarch patriarch=sheet.createDrawingPatriarch();</code></li>
+<li><code>HSSFClientAnchor anchor = new HSSFClientAnchor(255,122,255, 122, (short)1, 0,(short)4, 3);</code></li>
+<li><code>HSSFSimpleShape rec = patriarch.createSimpleShape(anchor);</code></li>
+<li><code>rec.setShapeType(HSSFSimpleShape.OBJECT_TYPE_RECTANGLE);</code></li>
+<li><code>rec.setLineStyle(HSSFShape.LINESTYLE_DASHGEL);//设置边框样式</code></li>
+<li><code>rec.setFillColor(255, 0, 0);//设置填充色</code></li>
+<li><code>rec.setLineWidth(25400);//设置边框宽度</code></li>
+<li><code>rec.setLineStyleColor(0, 0, 255);//设置边框颜色</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img1.tuicool.com/FVfAnu.png!web" alt="img" class="lazyload"></p>
+<p><strong>(3)画圆形</strong></p>
+<p>   更改上例的代码如下：</p>
+<p>​     rec.setShapeType(HSSFSimpleShape.OBJECT_TYPE_OVAL);&#x2F;&#x2F;设置图片类型</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/Y3m22aa.png!web" alt="img" class="lazyload"></p>
+<p><strong>(4)画Grid</strong></p>
+<p>   在POI中，本身没有画Grid(网格)的方法。但我们知道Grid其实就是由横线和竖线构成的，所在我们可以通过画线的方式来模拟画Grid。代码如下：</p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>HSSFRow row = sheet.createRow(2);</code></li>
+<li><code>row.createCell(1);</code></li>
+<li><code>row.setHeightInPoints(240);</code></li>
+<li><code>sheet.setColumnWidth(2, 9000);</code></li>
+<li><code>int linesCount = 20;</code></li>
+<li><code>HSSFPatriarch patriarch = sheet.createDrawingPatriarch();</code></li>
+<li><code>//因为HSSFClientAnchor中dx只能在0-1023之间,dy只能在0-255之间，这里采用比例的方式</code></li>
+<li><code>double xRatio = 1023.0 / (linesCount * 10);</code></li>
+<li><code>double yRatio = 255.0 / (linesCount * 10);</code></li>
+<li><code>// 画竖线</code></li>
+<li><code>int x1 = 0;</code></li>
+<li><code>int y1 = 0;</code></li>
+<li><code>int x2 = 0;</code></li>
+<li><code>int y2 = 200;</code></li>
+<li><code>for (int i = 0; i &lt; linesCount; i++)</code></li>
+<li><code>&#123;</code></li>
+<li><code> HSSFClientAnchor a2 = new HSSFClientAnchor();</code></li>
+<li><code>a2.setAnchor((short) 2, 2, (int) (x1 * xRatio),</code></li>
+<li><code> (int) (y1 * yRatio), (short) 2, 2, (int) (x2 * xRatio),</code></li>
+<li><code> (int) (y2 * yRatio));</code></li>
+<li><code> HSSFSimpleShape shape2 = patriarch.createSimpleShape(a2);</code></li>
+<li><code>shape2.setShapeType(HSSFSimpleShape.OBJECT_TYPE_LINE);</code></li>
+<li><code>x1 += 10;</code></li>
+<li><code>x2 += 10;</code></li>
+<li><code>&#125;</code></li>
+<li><code>// 画横线</code></li>
+<li><code>x1 = 0;</code></li>
+<li><code>y1 = 0;</code></li>
+<li><code>x2 = 200;</code></li>
+<li><code>y2 = 0;</code></li>
+<li><code>for (int i = 0; i &lt; linesCount; i++)</code></li>
+<li><code>&#123;</code></li>
+<li><code> HSSFClientAnchor a2 = new HSSFClientAnchor();</code></li>
+<li><code>a2.setAnchor((short) 2, 2, (int) (x1 * xRatio),</code></li>
+<li><code> (int) (y1 * yRatio), (short) 2, 2, (int) (x2 * xRatio),</code></li>
+<li><code> (int) (y2 * yRatio));</code></li>
+<li><code> HSSFSimpleShape shape2 = patriarch.createSimpleShape(a2);</code></li>
+<li><code>shape2.setShapeType(HSSFSimpleShape.OBJECT_TYPE_LINE);</code></li>
+<li><code>y1 += 10;</code></li>
+<li><code>y2 += 10;</code></li>
+<li><code>&#125;</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img2.tuicool.com/7fiU3m.png!web" alt="img" class="lazyload"> </p>
+<p><strong>(5)插入图片</strong></p>
+<ol>
+<li><code>HSSFSheet sheet = workbook.createSheet(&quot;Test&quot;);// 创建工作表(Sheet)</code></li>
+<li><code>FileInputStream stream=newFileInputStream(&quot;d:\\POI\\Apache.gif&quot;);</code></li>
+<li><code>byte[] bytes=new byte[(int)stream.getChannel().size()];</code></li>
+<li><code>stream.read(bytes);//读取图片到二进制数组</code></li>
+<li><code>int pictureIdx = workbook.addPicture(bytes,HSSFWorkbook.PICTURE_TYPE_JPEG);</code></li>
+<li><code>HSSFPatriarch patriarch = sheet.createDrawingPatriarch();</code></li>
+<li><code>HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 0, 0,(short)0, 0, (short)5, 5);</code></li>
+<li><code>HSSFPicture pict = patriarch.createPicture(anchor,pictureIdx);</code></li>
+<li><code>//pict.resize();//自动调节图片大小,图片位置信息可能丢失</code></li>
+</ol>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="http://img0.tuicool.com/naAvmu.png!web" alt="img" class="lazyload"></p>
+<p><strong>(6)从Excel文件提取图片</strong></p>
+<ol>
+<li><code>InputStream inp = new FileInputStream(filePath);</code></li>
+<li><code>HSSFWorkbook workbook = new HSSFWorkbook(inp);//读取现有的Excel文件</code></li>
+<li><code>List&lt;HSSFPictureData&gt; pictures = workbook.getAllPictures();</code></li>
+<li><code>for(int i=0;i&lt;pictures.size();i++)</code></li>
+<li><code>&#123;</code></li>
+<li><code> HSSFPictureData pic=pictures.get(i);</code></li>
+<li><code> String ext = pic.suggestFileExtension();</code></li>
+<li><code> if (ext.equals(&quot;png&quot;))//判断文件格式</code></li>
+<li><code> &#123;</code></li>
+<li><code> FileOutputStream png=newFileOutputStream(&quot;d:\\POI\\Apache.png&quot;);</code></li>
+<li><code>png.write(pic.getData());</code></li>
+<li><code>png.close();//保存图片</code></li>
+<li><code> &#125;</code></li>
+<li><code>&#125;</code></li>
+</ol>
+
+        </article>
+
+        
+            
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/excal/" rel="tag">excal</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/poi/" rel="tag">poi</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'n2r75MzpGHpVu7oWmnAQjwNx-gzGzoHsz',
+        appKey: 'ukVyTvnQEQ1EdRW3Q2cmtjke'
+    })
+</script>
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+            <div class="nexmoe-fixed">
+              <div class="nexmoe-tool">
+                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw #242424;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh #242424;
+            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard"></div>
+    <div class="qweather-logo">
+
+    </div>
+
+</div>
+<style>
+    .qweather{
+        position: relative;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+  WIDGET = {
+    "CONFIG": {
+      "layout": "2",
+      "width": "260",
+      "height": "220",
+      "background": "5",
+      "dataColor": "e67249",
+      "borderRadius": "15",
+      "key": "f74d1e1690e6432d801e97fa2f05a162"
+    }
+  }
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+            </div>
+        
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1660119884421"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+<!-- hexo injector body_end start -->
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/webapp.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="/js/clock.js"></script>
+<!-- hexo injector body_end end --></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0d9ebcd3.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "0d9ebcd3"
+  });
+  daovoice('update');
+</script>
+
