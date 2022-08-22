@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-19T08:43:14.186Z</updated>
+  <updated>2022-08-22T02:38:02.202Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac配置host</title>
+    <link href="http://example.com/2022/08/22/mac%E9%85%8D%E7%BD%AEhost/"/>
+    <id>http://example.com/2022/08/22/mac%E9%85%8D%E7%BD%AEhost/</id>
+    <published>2022-08-22T02:33:04.000Z</published>
+    <updated>2022-08-22T02:38:02.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac配置host</p><span id="more"></span><h5 id="修改-hosts"><a href="#修改-hosts" class="headerlink" title="修改 hosts"></a>修改 hosts</h5><p>sudo vi &#x2F;etc&#x2F;hosts</p><h5 id="刷新DNS"><a href="#刷新DNS" class="headerlink" title="刷新DNS"></a>刷新DNS</h5><p>sudo killall -HUP mDNSResponder</p><h5 id="其他版本"><a href="#其他版本" class="headerlink" title="其他版本"></a>其他版本</h5><p>我的mac 系统版本 12.2.1</p><p>各版本命令仅供参考<br>Mac OS X 10.7 – 10.8：sudo killall -HUP mDNSResponder</p><p>Mac OS X 10.5 – 10.6：dscacheutil -flushcache</p><p>Mac OS X 10.4：lookupd -flushcache</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;mac配置host&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="host" scheme="http://example.com/tags/host/"/>
+    
+  </entry>
   
   <entry>
     <title>wireguard使用记录</title>
@@ -422,27 +443,6 @@
     <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
     
     <category term="jsoup" scheme="http://example.com/tags/jsoup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>boot项目相互引入大坑</title>
-    <link href="http://example.com/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/"/>
-    <id>http://example.com/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/</id>
-    <published>2022-06-20T05:59:35.000Z</published>
-    <updated>2022-06-20T08:31:51.983Z</updated>
-    
-    <content type="html"><![CDATA[<p>boot项目引入大坑</p><span id="more"></span><p>接手的一个老项目，因为这个问题，兜兜转转花费了一晚上的时间。复盘一次，这个问题我不会遇到了！</p><p>事发场景：<code>boot-b</code>引入<code>boot-a</code>,<code>boot-a</code>中有服务WelcomeService</p><p>1.新建两个boot项目，boot-a中创建一个接口</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620143935692-5707184.png" alt="image-20220620143935692"></p><p>2.boot-b引入项目boot-a的gav</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620144836836.png" alt="image-20220620144836836"></p><p>3.boot-b写个接口实现类实现boot-a中写好的接口</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620145124953.png" alt="image-20220620145124953"></p><p>4.看起来一切正常，boot-b成功引入了boot-a中的接口，但是你尝试启动一下项目项目是启动不了的，编译一下尝试comlile</p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620145317956.png" alt="image-20220620145317956" style="zoom: 50%;"><p>编译结果：</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620145406660.png" alt="image-20220620145406660"></p><p>因为这个问题，百思不得其解。成功引入的表象，误导我  尝试了好多种方式，解决     最后把错误归结到我本地电脑环境问题，心态爆炸      休息一会后尝试重新解决</p><p>5.尝试打包boot-a 看看打包的目录 package</p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620150532011.png" alt="image-20220620150532011" style="zoom:50%;"><p>打包后找到目录解压   我们的包变成了<code>BOOT-INF</code>   他确实打包打入了你boot-b需要的接口，但是你的maven是引入不到的，</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620150628669.png" alt="image-20220620150628669"></p><p>6.原因分析</p><p>如下，就是在boot-a中springboot的maven插件，用这个插件打包的Jar包可以直接运行，但是不可依赖！（创建boot项目默认会加）</p><pre><code>&lt;build&gt;    &lt;plugins&gt;        &lt;plugin&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;        &lt;/plugin&gt;    &lt;/plugins&gt;&lt;/build&gt;</code></pre><p>7.解决方案</p><p>在boot-a<code>configuration</code>下设置<code>skip</code>为<code>true</code></p><pre><code>&lt;build&gt;    &lt;plugins&gt;        &lt;plugin&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;            &lt;configuration&gt;                &lt;skip&gt;true&lt;/skip&gt;            &lt;/configuration&gt;        &lt;/plugin&gt;    &lt;/plugins&gt;&lt;/build&gt;</code></pre><p>尝试重新打包boot-a</p><p>mvn install</p><p>解压后新的包，是我们想要的目录</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620152556517.png" alt="image-20220620152556517"></p><p>尝试重新编译启动，如果报错的话   还是，尝试清理一下缓存，重新生成一下mvn目录</p><p>执行命令：mvn : -U idea:idea</p><p>成功编译启动</p><p><img src="/2022/06/20/boot%E6%89%93%E5%8C%85%E5%BC%95%E5%85%A5%E5%A4%A7%E5%9D%91/image-20220620153316105.png" alt="image-20220620153316105"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;boot项目引入大坑&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="后端" scheme="http://example.com/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-    <category term="springBoot" scheme="http://example.com/tags/springBoot/"/>
     
   </entry>
   
