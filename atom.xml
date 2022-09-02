@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-24T02:29:10.062Z</updated>
+  <updated>2022-09-01T06:49:39.382Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springCloudDemo普通版</title>
+    <link href="http://example.com/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/"/>
+    <id>http://example.com/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/</id>
+    <published>2022-08-31T06:19:48.000Z</published>
+    <updated>2022-09-01T06:49:39.382Z</updated>
+    
+    <content type="html"><![CDATA[<p>sspringCloudDemo原版</p><span id="more"></span><h3 id="spring-cloud简介"><a href="#spring-cloud简介" class="headerlink" title="spring cloud简介"></a>spring cloud简介</h3><p>Spring Cloud 被称为构建分布式微服务系统的“全家桶”，它并不是某一门技术，而是一系列微服务解决方案或框架的有序集合。它将市面上成熟的、经过验证的微服务框架整合起来，并通过 Spring Boot 的思想进行再封装，屏蔽调其中复杂的配置和实现原理，最终为开发人员提供了一套简单易懂、易部署和易维护的分布式系统开发工具包。</p><h3 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h3><h4 id="1-创建主工程（Maven-Project）"><a href="#1-创建主工程（Maven-Project）" class="headerlink" title="1.创建主工程（Maven Project）"></a>1.创建主工程（Maven Project）</h4><h6 id="创建一个maven项目删除src模块"><a href="#创建一个maven项目删除src模块" class="headerlink" title="创建一个maven项目删除src模块"></a>创建一个maven项目删除src模块</h6><p><img src="/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/image-20220901104041314.png" alt="image-20220901104041314"></p><h4 id="2-Eureka注册服务"><a href="#2-Eureka注册服务" class="headerlink" title="2.Eureka注册服务"></a>2.<strong>Eureka注册服务</strong></h4><h5 id="Eureka简介"><a href="#Eureka简介" class="headerlink" title="Eureka简介"></a>Eureka简介</h5><p>Eureka 是 <code>Netflix</code> 开发的服务发现框架，SpringCloud 将它集成在自己的子项目spring-cloud-netflix 中，实现 SpringCloud 的服务发现功能。Eureka 包含两个组件：<code>Eureka Server 和 Eureka Client</code>。</p><h5 id="Eureka-Server简介"><a href="#Eureka-Server简介" class="headerlink" title="Eureka Server简介"></a>Eureka Server简介</h5><p>Eureka 服务注册中心，主要用于提供服务注册功能。当微服务启动时，会将自己的服务注册到 Eureka Server。Eureka Server 维护了一个可用服务列表，存储了所有注册到 Eureka Server 的可用服务的信息，这些可用服务可以在 Eureka Server 的管理界面中直观看到。</p><h5 id="Eureka-Server创建"><a href="#Eureka-Server创建" class="headerlink" title="Eureka Server创建"></a>Eureka Server创建</h5><h6 id="创建一个boot项目选择Eureka-Server依赖"><a href="#创建一个boot项目选择Eureka-Server依赖" class="headerlink" title="创建一个boot项目选择Eureka Server依赖"></a>创建一个boot项目选择Eureka Server依赖</h6><p><img src="/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/image-20220901105544964.png" alt="image-20220901105544964"></p><h6 id="yml"><a href="#yml" class="headerlink" title="yml"></a>yml</h6><pre><code class="yaml">server:  port: 8761eureka:  instance:    hostname: localhost  client:    registerWithEureka: false    fetchRegistry: false    serviceUrl:      defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</code></pre><p>节点：</p><p><code>hostname</code>: localhost #eureka服务端的实例名称，</p><p><code>register-with-eureka</code>: false #false表示不向注册中心注册自己。</p><p><code>fetch-registry</code>: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务</p><p><code>defaultZone</code>:#这里标注的是单机版服务注册中心</p><h6 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h6><pre><code class="xml">&lt;dependencies&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;        &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;    &lt;/dependency&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;        &lt;scope&gt;test&lt;/scope&gt;        &lt;exclusions&gt;            &lt;exclusion&gt;                &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;                &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;            &lt;/exclusion&gt;        &lt;/exclusions&gt;    &lt;/dependency&gt;&lt;/dependencies&gt;</code></pre><h6 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h6><pre><code class="java">@EnableEurekaServer@SpringBootApplicationpublic class EurekaServiceApplication &#123;    public static void main(String[] args) &#123;        SpringApplication.run(EurekaServiceApplication.class, args);    &#125;&#125;</code></pre><h6 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h6><p>Eureka Server是有页面的，启动后浏览器访问</p><p>当前无注册进来的服务</p><p><img src="/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/image-20220901111925325-2002367.png" alt="image-20220901111925325"></p><h5 id="Eureka-Client简介"><a href="#Eureka-Client简介" class="headerlink" title="Eureka Client简介"></a><strong>Eureka Client简介</strong></h5><p>Eureka 客户端，通常指的是微服务系统中各个微服务，主要用于和 Eureka Server 进行交互。在微服务应用启动后，Eureka Client 会向 Eureka Server 发送心跳（默认周期为 30 秒）。若 Eureka Server 在多个心跳周期内没有接收到某个 Eureka Client 的心跳，Eureka Server 将它从可用服务列表中移除（默认 90 秒）。 </p><h6 id="创建一个boot项目选择Eureka-Client依赖"><a href="#创建一个boot项目选择Eureka-Client依赖" class="headerlink" title="创建一个boot项目选择Eureka Client依赖"></a>创建一个boot项目选择Eureka Client依赖</h6><p><img src="/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/image-20220901112135308.png" alt="image-20220901112135308"></p><h6 id="yml-1"><a href="#yml-1" class="headerlink" title="yml"></a>yml</h6><pre><code class="yaml">eureka:  client:    serviceUrl:      defaultZone: http://localhost:8761/eureka/server:  port: 8762spring:  application:    name: service-client</code></pre><p>节点</p><p><code>name</code>服务名称</p><p><code>defaultZone</code>注册的服务地址，向这个地址注册</p><h6 id="启动类-1"><a href="#启动类-1" class="headerlink" title="启动类"></a>启动类</h6><pre><code class="java">@EnableEurekaClient@SpringBootApplicationpublic class EurekaClientApplication &#123;    public static void main(String[] args) &#123;        SpringApplication.run(EurekaClientApplication.class, args);    &#125;&#125;</code></pre><p>启动后查看Eureka Server控制台</p><p>service-client服务已经注册到service</p><p><img src="/2022/08/31/springCloudDemo%E6%99%AE%E9%80%9A%E7%89%88/image-20220901113336835.png" alt="image-20220901113336835"></p><h4 id="Eureka-Server-集群"><a href="#Eureka-Server-集群" class="headerlink" title="Eureka Server 集群"></a>Eureka Server 集群</h4><p>在微服务架构中，一个系统往往由十几甚至几十个服务组成，若将这些服务全部注册到同一个 Eureka Server 中，就极有可能导致 Eureka Server 因不堪重负而崩溃，最终导致整个系统瘫痪。解决这个问题最直接的办法就是部署 Eureka Server 集群。</p><p>我们知道，在 Eureka 实现服务注册与发现时一共涉及了 3 个角色：服务注册中心、服务提供者以及服务消费者，这三个角色分工明确，各司其职。但是其实在 Eureka 中，所有服务都既是服务消费者也是服务提供者，服务注册中心 Eureka Server 也不例外。</p><h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h5><p>参照localhost 的搭建过程，也就是搭建的第一个eureka-service。在主工程下另外再创建两个 Eureka Server：localhost2 和 localhost3，此时这 3 个 Eureka Server 无论是 Maven 依赖、代码还是配置都是一模一样的。</p><h5 id="eureka-server2"><a href="#eureka-server2" class="headerlink" title="eureka-server2"></a>eureka-server2</h5><h6 id="yml配置"><a href="#yml配置" class="headerlink" title="yml配置"></a>yml配置</h6><pre><code class="yaml">server:  port: 8751eureka:  instance:    hostname: localhost2  client:    registerWithEureka: false    fetchRegistry: false    serviceUrl:      defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</code></pre><h5 id="eureka-server3"><a href="#eureka-server3" class="headerlink" title="eureka-server3"></a>eureka-server3</h5><h6 id="yml配置-1"><a href="#yml配置-1" class="headerlink" title="yml配置"></a>yml配置</h6><pre><code class="yaml">server:  port: 8741eureka:  instance:    hostname: localhost3  client:    registerWithEureka: false    fetchRegistry: false    serviceUrl:      defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;sspringCloudDemo原版&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="架构" scheme="http://example.com/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+    <category term="springCloud" scheme="http://example.com/tags/springCloud/"/>
+    
+  </entry>
   
   <entry>
     <title>odps|MaxCompute-入门</title>
@@ -418,27 +439,6 @@
     
     
     <category term="dubbo" scheme="http://example.com/tags/dubbo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>spring日志级别</title>
-    <link href="http://example.com/2022/06/22/spring%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB/"/>
-    <id>http://example.com/2022/06/22/spring%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB/</id>
-    <published>2022-06-22T02:21:21.000Z</published>
-    <updated>2022-06-23T06:21:54.256Z</updated>
-    
-    <content type="html"><![CDATA[<p>spring日志级别</p><span id="more"></span><p>1.启动项目的时候发现成功启动后，后台没有打印端口号这些日志</p><p><img src="/2022/06/22/spring%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB/image-20220623140825715-5964511-5964513-5964515.png" alt="image-20220623140825715"></p><p>检查配置发现 日志级别配置为WARN（警告）</p><pre><code class="javascript"># 日志配432logging:  level:    com.guo: debug    org.springframework: WARN</code></pre><p>2.日志级别</p><ul><li>OFF   | 关闭：最高级别，不打印日志。 </li><li>FATAL | 致命：指明非常严重的可能会导致应用终止执行错误事件。</li><li>ERROR | 错误：指明错误事件，但应用可能还能继续运行。 </li><li>WARN | 警告：指明可能潜在的危险状况。 </li><li>INFO | 信息：指明描述信息，从粗粒度上描述了应用运行过程。 </li><li>DEBUG | 调试：指明细致的事件信息，对调试应用最有用。</li><li>TRACE | 跟踪：指明程序运行轨迹，比DEBUG级别的粒度更细。 </li><li>ALL | 所有：所有日志级别，包括定制级别。</li></ul><p>&gt; 日志级别由低到高:  &#96;日志级别越高输出的日志信息越多</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;spring日志级别&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="后端" scheme="http://example.com/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-    <category term="springBoot" scheme="http://example.com/tags/springBoot/"/>
     
   </entry>
   
