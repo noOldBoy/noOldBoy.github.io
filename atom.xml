@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-29T03:24:26.027Z</updated>
+  <updated>2022-10-25T08:23:07.131Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker常用名令</title>
+    <link href="http://example.com/2022/10/25/docker%E5%B8%B8%E7%94%A8%E5%90%8D%E4%BB%A4/"/>
+    <id>http://example.com/2022/10/25/docker%E5%B8%B8%E7%94%A8%E5%90%8D%E4%BB%A4/</id>
+    <published>2022-10-25T08:06:24.000Z</published>
+    <updated>2022-10-25T08:23:07.131Z</updated>
+    
+    <content type="html"><![CDATA[<p>docker使用</p><span id="more"></span><h4 id="docker-基础命令"><a href="#docker-基础命令" class="headerlink" title="docker 基础命令"></a>docker 基础命令</h4><h5 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h5><p>systemctl start docker</p><h5 id="关闭docker"><a href="#关闭docker" class="headerlink" title="关闭docker"></a>关闭docker</h5><p>systemctl stop docker</p><h5 id="重启docker"><a href="#重启docker" class="headerlink" title="重启docker"></a>重启docker</h5><p>systemctl restart docker</p><h5 id="docker设置随服务启动而自启动"><a href="#docker设置随服务启动而自启动" class="headerlink" title="docker设置随服务启动而自启动"></a>docker设置随服务启动而自启动</h5><p>systemctl enable docker</p><h5 id="查看docker-运行状态"><a href="#查看docker-运行状态" class="headerlink" title="查看docker 运行状态"></a>查看docker 运行状态</h5><p>systemctl status docker</p><h5 id="查看docker-版本号信息"><a href="#查看docker-版本号信息" class="headerlink" title="查看docker 版本号信息"></a>查看docker 版本号信息</h5><p>docker version<br>docker info</p><h4 id="docker-镜像命令"><a href="#docker-镜像命令" class="headerlink" title="docker 镜像命令"></a>docker 镜像命令</h4><p><strong>查看自己服务器中docker 镜像列表</strong></p><pre><code class="shell">docker images</code></pre><p><strong>搜索镜像</strong></p><pre><code class="shell">docker search 镜像名</code></pre><p><strong>拉取镜像</strong> </p><p>不加tag(版本号) 即拉取docker仓库中 该镜像的最新版本latest 加:tag 则是拉取指定版本</p><pre><code class="shell">docker pull 镜像名 docker pull 镜像名:tag</code></pre><p><strong>删除镜像</strong> ——当前镜像没有被任何容器使用才可以删除</p><h6 id="删除一个"><a href="#删除一个" class="headerlink" title="删除一个"></a>删除一个</h6><p>docker rmi -f 镜像名&#x2F;镜像ID</p><h6 id="删除多个-其镜像ID或镜像用用空格隔开即可"><a href="#删除多个-其镜像ID或镜像用用空格隔开即可" class="headerlink" title="删除多个 其镜像ID或镜像用用空格隔开即可"></a>删除多个 其镜像ID或镜像用用空格隔开即可</h6><p>docker rmi -f 镜像名&#x2F;镜像ID 镜像名&#x2F;镜像ID 镜像名&#x2F;镜像ID</p><h6 id="删除全部镜像-a-意思为显示全部-q-意思为只显示ID"><a href="#删除全部镜像-a-意思为显示全部-q-意思为只显示ID" class="headerlink" title="删除全部镜像  -a 意思为显示全部, -q 意思为只显示ID"></a>删除全部镜像  -a 意思为显示全部, -q 意思为只显示ID</h6><p>docker rmi -f $(docker images -aq)</p><h6 id="强制删除镜像"><a href="#强制删除镜像" class="headerlink" title="强制删除镜像"></a><strong>强制删除镜像</strong></h6><p>docker image rm 镜像名称&#x2F;镜像ID</p><h4 id="docker-容器命令"><a href="#docker-容器命令" class="headerlink" title="docker 容器命令"></a>docker 容器命令</h4><h5 id="查看正在运行容器列表"><a href="#查看正在运行容器列表" class="headerlink" title="查看正在运行容器列表"></a>查看正在运行容器列表</h5><p>docker ps</p><h5 id="查看所有容器-—–包含正在运行-和已停止的"><a href="#查看所有容器-—–包含正在运行-和已停止的" class="headerlink" title="查看所有容器 —–包含正在运行 和已停止的"></a>查看所有容器 —–包含正在运行 和已停止的</h5><p>docker ps -a</p><h5 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h5><p>docker restart 9299415df7f8</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;docker使用&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql查询分组报错</title>
+    <link href="http://example.com/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/"/>
+    <id>http://example.com/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/</id>
+    <published>2022-10-12T01:44:23.000Z</published>
+    <updated>2022-10-25T08:55:04.668Z</updated>
+    
+    <content type="html"><![CDATA[<p>msyql分组查询报错</p><span id="more"></span><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="user表数据"><a href="#user表数据" class="headerlink" title="user表数据"></a>user表数据</h6><p><img src="/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/image-20221014150307645.png" alt="image-20221014150307645"></p><h6 id="love表数据"><a href="#love表数据" class="headerlink" title="love表数据"></a>love表数据</h6><p><img src="/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/image-20221014150407158-5731051.png" alt="image-20221014150407158"></p><p>使用分组查询sql语句报错</p><pre><code class="sql">SELECT    u.*, GROUP_CONCAT(l.like) as likeList,l.idFROM    `user` u    INNER JOIN love l ON u.id = l.user_id GROUP BY    u.id</code></pre><h5 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h5><p>1055 - Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column ‘group_demo.l.id’ which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode&#x3D;only_full_group_by</p><p>存在未分组中的数据</p><p><strong>一直是这样写的，之前也没遇到这个问题</strong></p><h5 id="探索原因"><a href="#探索原因" class="headerlink" title="探索原因"></a>探索原因</h5><p>在网上一顿搜索后发现这个错误信息和sql_mode中的”only_full_group_by”有关，是Mysql5.7 group by新特性，在5.7版本以后中only_full_group_by这个模式是默认开启的</p><h6 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h6><pre><code class="mysql">select version() from dual;</code></pre><p><img src="/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/image-20221014151321416.png" alt="image-20221014151321416"></p><h6 id="查看sql-mode配置"><a href="#查看sql-mode配置" class="headerlink" title="查看sql_mode配置"></a><strong>查看<code>sql_mode</code>配置</strong></h6><pre><code class="mysql">select @@global.sql_mode;</code></pre><p>结果：</p><p><img src="/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/image-20221014151747981.png" alt="image-20221014151747981"></p><pre><code class="tex">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</code></pre><p><font color="red">ONLY_FULL_GROUP_BY</font>是开启的，所以原因是这个</p><h6 id="其他值"><a href="#其他值" class="headerlink" title="其他值"></a>其他值</h6><p>sql_mode常用值如下:</p><pre><code class="apl">ONLY_FULL_GROUP_BY:对于GROUP BY聚合操作,如果在SELECT中的列,没有在GROUP BY中出现,那么这个SQL是不合法的,因为列不在GROUP BY从句中NO_AUTO_VALUE_ON_ZERO:该值影响自增长列的插入。默认设置下,插入0或NULL代表生成下一个自增长值。如果用户 希望插入的值为0,而该列又是自增长的,那么这个选项就有用了。STRICT_TRANS_TABLES:在该模式下,如果一个值不能插入到一个事务表中,则中断当前的操作,对非事务表不做限制NO_ZERO_IN_DATE:在严格模式下,不允许日期和月份为零NO_ZERO_DATE:设置该值,mysql数据库不允许插入零日期,插入零日期会抛出错误而不是警告。ERROR_FOR_DIVISION_BY_ZERO:在INSERT或UPDATE过程中,如果数据被零除,则产生错误而非警告。如 果未给出该模式,那么数据被零除时MySQL返回NULLNO_AUTO_CREATE_USER:禁止GRANT创建密码为空的用户NO_ENGINE_SUBSTITUTION:如果需要的存储引擎被禁用或未编译,那么抛出错误。不设置此值时,用默认的存储引擎替代,并抛出一个异常PIPES_AS_CONCAT:将&quot;||&quot;视为字符串的连接操作符而非或运算符,这和Oracle数据库是一样的,也和字符串的拼接函数Concat相类似ANSI_QUOTES:启用ANSI_QUOTES后,不能用双引号来引用字符串,因为它被解释为识别符</code></pre><h5 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h5><p>其实报错原因实际是分组语句不规范</p><p><strong>Group By正确的用法</strong><br><strong>myql的group by语法为：</strong><br><strong>select 选取分组中的列 + 聚合函数 from 表名称 group by 分组的列</strong><br><strong>从语法格式来看，是现有分组，在确定检索的列，检索的列只能是参加分组了的列。</strong><br><strong>所以问题中，group by 后的a,b,c是先确定的，而select 后面的字段是可变的</strong></p><p>其他方式一：</p><p>删除sql_mode中的值！！！修改mysql配置my.cnf(windows下面是my.ini)</p><p>方式二：</p><p>通过mysql的any_value()函数，<strong>any_value()会选择被分到同一组的数据里第一条数据的指定列值作为返回数据</strong></p><p>修改sql重新执行</p><pre><code class="mysql">SELECT    u.*,GROUP_CONCAT(l.like) as likeList,any_value(l.id)FROM    `user` u    INNER JOIN love l ON u.id = l.user_id GROUP BY    u.id</code></pre><p><img src="/2022/10/12/mysql%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84%E6%8A%A5%E9%94%99/image-20221025164536698.png" alt="image-20221025164536698"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;msyql分组查询报错&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据库" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>删表卡死问题</title>
+    <link href="http://example.com/2022/10/10/%E5%88%A0%E8%A1%A8%E5%8D%A1%E6%AD%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2022/10/10/%E5%88%A0%E8%A1%A8%E5%8D%A1%E6%AD%BB%E9%97%AE%E9%A2%98/</id>
+    <published>2022-10-10T06:42:04.000Z</published>
+    <updated>2022-10-10T06:50:49.827Z</updated>
+    
+    <content type="html"><![CDATA[<p>表操作卡死问题（表锁）</p><span id="more"></span><p>表象：</p><p>主表数据脏了，想用备份表替换，删除主表卡死，打不开，以为是客户端工作问题，换了一个客户端还是打不开</p><p>查看数据库进程：</p><p>show full processlist;</p><p><img src="/2022/10/10/%E5%88%A0%E8%A1%A8%E5%8D%A1%E6%AD%BB%E9%97%AE%E9%A2%98/image-20221010144806221.png" alt="image-20221010144806221"></p><p>info后面有备注具体操作</p><p>数据库进程卡死，表被锁</p><p>解决方案：</p><p>杀掉所有此表操作进程</p><p>kill 进程id</p><p>加锁原因</p><p>断点未放开，事务锁了表</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;表操作卡死问题（表锁）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据库" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>idea破解记录</title>
@@ -42,11 +105,19 @@
     <link href="http://example.com/2022/09/08/macTOidea%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://example.com/2022/09/08/macTOidea%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
     <published>2022-09-08T10:06:07.000Z</published>
-    <updated>2022-09-08T10:06:07.459Z</updated>
+    <updated>2022-10-11T06:28:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac快捷键</p><span id="more"></span><p>IntelliJ IDEA Classic 模式下<br>option+f7 查找在哪里使用 相当于eclipse的ctrl+shift+G，查看当前选中的类或方法的全局的使用地方<br>command+option+f7 这个是查找选中的字符在工程中出现的地方，可以不是方法变量类等，这个和上面的有区别的<br>command＋F7可以查询当前元素在当前文件中的引用，然后按F3可以选择 ，功能基本同上<br>command+shift+F7 高亮显示所有选中文本，按Esc高亮消失。<br>Alt+F3 ，高亮显示所有选中文本，F3逐个往下查找相同文本，shift+F3就是往上找<br>ctrl+enter 出现生成get,set方法及构造方法的界面<br>command+N 查找类<br>command+shift+N 查找文件<br>command+F 在当前文件里查找文本 f3向下看，shift+f3向上看<br>ctrl+shift+F 可以在整个工程或着某个目录下面查找<br>command+R 替换<br>ctrl+shift+R 可以在整个工程或着某个目录下面替换变量<br>command+Y 删除行<br>command+D复制一行<br>ctrl+shift+J 把多行连接成一行，会去掉空格的行<br>command+J 可以生成一些自动代码，比如for循<br>command+B 找变量的来源 同F4 查找变量来源<br>ctrl+shift+B 找变量所属的类<br>command+G定位<br>option+shift+C 最近修改的文件<br>command+E最近打开的文件<br>option+enter 导入包，自动修改<br>command+option+L 格式化代码<br>command+option+I 自动缩进，逐行缩紧，非全<br>ctrl+shift+space代码补全，这个会判断可能用到的，这个代码补全和代码提示是不一样的<br>command+P 方法参数提示<br>command+option+T 把选中的代码放在 TRY{} IF{} ELSE{} 里<br>command+X剪切删除行<br>command+shift+V 可以复制多个文本<br>command+shift+U 大小写转换<br>option+f1查找文件所在目录位置<br>command+&#x2F; 注释一行或着多行 &#x2F;&#x2F;<br>ctrl+shift+&#x2F; 注释&#x2F;…&#x2F;<br>command+option+左右箭头 返回上次编辑的位置<br>command+shift+上下箭头 把代码上移或着下移<br>command+[或] 可以跳到大括号的开头结尾<br>command+f12可以显示当前文件的结构<br>command+option+B 可以导航到一个抽象方法的实现代码<br>command+shift+小键盘的* 列编辑<br>option+f8 debug时选中查看值<br>f8相当于eclipse的f6跳到下一步<br>shift+f8相当于eclipse的f8跳到下一个断点，也相当于eclipse的f7跳出函数<br>f7相当于eclipse的f5就是进入到代码<br>option+shift+f7这个是强制进入代码<br>ctrl+shift+f9 debug运行java类<br>ctrl+shift+f10正常运行java类<br>command+f2停止运行</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;mac快捷键&lt;/p&gt;</summary>
     
     
     
+    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
+    
+    <category term="idea" scheme="http://example.com/tags/idea/"/>
     
   </entry>
   
@@ -160,9 +231,9 @@
     <link href="http://example.com/2022/08/09/spring%E4%BA%8B%E5%8A%A1-Transactional-%E8%AF%A6%E8%A7%A3/"/>
     <id>http://example.com/2022/08/09/spring%E4%BA%8B%E5%8A%A1-Transactional-%E8%AF%A6%E8%A7%A3/</id>
     <published>2022-08-09T08:50:44.000Z</published>
-    <updated>2022-08-16T06:50:27.051Z</updated>
+    <updated>2022-10-11T06:47:32.000Z</updated>
     
-    <content type="html"><![CDATA[<p>本地事务之Transactional详解</p><span id="more"></span><h5 id="x3D-x3D-前言-x3D-x3D"><a href="#x3D-x3D-前言-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;前言&#x3D;&#x3D;"></a><strong>&#x3D;&#x3D;前言&#x3D;&#x3D;</strong></h5><p><font color="blue">1.spring本地事务是作用于本地的，不支持跨库跨系统</font></p><p><font color="red">2.开始之前，建议先学习mysql事务</font><br>点击跳转-&gt;<a href="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/" title="mysql事务">mysql事务</a></p><h5 id="Transactional事务"><a href="#Transactional事务" class="headerlink" title="Transactional事务"></a>Transactional事务</h5><p>1.@Transactional是声明式事务管理 编程中使用的注解</p><p>2.@Transactional 实质是使用了 JDBC 的事务来进行事务控制的</p><p>3.@Transactional 基于 Spring 的动态代理的机制</p><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5><p>Transactional实现是通过<code>AOP</code>实现的</p><h6 id="事务开始时："><a href="#事务开始时：" class="headerlink" title="事务开始时："></a>事务开始时：</h6><p>事务开始时，生成一个代理的connection对象，并将其放入一个容器中，客户代码都应该使用该 connection 连接数据库</p><p>事wu</p><h5 id="添加位置"><a href="#添加位置" class="headerlink" title="添加位置"></a>添加位置</h5><p>1.接口实现类</p><p>2.public修饰的方法上</p>]]></content>
+    <content type="html"><![CDATA[<p>本地事务之Transactional详解</p><span id="more"></span><h5 id="x3D-x3D-前言-x3D-x3D"><a href="#x3D-x3D-前言-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;前言&#x3D;&#x3D;"></a><strong>&#x3D;&#x3D;前言&#x3D;&#x3D;</strong></h5><p><font color="blue">1.spring本地事务是作用于本地的，不支持跨库跨系统</font></p><p><font color="red">2.开始之前，建议先学习mysql事务</font><br>点击跳转-&gt;<a href="/2022/07/26/mysql%E4%BA%8B%E5%8A%A1/" title="mysql事务">mysql事务</a></p><h5 id="Transactional事务"><a href="#Transactional事务" class="headerlink" title="Transactional事务"></a>Transactional事务</h5><p>1.@Transactional是声明式事务管理 编程中使用的注解</p><p>2.@Transactional 实质是使用了 JDBC 的事务来进行事务控制的</p><p>3.@Transactional 基于 Spring 的动态代理的机制</p><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5><p>Transactional实现是通过<code>AOP</code>实现的</p><h6 id="事务开始时："><a href="#事务开始时：" class="headerlink" title="事务开始时："></a>事务开始时：</h6><p>事务开始时，生成一个代理的connection对象，并将其放入一个容器中，客户代码都应该使用该 connection 连接数据库</p><h5 id="添加位置"><a href="#添加位置" class="headerlink" title="添加位置"></a>添加位置</h5><p>1.接口实现类</p><p>2.public修饰的方法上</p><h5 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a><strong>事务的隔离级别</strong></h5><p>解释：是指若干个并发的事务之间的隔离程度</p><pre><code class="apl">1. @Transactional(isolation = Isolation.READ_UNCOMMITTED)：读取未提交数据(会出现脏读, 不可重复读) 基本不使用 2. @Transactional(isolation = Isolation.READ_COMMITTED)：读取已提交数据(会出现不可重复读和幻读) 3. @Transactional(isolation = Isolation.REPEATABLE_READ)：可重复读(会出现幻读) 4. @Transactional(isolation = Isolation.SERIALIZABLE)：串行化</code></pre>]]></content>
     
     
     <summary type="html">&lt;p&gt;本地事务之Transactional详解&lt;/p&gt;</summary>
@@ -366,71 +437,6 @@
     
     
     <category term="postMan" scheme="http://example.com/tags/postMan/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Typora使用详细</title>
-    <link href="http://example.com/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/"/>
-    <id>http://example.com/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/</id>
-    <published>2022-07-15T07:41:30.000Z</published>
-    <updated>2022-07-26T02:36:45.825Z</updated>
-    
-    <content type="html"><![CDATA[<p>Typora使用详细</p><span id="more"></span><h3 id="Typora介绍与下载"><a href="#Typora介绍与下载" class="headerlink" title="Typora介绍与下载"></a>Typora介绍与下载</h3><p>Typora编辑器让人们能更简单地用Markdown语言书写文字，解决了使用传统的Markdown编辑器写文的痛点，并且界面简洁优美，实现了实时预览等功能。</p><p>Typora官网： <a href="https://typora.io/">https://typora.io/</a></p><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>使用 # 可以表示标题，一级标题对应一个 # ，二级标题对应两个 # 号，最多至六级标题。在Typora中，# 后要紧接着一个空格才能表示标题，否则就是普通字符。</p><p>在Typora中，也可以使用快捷键command+1（2，3，4，5，6）表示相对应的标题。command+0表示段落。标题快捷键信息可在菜单栏中的段落选项下查看。</p><h5 id="例"><a href="#例" class="headerlink" title="例"></a>例</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715155550280.png" alt="image-20220715155550280"></p><h5 id="后面加入空格效果"><a href="#后面加入空格效果" class="headerlink" title="#后面加入空格效果"></a>#后面加入空格效果</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715155657206.png" alt="image-20220715155657206"></p><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>用一对星号<em>括住的文本表示斜体文本，如：</em>要变斜体的文本*，斜体文本 ；<br>也可以用一对下划线_括住文本来表示斜体文本，如：_要变斜体的文本_，斜体文本 ；<br>也可以使用Typora的快捷键Ctrl+I来表示斜体文本。</p><p>用一对<strong>括住的文本表示粗体文本，如：</strong>要变粗体的文本**，粗体文本；<br>也可以用一对__括住的文本来表示粗体文本，如：__要变粗体的文本__，粗体文本；<br>也可以使用Typora的快捷键Ctrl+B来表示粗体文本。</p><p>用一对<em><strong>括住的文本表示粗斜体文本，如：</strong></em>要变粗斜体的文本***，粗斜体文本；<br>也可以用一对___括住的文本来表示粗斜体文本，如：___要变粗斜体的文本___，粗斜体文本；</p><h5 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715160404892.png" alt="image-20220715160404892"></p><h4 id="各种线"><a href="#各种线" class="headerlink" title="各种线"></a>各种线</h4><p>分割线，可以使用三个及以上的 + 号或 * 号或 - 来表示一条分割线；<br>由三个*号表示的分割线：</p><p>由三个+号表示的分割线：</p><p>+++(在CSDN中不代表分割线）</p><p>由三个-号表示的分割线：</p><p>删除线，可以使用一对<del>括住的文本来表示删除文本，如：</del>要加删除线的文本~~，删除文本；在Typora中，也可以使用快捷键Alt+Shift+5来加删除线，语法相同，删除线。<br>下划线，可以使用HTML的标签<u>和</u>表示增加下划线的文本，如：<u>要增加下划线的文本</u>，下划线；在Typora中，也可以使用快捷键Ctrl+U来增加下划线，语法也是相同的，下划线。</p><h5 id="例-2"><a href="#例-2" class="headerlink" title="例"></a>例</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715160832180.png" alt="image-20220715160832180"></p><p>command+&#x2F;关闭源码模式效果</p><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/guoshuai/Documents/life/pre/blog/source/_posts/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715162754057.png" alt="image-20220715162754057"></p><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p><strong>无序列表</strong></p><p>可以使用<code>*</code>，<code>+</code>或<code>-</code>标记符号来表示无序列表项，记住要在标记符号后<strong>添加一个空格</strong></p><p><strong>有序列表</strong></p><p>可以使用<strong>数字加上<code>.</code>再加上空格</strong>来表示有序列表，<strong>数字无实际意义只是一个符号，不影响输出</strong></p><h5 id="例-3"><a href="#例-3" class="headerlink" title="例"></a>例</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/guoshuai/Documents/life/pre/blog/source/_posts/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715163141893.png" alt="image-20220715163141893"></p><h5 id="退出源码效果"><a href="#退出源码效果" class="headerlink" title="退出源码效果"></a>退出源码效果</h5><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/guoshuai/Documents/life/pre/blog/source/_posts/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715163215263.png" alt="image-20220715163215263"></p><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>如果是一行代码，可以使用段内代码块来表示，用一对 &#96;（数字1旁边的符号）括住代码。</p><p>比如printf(“Hello World!”)</p><p>如果是代码段，那么可以使用三个 &#96; 加Enter&#x2F;空格+编程语言来表示。如：<br>可以在代码块的右下角选择编程语言。</p><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>链接的使用方式有两种语法，如下：</p><pre><code class="apl">[链接文字](链接地址)或&lt;链接地址&gt;</code></pre><p>我们可以使用链接打开网页，示例如下：</p><pre><code>[百度](https://www.baidu.com/)&lt;https://www.baidu.com/&gt;</code></pre><p>显示效果如下：</p><p><a href="https://www.baidu.com/">百度</a><br><a href="https://www.baidu.com/">https://www.baidu.com/</a></p><p>当鼠标移到相应的链接文字时，按住Ctrl+鼠标左键点击访问。</p><p>链接除了可以打开相应的网页外，还可以打开本地文件，使用方式类似，不过链接地址需要使用本地文件的地址，相对地址、绝对地址均可：</p><p>示例：</p><pre><code>[打开LinkTest.md文档](./LinkTest.md)[打开LinkTest.png照片](./img/LinkTest.png)</code></pre><p><a href="./LinkTest.md">打开LinkTest.md文档</a><br><a href="./img/LinkTest.png">打开LinkTest.png照片</a></p><p>经测试可以打开相应的文件。但是不能使用&lt;要打开的文件地址&gt;来打开相应的文件，比如&lt;.&#x2F;LinkTest.md&gt;并没有表现为可链接状态。</p><p>补充知识：</p><p>一个小圆点.表示当前目录，故.&#x2F;LinkTest.md表示当前目录下的LinkTest.md文件，.&#x2F;img&#x2F;LinkTest.png表示当前目录下的img文件下的LinkTest.png文件。</p><p>两个小圆点..表示上一级目录。</p><p>我们也可以使用链接来实现页内跳转，语法为：</p><pre><code>[链接文字](#标题文字)</code></pre><p>示例：</p><pre><code>[跳转到第一章第一节](#Typora介绍与下载)</code></pre><p>结果如下：<br><a href="#Typora%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%B8%8B%E8%BD%BD">跳转到第一章第一节</a></p><p>经测试，可以成功跳转。<br>在CSDN中不支持这种页内跳转方式。</p><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>我们也可以在Markdown文档中插入图片，语法如下：</p><pre><code>![alt 属性文本](图片地址)![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></pre><p>首先一个感叹号<br>然后中括号里面写属性文本<br>小括号里面写图片地址，后可接标题<br>示例语法：</p><pre><code>![本地png图片PictureTest.png](./img/PictureTest.png)![本地jpg图片](./img/PictureTest.jpg)</code></pre><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="网络图片" title="菜鸟教程"></p><p>在Typora中，也可以直接使用Ctrl+C，Ctrl+V来直接进行复制粘贴图片，但是，由于Markdown是需要图片的地址的，所以需要简单设置一下Typora。</p><p>点击文件 –&gt; 偏好设置 –&gt; 图像，如下：</p><p><img src="/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715165118458.png" alt="image-20220715165118458"></p><p>可以自行设置选择将图片复制到哪个文件夹。</p><p>这里选择复制到指定路径，然后在下面一栏中填写.&#x2F;img，表示将图片复制到你正在编辑的文档同一级的img文件夹下。在下面的选项中，勾选第一、二、三项。正因为勾选了第二项，所以当我们在插入网络图片时，Typora会自动帮我们将网络图片下载到指定的路径下，前面的”菜鸟教程”图片便是如此。</p><p>由于Markdown的特殊语法，故经常会出现图片加载失败的情况，很大的可能就是因为在指定的路径上找不到相应的图片，当然，有时候也是由于Typora的原因，重启Typora即可。</p><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p><p>语法如下：</p><pre><code>|表头|表头|表头||---|---|----||单元格|单元格|单元格||单元格|单元格|单元格|</code></pre><table><thead><tr><th>表头</th><th>表头</th><th>表头</th></tr></thead><tbody><tr><td>单元格</td><td>单元格</td><td>单元格</td></tr><tr><td>单元格</td><td>单元格</td><td>单元格</td></tr></tbody></table><p>我们可以设置对齐方式：</p><ul><li><code>:-</code>表示左对齐</li><li><code>-:</code>表示右对齐</li><li><code>:-:</code>表示中间对齐</li></ul><pre><code class="~~~">|左对齐|右对齐|中间对齐||:---|---:|:----:||单元格|单元格|单元格||单元格|单元格|单元格|</code></pre><table><thead><tr><th align="left">左对齐</th><th align="right">右对齐</th><th align="center">中间对齐</th></tr></thead><tbody><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr></tbody></table><h4 id="Typora与数学公式"><a href="#Typora与数学公式" class="headerlink" title="Typora与数学公式"></a>Typora与数学公式</h4><p>在Typora中，有两种方法插入数学公式，语法为：</p><p>第一种方法：$数学公式$<br>第二种方法：<br>第一种方法表示插入行内公式（内联公式），即可以将公式插入到一行中，比如1 + 2 &#x3D; 3 1+2&#x3D;31+2&#x3D;3这样的公式。</p><p>第二种方法表示插入行间公式（外联公式），即可以将公式插入到行与行之间，单独占据一行或者数行的空间，并且居中放置。<br>1 + 2 &#x3D; 3 1+2&#x3D;3<br>1+2&#x3D;3</p><p>如果要在行间公式内换行，在换行的位置使用<code>\\</code>。</p><h4 id="改变字体颜色及大小"><a href="#改变字体颜色及大小" class="headerlink" title="改变字体颜色及大小"></a>改变字体颜色及大小</h4><p>我们可以使用<font> </font>标签来改变字体的颜色及大小，如：</p><pre><code class="html">&lt;font&gt;字体颜色为红色，大小为3&lt;/font&gt;&lt;font size=4 color=&quot;blue&quot;&gt;字体颜色为蓝色，大小为4&lt;/font&gt;&lt;font size=6 color=&quot;violet&quot;&gt;字体颜色为紫罗兰，大小为6&lt;/font&gt;</code></pre><p>结果为：</p><p><font>字体颜色为红色，大小为3</font></p><p><font size="4" color="blue">字体颜色为蓝色，大小为4</font></p><p><font size="6" color="violet">字体颜色为紫罗兰，大小为6</font></p><h4 id="改变对齐方式"><a href="#改变对齐方式" class="headerlink" title="改变对齐方式"></a>改变对齐方式</h4><p>我们可以改变字体的对齐方式，用标签<code>&lt;p&gt; &lt;/p&gt;</code>加上属性<code>align</code>，如：</p><pre><code class="html">&lt;p align=&quot;center&quot;&gt;中间对齐&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;右对齐&lt;/p&gt;```</code></pre><p>结果为：</p><p align="center">中间对齐</p><p align="right">右对齐</p><h4 id="插入emoji表情"><a href="#插入emoji表情" class="headerlink" title="插入emoji表情"></a>插入emoji表情</h4><p>我们可以使用<code>:emoji:</code>的语法来插入表情，比如：</p><p>:happy:的语法为<code>:happy:</code></p><p>🦀的语法为<code>:crab:</code></p><p>🐴的语法为<code>:horse:</code></p><h4 id="文本高亮"><a href="#文本高亮" class="headerlink" title="文本高亮"></a>文本高亮</h4><p>在Typora中，可以用一对<code>==</code>将要高亮的文本括起来，如：</p><p>&lt;br</p><p>&#x3D;&#x3D;要高亮的文本&#x3D;&#x3D;</p><p>&#x3D;&#x3D;背景会用黄色填充&#x3D;&#x3D;</p><p><strong>hexo不支持</strong></p><p>但是发现支持<code>html</code> </p><pre><code class="html">&lt;p style=&quot;background-color:red&quot;&gt;通过 rbg 值设置背景颜色&lt;/p&gt;</code></pre><p style="background-color:red">通过 rbg 值设置背景颜色</p><p></p><h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><p><code>&lt;!-- --&gt;</code></p><p>效果</p><!-- 注释掉的内容 -->]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Typora使用详细&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="Typora" scheme="http://example.com/tags/Typora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谷歌浏览器打不开网页问题</title>
-    <link href="http://example.com/2022/07/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E4%B8%8D%E5%BC%80%E7%BD%91%E9%A1%B5%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2022/07/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E4%B8%8D%E5%BC%80%E7%BD%91%E9%A1%B5%E9%97%AE%E9%A2%98/</id>
-    <published>2022-07-15T06:57:58.000Z</published>
-    <updated>2022-08-09T08:17:18.453Z</updated>
-    
-    <content type="html"><![CDATA[<p>将您访问的部分网页的网址、有限的系统信息以及部分网页内容发送给 Google，以帮助我们提升 Chrome 的安全性。隐私权政策</p><span id="more"></span><h4 id="问题：运行项目在Chrome中打开出现以下问题"><a href="#问题：运行项目在Chrome中打开出现以下问题" class="headerlink" title="问题：运行项目在Chrome中打开出现以下问题"></a>问题：运行项目在Chrome中打开出现以下问题</h4><p><img src="/2022/07/15/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E4%B8%8D%E5%BC%80%E7%BD%91%E9%A1%B5%E9%97%AE%E9%A2%98/image-20220715150621093-7868785.png" alt="image-20220715150621093"></p><p>这个问题大量出现在我访问公司网络，github之类的，头疼得很</p><p>您的连接不是私密连接<br>攻击者可能会试图从 x.x.x.x 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情<br>NET::ERR_CERT_INVALID</p><p>将您访问的部分网页的网址、有限的系统信息以及部分网页内容发送给 Google，以帮助我们提升 Chrome 的安全性。隐私权政策<br>x.x.x.x 通常会使用加密技术来保护您的信息。Google Chrome 此次尝试连接到 x.x.x.x 时，此网站发回了异常的错误凭据。这可能是因为有攻击者在试图冒充 x.x.x.x，或 Wi-Fi 登录屏幕中断了此次连接。请放心，您的信息仍然是安全的，因为 Google Chrome 尚未进行任何数据交换便停止了连接。</p><p>您目前无法访问 x.x.x.x，因为此网站发送了 Google Chrome 无法处理的杂乱凭据。网络错误和攻击通常是暂时的，因此，此网页稍后可能会恢复正常。</p><p><strong>解决：就是在当前页面用键盘输入  thisisunsafe  ，不是在地址栏输入，就直接敲键盘就行了，页面即会自动刷新进入网页。</strong></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;将您访问的部分网页的网址、有限的系统信息以及部分网页内容发送给 Google，以帮助我们提升 Chrome 的安全性。隐私权政策&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="其他" scheme="http://example.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="其他" scheme="http://example.com/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客自定义域名使用</title>
-    <link href="http://example.com/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/"/>
-    <id>http://example.com/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/</id>
-    <published>2022-07-04T02:02:43.000Z</published>
-    <updated>2022-07-26T02:35:16.890Z</updated>
-    
-    <content type="html"><![CDATA[<p>博客使用自定义网址</p><span id="more"></span><p>1.查看一下自己想要的域名，看是否被占用，还有域名价格</p><p><a href="https://wanwang.aliyun.com/">https://wanwang.aliyun.com/</a></p><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/guoshuai/Documents/life/pre/blog/source/_posts/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/image-20220704101813529.png" alt="image-20220704101813529"></p><p>2.选择购买域名后，先要去阿里云实名and报案，然后在云解析dns可以找到自己的域名</p><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/guoshuai/Documents/life/pre/blog/source/_posts/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/image-20220704102000799.png" alt="image-20220704102000799"></p><p>3.设置域名解析和SSL证书；</p><p>这里要注意的是域名解析是将自己申请的域名解析到gitee.gitee.io，具体看下面图片：</p><p> 设置域名解析：</p><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/8346f0240b3efe386d2cd512bca86d7d.jpeg" alt="img"></p><p>……研究了之后，发现gitee自定义域名是要开通企业版付费使用的，</p><p><strong>搁浅了一周</strong>，所以决定项目部署在github，github自定义域名不需要付费</p><h5 id="进去阿里云域名解析页"><a href="#进去阿里云域名解析页" class="headerlink" title="进去阿里云域名解析页"></a>进去阿里云域名解析页</h5><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/image-20220719153742775-8216264.png" alt="image-20220719153742775"></p><h5 id="解析设置"><a href="#解析设置" class="headerlink" title="解析设置"></a>解析设置</h5><p>需要注意记录的类型要跟下面保持一致</p><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/image-20220719153852546-8216334.png" alt="image-20220719153852546"></p><p><strong>1and2</strong>：192.30.252.154 192.30.252.153  是github服务器的地址</p><p><strong>3</strong>：自己的域名</p><p>最后需要在你博客的根路径下添加CNAME文件用来配置博客域名</p><p><img src="/2022/07/04/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8/image-20220719154226441-8216548.png" alt="image-20220719154226441"></p><p><code>hexo clear &amp; hexo g &amp; hexo d</code>稍等10分钟域名就生效了</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;博客使用自定义网址&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="工具" scheme="http://example.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="git" scheme="http://example.com/tags/git/"/>
-    
-    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
     
   </entry>
   
