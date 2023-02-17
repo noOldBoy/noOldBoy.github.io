@@ -2557,6 +2557,37 @@ console.log(typeof null);
 </code></pre>
 <p>结果</p>
 <p><img src="/2022/11/22/JavaScript%E8%AF%A6%E8%A7%A3%E5%AD%A6%E4%B9%A0/image-20221124155024190.png" alt="image-20221124155024190"></p>
+<h6 id="2-8-6-工厂模式创建对象"><a href="#2-8-6-工厂模式创建对象" class="headerlink" title="2.8.6 工厂模式创建对象"></a>2.8.6 工厂模式创建对象</h6><p>使用函数的方式创建对象</p>
+<p><strong>示例：</strong></p>
+<pre><code class="js">&lt;script&gt;
+        function createUser (name, age) &#123;
+            //创建一个object对象
+            var user = new Object();
+            //设置对象属性
+            user.name = name;
+            user.age = age ;
+            //返回对象
+            return user;
+        &#125;
+        var user1 = createUser(&quot;李白&quot;,12);
+        var user2 = createUser(&quot;花木兰&quot;,32);
+        console.log(user1);
+        console.log(user2);
+    &lt;/script&gt;
+</code></pre>
+<h6 id="2-8-7-构造函数创建对象（推荐）"><a href="#2-8-7-构造函数创建对象（推荐）" class="headerlink" title="2.8.7 构造函数创建对象（推荐）"></a>2.8.7 构造函数创建对象（推荐）</h6><p>上面方式方式已经可以复用创建对象，但是发现创建的对象其实实际是为Object的对象，我们想要的其实是User，改进一下</p>
+<p>示例：</p>
+<pre><code class="js">  &lt;script&gt;
+        function User (name, age) &#123;
+            this.name = name;
+            this.age = age ;
+        &#125;
+        var user1 = new User(&quot;李白&quot;,12);
+        var user2 = new User(&quot;花木兰&quot;,32);
+        console.log(user1);
+        console.log(user2);
+    &lt;/script&gt;
+</code></pre>
 <h5 id="2-9函数"><a href="#2-9函数" class="headerlink" title="2.9函数"></a>2.9函数</h5><p>函数是由一连串的子程序（语句的集合）所组成的，可以被外部程序调用，向函数传递参数之后，函数可以返回一定的值。通常情况下，JavaScript代码是自上而下执行的，不过函数体内部的代码则不是这样。如果只是对函数进行了声明，其中的代码并不会执行，只有在调用函数时才会执行函数体内部的代码。</p>
 <h6 id="2-9-1函数创建"><a href="#2-9-1函数创建" class="headerlink" title="2.9.1函数创建"></a>2.9.1函数创建</h6><p><strong>语法：</strong></p>
 <p><strong>方式一</strong> <strong>使用函数对象创建函数</strong></p>
@@ -2643,7 +2674,76 @@ fun();
         &#125;) ()
     &lt;/script&gt;
 </code></pre>
-<h6 id="2-9-8-对象中的函数"><a href="#2-9-8-对象中的函数" class="headerlink" title="2.9.8 对象中的函数"></a>2.9.8 对象中的函数</h6>]]></content>
+<h6 id="2-9-8-对象中的函数"><a href="#2-9-8-对象中的函数" class="headerlink" title="2.9.8 对象中的函数"></a>2.9.8 对象中的函数</h6><p>对象中的属性可以是任何数据类型，也可以是个函数</p>
+<p>如果一个函数作为对象的属性保存，那么我们称这个函数是这个对象的方法</p>
+<p>示例：****</p>
+<pre><code class="js">&lt;script&gt;
+       var user = &#123;
+        name : &quot;张三&quot;,
+        age : 12,
+        thisDate : function () &#123;
+            var date = new Date();
+            document.writeln(&quot;时间：&quot;+date )
+        &#125;
+       &#125;
+       console.log (user.name);
+       user.thisDate();      
+ &lt;/script&gt;
+</code></pre>
+<h6 id="2-9-10-this对象"><a href="#2-9-10-this对象" class="headerlink" title="2.9.10 this对象"></a>2.9.10 this对象</h6><p><font color="blue">函数式调用，this为当前window对象</font></p>
+<p><font color="blue">方法调用时，就是当前方法</font></p>
+<p><strong>示例：</strong></p>
+<pre><code class="js"> &lt;script&gt;
+       var name = &quot;全局名称name&quot;;
+       var user = &#123;
+        name : &quot;user对象名称&quot;,
+        subNmae : fun
+
+       &#125;
+       function fun () &#123;
+        console.log(this.name);
+       &#125;
+       fun();
+       user.subNmae();
+    &lt;/script&gt;
+</code></pre>
+<p><strong>效果：</strong></p>
+<p><img src="/2022/11/22/JavaScript%E8%AF%A6%E8%A7%A3%E5%AD%A6%E4%B9%A0/image-20221230155119465.png" alt="image-20221230155119465"></p>
+<h6 id="2-10-toString方法"><a href="#2-10-toString方法" class="headerlink" title="2.10 toString方法"></a>2.10 toString方法</h6><p>类似于java的toString方法，将当前对象或者数组等数据类型转换为字符串类型，该方法是Object的方法，几乎所有的对象都继承了Object类，所以几乎所有的示例对象都可以使用该方法</p>
+<p><strong>示例：</strong></p>
+<pre><code class="js">// 字符串
+var str = &quot;Hello&quot;;
+console.log(str.toString());
+
+// 数字
+var num = 15.26540;
+console.log(num.toString());
+
+// 布尔
+var bool = true;
+console.log(bool.toString());
+
+// Object
+var obj = &#123;name: &quot;张三&quot;, age: 18&#125;;
+console.log(obj.toString());
+
+// 数组
+var array = [&quot;CodePlayer&quot;, true, 12, -5];
+console.log(array.toString());
+
+// 日期
+var date = new Date(2013, 7, 18, 23, 11, 59, 230);
+console.log(date.toString());
+
+// 错误
+var error = new Error(&quot;自定义错误信息&quot;);
+console.log(error.toString());
+
+// 函数
+console.log(Function.toString());
+</code></pre>
+<h4 id="第三章-JavaScript常用对象"><a href="#第三章-JavaScript常用对象" class="headerlink" title="第三章 JavaScript常用对象"></a>第三章 JavaScript常用对象</h4><h5 id="3-1数组对象"><a href="#3-1数组对象" class="headerlink" title="3.1数组对象"></a>3.1数组对象</h5><p>​                                                   </p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -4053,7 +4153,158 @@ GROUP BY
     <content><![CDATA[<p>msyql查询sql记录</p>
 <span id="more"></span>
 
-<p>返回字段（Json）拼接</p>
+<h4 id="sql拼接"><a href="#sql拼接" class="headerlink" title="sql拼接"></a>sql拼接</h4><h5 id="返回字段（Json）拼接"><a href="#返回字段（Json）拼接" class="headerlink" title="返回字段（Json）拼接"></a>返回字段（Json）拼接</h5><pre><code class="mysql">SELECT
+  &quot;云服务器&quot; AS type,
+  t1.instance_name AS instanceName,
+  t1.instance_id AS instanceId,
+  &quot;专有云&quot; AS area,
+  &quot;阿里云&quot; AS source,
+  ( CASE `bill_status` WHEN 3 THEN &#39;已释放&#39; WHEN 4 THEN &#39;已停机&#39; ELSE &#39;运行中&#39; END ) AS `status`,
+  t1.real_produce_time AS openTime,
+  t1.releasing_time AS releaseTime,
+  t3.allocate_time AS changeTime,
+  CONCAT(
+    &#39;&#123;&#39;,
+    CONCAT_WS(
+      &#39;,&#39;,
+      CONCAT( &#39;&quot;&#39;, &#39;vpcName&#39;, &#39;&quot;:&quot;&#39;, t2.vpc_name, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;vpcId&#39;, &#39;&quot;:&quot;&#39;, t2.vpc_code, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;ip&#39;, &#39;&quot;:&quot;&#39;, t1.private_network_ip, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;eip&#39;, &#39;&quot;:&quot;&#39;, t1.public_network_ip, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;cpu&#39;, &#39;&quot;:&quot;&#39;, t1.cpu_core_count, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;memory&#39;, &#39;&quot;:&quot;&#39;, t1.ram_size, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;natIp&#39;, &#39;&quot;:&quot;&#39;, t1.nat_ip, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;storage&#39;, &#39;&quot;:&quot;&#39;, ( SELECT sum( disk_size ) FROM resource_mgr_ecs_disk WHERE resource_mgr_ecs_id = t1.id AND disk_property = 2 ), &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;osName&#39;, &#39;&quot;:&quot;&#39;, t1.operating_system_name, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;systemDiskSize&#39;, &#39;&quot;:&quot;&#39;, ( SELECT sum( disk_size ) FROM resource_mgr_ecs_disk WHERE resource_mgr_ecs_id = t1.id AND disk_property = 1 AND data_flag = 1 ), &#39;&quot;&#39; ),
+      CONCAT(
+        &#39;&quot;&#39;,
+        &#39;systemDiskType&#39;,
+        &#39;&quot;:&quot;&#39;,
+        (
+        SELECT
+          ( CASE `disk_type` WHEN &quot;cloud_efficiency&quot; THEN 1 WHEN &quot;cloud_ssd&quot; THEN 2 ELSE 1 END ) AS diskType 
+        FROM
+          resource_mgr_ecs_disk 
+        WHERE
+          resource_mgr_ecs_id = t1.id 
+          AND disk_property = 1 
+          AND data_flag = 1 
+        ),
+        &#39;&quot;&#39; 
+      ) 
+    ),
+    &#39;&#125;&#39; 
+  ) AS adJson,
+  t4.app_Id AS appId,
+  t4.`name` AS appName 
+FROM
+  resource_mgr_ecs t1
+  LEFT JOIN sys_vpc t2 ON t1.vpc_id = t2.id
+  LEFT JOIN resource_mgr_dynamic_allocate t3 ON t3.resource_id = t1.id 
+  AND t3.resource_type = 1 
+  AND t3.id = ( SELECT id FROM resource_mgr_dynamic_allocate WHERE t1.id = t3.resource_id AND t3.resource_type = 1 ORDER BY allocate_time DESC LIMIT 1 )
+  LEFT JOIN temp_irs_app_detail t4 ON t1.app_code = t4.`code` 
+WHERE
+  t1.dept_id = 842 
+  OR t1.pay_dept_id = 842 
+  AND t1.data_flag = 1 
+  AND t1.bill_status != 4 UNION ALL
+SELECT
+  &quot;云数据库&quot; AS type,
+  t1.ins_name AS instanceName,
+  t1.instance_id AS instanceId,
+  &quot;专有云&quot; AS area,
+  &quot;阿里云&quot; AS source,
+  ( CASE t1.`status` WHEN 4 THEN &#39;已释放&#39; ELSE &#39;运行中&#39; END ) AS `status`,
+  t1.real_produce_time AS openTime,
+  t1.releasing_time AS releaseTime,
+  t4.allocate_time AS changeTime,
+  CONCAT(
+    &#39;&#123;&#39;,
+    CONCAT_WS(
+      &#39;,&#39;,
+      CONCAT( &#39;&quot;&#39;, &#39;engine&#39;, &#39;&quot;:&quot;&#39;, t1.db_type, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;iops&#39;, &#39;&quot;:&quot;&#39;, t1.max_iops, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;maxConnect&#39;, &#39;&quot;:&quot;&#39;, t2.max_connection, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;vpcId&#39;, &#39;&quot;:&quot;&#39;, t3.vpc_code, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;vpcName&#39;, &#39;&quot;:&quot;&#39;, t3.vpc_name, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;ip&#39;, &#39;&quot;:&quot;&#39;, t1.ip_addr, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;cpu&#39;, &#39;&quot;:&quot;&#39;, t1.cpu_core_count, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;memory&#39;, &#39;&quot;:&quot;&#39;, t1.ram_size, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;engineVersion&#39;, &#39;&quot;:&quot;&#39;, t1.db_version, &#39;&quot;&#39; ),
+      CONCAT( &#39;&quot;&#39;, &#39;storage&#39;, &#39;&quot;:&quot;&#39;, t1.storage_size, &#39;&quot;&#39; ) 
+    ),
+    &#39;&#125;&#39; 
+  ) AS adJson,
+  t5.app_Id AS appId,
+  t5.`name` AS appName 
+FROM
+  resource_mgr_rds t1
+  LEFT JOIN product_rds_type t2 ON t1.ins_type = t2.insType
+  LEFT JOIN sys_vpc t3 ON t3.id = t1.vpc_id
+  LEFT JOIN resource_mgr_dynamic_allocate t4 ON t4.resource_id = t1.id 
+  AND t4.resource_type = 2 
+  AND t4.id = ( SELECT id FROM resource_mgr_dynamic_allocate WHERE t1.id = t4.resource_id AND t4.resource_type = 1 ORDER BY allocate_time DESC LIMIT 1 )
+  LEFT JOIN temp_irs_app_detail t5 ON t1.app_code = t5.`code` 
+WHERE
+  t1.dept_id = 842 
+  OR t1.pay_dept_id = 842 
+  AND t1.data_flag = 1 UNION ALL
+SELECT
+  &quot;对象存储&quot; AS type,
+  t1.instance_name AS instanceName,
+  t1.instance_id AS instanceId,
+  &quot;专有云&quot; AS area,
+  &quot;阿里云&quot; AS source,
+  ( CASE t1.`status` WHEN 4 THEN &#39;已释放&#39; ELSE &#39;运行中&#39; END ) AS `status`,
+  t1.real_produce_time AS openTime,
+  t1.releasing_time AS releaseTime,
+  t2.allocate_time AS changeTime,
+  CONCAT(
+    &#39;&#123;&#39;,
+    CONCAT_WS( &#39;,&#39;, CONCAT( &#39;&quot;&#39;, &#39;storage&#39;, &#39;&quot;:&quot;&#39;, t1.storage_capacity, &#39;&quot;&#39; ), CONCAT( &#39;&quot;&#39;, &#39;permissionType&#39;, &#39;&quot;:&quot;&#39;, t1.read_write_permission, &#39;&quot;&#39; ) ),
+    &#39;&#125;&#39; 
+  ) AS adJson,
+  t3.app_Id AS appId,
+  t3.`name` AS appName 
+FROM
+  resource_mgr_oss t1
+  LEFT JOIN resource_mgr_dynamic_allocate t2 ON t2.resource_id = t1.id 
+  AND t2.resource_type = 3 
+  AND t2.id = ( SELECT id FROM resource_mgr_dynamic_allocate WHERE t1.id = t2.resource_id AND t2.resource_type = 1 ORDER BY allocate_time DESC LIMIT 1 )
+  LEFT JOIN temp_irs_app_detail t3 ON t1.app_code = t3.`code` 
+WHERE
+  t1.dept_id = 842 
+  OR t1.pay_dept_id = 842 
+  AND t1.data_flag = 1
+</code></pre>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><h5 id="字段绝对值排序"><a href="#字段绝对值排序" class="headerlink" title="字段绝对值排序"></a>字段绝对值排序</h5><pre><code class="mysql">SELECT
+  d.dept_name AS 所属机构,
+  u.login_name AS 账号,
+  u.real_name AS 姓名,
+  u.phone AS 电话,
+  ( CASE u.user_type WHEN 0 THEN &#39;门户&#39; ELSE &#39;后台&#39; END ) AS 用户类型,
+  ( CASE u.`status` WHEN 0 THEN &#39;正常&#39; WHEN 1 THEN &#39;锁定&#39; ELSE &#39;禁用&#39; END ) AS 状态,
+  GROUP_CONCAT(r.role_name) as 角色名称,
+  GROUP_CONCAT(a.data_auth_description) as 角色权限描述
+  
+FROM
+  sys_user u
+  LEFT JOIN sys_dept d ON u.dept_id = d.dept_id
+  LEFT JOIN sys_user_role t ON u.user_id = t.user_id
+  LEFT JOIN sys_role r ON r.role_id = t.role_id
+  LEFT JOIN sys_role_data_auth s ON s.role_id = r.role_id 
+  LEFT JOIN sys_data_auth a ON s.data_auth_id = a.id
+  WHERE t.data_flag = 1 and u.data_flag = 1
+  GROUP BY u.user_id
+</code></pre>
+<h5 id="连接查询最新一条记录"><a href="#连接查询最新一条记录" class="headerlink" title="连接查询最新一条记录"></a>连接查询最新一条记录</h5><pre><code class="mysql">SELECT
+    * 
+FROM
+    USERS u
+    LEFT JOIN ( SELECT MAX( id ) AS id, userId FROM USER_AUTH GROUP BY userId ) AS ua ON ua.userId = u.id
+</code></pre>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -4061,5 +4312,28 @@ GROUP BY
       <tags>
         <tag>mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>mysql函数function</title>
+    <url>/2023/01/17/mysql%E5%87%BD%E6%95%B0function/</url>
+    <content><![CDATA[<p>MySQL全函数函数amd自定义函数function使用详解使用详解</p>
+<span id="more"></span>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java多线程</title>
+    <url>/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
