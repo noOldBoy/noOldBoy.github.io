@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>java异常处理 - </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+
+  <link rel="shortcut icon" href="/images/head/head1.jpeg" type="image/png" />
+  <meta name="description" content="java异常处理详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java异常处理">
+<meta property="og:url" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="java异常处理详解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810113511439-0102516.png">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810140143928.png">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810144809934.png">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810145525658.png">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810151043622.png">
+<meta property="og:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810160136986.png">
+<meta property="article:published_time" content="2022-08-10T02:29:39.000Z">
+<meta property="article:modified_time" content="2022-08-10T08:30:13.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="异常">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810113511439-0102516.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1676982952555">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/background/15.jpeg)"></div>
+    <div class="nexmoe-small" style="background-image: url(/images/background/lihui8.jpeg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head1.jpeg" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/head/head1.jpeg" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>38 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>28<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>6<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:gs990522_010817@163.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/noOldBoy/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://gitee.com/gs990522/" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
+            <i class="nexmoefont icon-mayun"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/其他/">其他</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/后端/">后端</a>
+          <span class="category-list-count">9</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">11</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">10</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/架构/">架构</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/excal/" style="font-size: 10px;">excal</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/host/" style="font-size: 10px;">host</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/idea/" style="font-size: 12.5px;">idea</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/jsoup/" style="font-size: 10px;">jsoup</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/odps/" style="font-size: 10px;">odps</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/springBoot/" style="font-size: 17.5px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 10px;">springCloud</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/wireguard/" style="font-size: 10px;">wireguard</a> <a href="/tags/%E4%BA%8B%E5%8A%A1/" style="font-size: 10px;">事务</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">36</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2023 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
+        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
+        
+        <div style="font-size: 12px">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+        
+        
+    </div> -->
+
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
+            <img data-src="/images/cha/16.jpeg" data-sizes="auto" alt="java异常处理" class="lazyload">
+            <h1>java异常处理</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年08月10日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.2k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+        </div>
+
+        <article>
+            <p>java异常处理详解</p>
+<span id="more"></span>
+
+<h4 id="一、异常介绍"><a href="#一、异常介绍" class="headerlink" title="一、异常介绍"></a>一、异常介绍</h4><h5 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h5><p>异常是指程序在运行过程中发生的，由于外部问题导致的程序运行异常事件，异常的发生往往会中断程序的运行。在 Java 面向对象的编程语言中，万物都是对象，异常本身也是一个对象，程序发生异常就会产生一个异常对象。</p>
+<h5 id="异常常见原因"><a href="#异常常见原因" class="headerlink" title="异常常见原因"></a>异常常见原因</h5><p>1.java内部异常，也就是java虚拟机自身产生了异常</p>
+<p>2.代码中抛出的异常，例如常见的<font color="red">空指针，数组越界</font></p>
+<p>3.throw我们捕获的异常，可以针对捕获的异常，做一些自定义的处理，比如封装一个有好的提示，或者例如捕获类似超时的异常以后去重新尝试调用</p>
+<h5 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810113511439-0102516.png" alt="image-20220810113511439" class="lazyload"></p>
+<h6 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h6><p><strong>概念：</strong></p>
+<p>1.Throwable是java中所有错误跟异常的顶层类，其他异常类也都是继承自该类。也就是只有当对象是此类或其子类的实例时，才能通过 Java 虚拟机或者 Java throw 语句抛出</p>
+<p>2.Throwable 对象中包含了其线程创建时线程执行堆栈的快照，它还包含了给出有关错误更多信息的消息字符串</p>
+<h6 id="Error"><a href="#Error" class="headerlink" title="Error"></a><strong>Error</strong></h6><p><strong>概念：</strong></p>
+<p>Error 是 Throwable 的子类，Error 是程序运行时无法处理的严重错误。</p>
+<p>按照规范来说，不应该去捕获该异常，你捕获了也什么都做不了。你当前的系统已经有了致命错误，一般指的是 JVM 错误，如堆栈溢出。</p>
+<h6 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h6><p><strong>非运行时异常：</strong></p>
+<p>是在你项目启动或者编译时候，抛出。语法错误，或者是某些配置有问题，一般是比较明确的，你不处理，你项目也跑不起来</p>
+<p><strong>运行时异常：</strong></p>
+<p>最常见的异常，代码运行时异常，如 NullPointerException、IndexOutOfBoundsException 等，这些异常是不检查异常，程序中可以选择捕获处理，也可以不处理。这些异常一般由程序逻辑错误引起，程序应该从逻辑角度尽可能避免这类异常的发生。</p>
+<p>我们一般说的异常处理、捕获，一般就是指就是处理这一块的异常</p>
+<h5 id="一个简单的异常示例"><a href="#一个简单的异常示例" class="headerlink" title="一个简单的异常示例"></a>一个简单的异常示例</h5><h6 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h6><pre><code class="java">public class Test &#123;
+    private int a = 1;
+    private int b = 2;
+
+    public static void main(String[] args) &#123;
+        Test t1 = new Test();
+        Test t2 = null;
+        System.out.println(t1.a);
+        System.out.println(t2.a);
+        System.out.println(t1.c());
+    &#125;
+
+    public String c() &#123;
+        return &quot;ccc&quot;;
+    &#125;
+&#125;
+</code></pre>
+<h6 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h6><p>输出t1.a以后t2.a因为t2是一个null实际，所以空指针报错，行数12行，程序也就终止了</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810140143928.png" alt="image-20220810140143928" class="lazyload"></p>
+<h4 id="三、异常处理机制"><a href="#三、异常处理机制" class="headerlink" title="三、异常处理机制"></a>三、异常处理机制</h4><h5 id="1-常用方式"><a href="#1-常用方式" class="headerlink" title="1.常用方式"></a>1.常用方式</h5><ul>
+<li>使用<strong>try…catch…finally…」</strong> 语句块处理</li>
+<li>在方法中使用 <strong>「throws&#x2F;throw」</strong> 关键词将异常交给方法调用者去处理（尽量不要在最外层抛出）</li>
+</ul>
+<h5 id="2-try…catch…finally…-关键字"><a href="#2-try…catch…finally…-关键字" class="headerlink" title="2.try…catch…finally… 关键字"></a>2.<strong>try…catch…finally… 关键字</strong></h5><h6 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h6><pre><code class="java">try &#123;
+    ...
+&#125; catch (IOException ioException) &#123;
+    ...
+&#125; catch (Exception exception) &#123;
+    ...
+&#125; finally &#123;
+    ...
+&#125;
+</code></pre>
+<h6 id="try"><a href="#try" class="headerlink" title="try"></a>try</h6><ul>
+<li><p>放你要执行的代码</p>
+</li>
+<li><p>如果try顺利执行完没有异常，他会执行你<code>try</code>后面<code>finally</code>中的and<code>finally</code>后面的代码。</p>
+</li>
+<li><p>如果执行抛出异常，他会去匹配<code>catch</code>，执行完<code>catch</code>程序执行<code>finally</code>块</p>
+</li>
+</ul>
+<h6 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h6><ul>
+<li>跟在<code>try</code>块的后面，可以有多个<code>catch</code>块且单个<code>catch</code>可以指定捕获多种类异常</li>
+<li>你应该在这里截止程序，避免程序出现更多问题</li>
+<li>如果<code>try</code>运行没有异常，所有的<code>catch</code>块都会被跳过</li>
+<li>各个<code>catch</code>块是相互独立的，里面变量都是局部变量，不可共享</li>
+<li>匹配方式是顺序的，自上而下</li>
+<li>发生的异常<code>catch</code>匹配不到的话，则会直接执行<code>finally</code>,异常会抛给外层调用方</li>
+<li>注意：一般外层例如Controller层，catch最后一层建议直接多捕获一层，直接捕获超类<code>Exception</code>或者<code>RuntimeException</code>(运行时异常)用来兜底。</li>
+</ul>
+<h6 id="finally"><a href="#finally" class="headerlink" title="**finally **"></a>**finally **</h6><ul>
+<li>finally块不是必须的，通常是可选的</li>
+<li>无论异常是否发生，异常是否匹配被处理，finally中的代码都会执行。</li>
+<li>inally块不管异常是否发生，只要对应的try执行了，则它一定也执行。只有一种方法让finally块不执行：<strong>「System.exit()」</strong></li>
+</ul>
+<h5 id="3-try…catch示例"><a href="#3-try…catch示例" class="headerlink" title="3.try…catch示例"></a>3.try…catch示例</h5><h6 id="示例1代码正常执行无异常"><a href="#示例1代码正常执行无异常" class="headerlink" title="示例1代码正常执行无异常"></a>示例1代码正常执行无异常</h6><p>执行顺序：</p>
+<p>try&gt;finally&gt;外层代码</p>
+<p><strong>示例代码：</strong></p>
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
+            System.out.println(&quot;try中代码&quot;);
+            Test t1 = new Test();
+            Test t2 = null;
+            System.out.println(t1.a);
+//            System.out.println(t2.a);
+        &#125; catch (NullPointerException e) &#123;
+            System.out.println(&quot;catch空指针异常捕获&quot;);
+        &#125; catch (Exception e) &#123;
+            System.out.println(&quot;捕获所有运行时Exception&quot;);
+        &#125; finally &#123;
+            System.out.println(&quot;finally执行&quot;);
+        &#125;
+        System.out.println(&quot;成功执行&quot;);
+    &#125;
+</code></pre>
+<p>运行结果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810144809934.png" alt="image-20220810144809934" class="lazyload"></p>
+<h6 id="示例2代码正常执行被捕获"><a href="#示例2代码正常执行被捕获" class="headerlink" title="示例2代码正常执行被捕获"></a>示例2代码正常执行被捕获</h6><p>执行顺序：</p>
+<p>try&gt;catch&gt;finally</p>
+<p>示例代码</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
+            System.out.println(&quot;try中代码&quot;);
+            Test t2 = null;
+            System.out.println(t2.a);
+        &#125; catch (NullPointerException e) &#123;
+            System.out.println(&quot;catch空指针异常捕获&quot;);
+        &#125; catch (Exception e) &#123;
+            System.out.println(&quot;捕获所有运行时Exception&quot;);
+        &#125; finally &#123;
+            System.out.println(&quot;finally执行&quot;);
+        &#125;
+    &#125;
+</code></pre>
+<p>运行结果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810145525658.png" alt="image-20220810145525658" class="lazyload"></p>
+<h6 id="示例3代码调用外层捕获"><a href="#示例3代码调用外层捕获" class="headerlink" title="示例3代码调用外层捕获"></a>示例3<strong>代码调用外层捕获</strong></h6><p>代码：</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
+            c();
+        &#125; catch (NullPointerException e) &#123;
+            System.out.println(&quot;catch空指针异常捕获&quot;);
+        &#125; catch (IndexOutOfBoundsException e) &#123;
+            System.out.println(&quot;catch数组越界异常捕获&quot;);
+        &#125; catch (Exception e) &#123;
+            System.out.println(&quot;捕获所有运行时Exception&quot;);
+        &#125; finally &#123;
+            System.out.println(&quot;入口类finally执行&quot;);
+        &#125;
+    &#125;
+
+    public static String c() &#123;
+        try &#123;
+            ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+            list.add(&quot;一&quot;);
+            System.out.println(list.get(1));
+        &#125; catch (NullPointerException e) &#123;
+            System.out.println(&quot;catch空指针异常捕获&quot;);
+        &#125; finally &#123;
+            System.out.println(&quot;方法c（）finally执行&quot;);
+        &#125;
+        return &quot;c&quot;;
+
+    &#125;
+</code></pre>
+<p>结果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810151043622.png" alt="image-20220810151043622" class="lazyload"></p>
+<p>分析：</p>
+<p>main入口调用的<code>c()</code>这个方法，很明显会抛出数据越界异常。但是方法<code>c（）</code>中的<code>catch</code>块匹配不到报错的异常，所以只执行了<code>finally</code>块，抛出的异常由调用入口匹配</p>
+<h5 id="4-throws-x2F-throw-关键字"><a href="#4-throws-x2F-throw-关键字" class="headerlink" title="4.throws&#x2F;throw 关键字"></a>4.<strong>throws&#x2F;throw 关键字</strong></h5><h6 id="throws"><a href="#throws" class="headerlink" title="throws"></a><strong>throws</strong></h6><ul>
+<li>向外抛出异常，抛向调用方</li>
+<li>写在接口类参数的后面，后面需要指定抛出的异常可以是多个</li>
+<li>throws 也是一种处理异常的方式，它不同于try…catch…finally…，throws 关键字仅仅是将方法中可能出现的异常向调用者抛出，而自己则不具体处理。</li>
+<li>你抛出的异常，你的调用方必须要处理你抛出的异常，当然他也可以抛出去，给他的调用方。你不处理编译是不通过的，直到最外层。没其他接口调用，前端调用的话，抛给前端，再到用户。</li>
+</ul>
+<p>语法：</p>
+<pre><code class="java">public static String c() throws NullPointerException, IOException &#123;&#125;
+</code></pre>
+<h6 id="throw"><a href="#throw" class="headerlink" title="throw"></a><strong>throw</strong></h6><ul>
+<li>我们也可以通过 throw 语句手动显式的抛出一个异常，throw语句的后面必须是一个异常对象</li>
+</ul>
+<p>语法：</p>
+<pre><code class="java">finally &#123;
+    throw new Exception(&quot;抛出异常&quot;);
+&#125;
+</code></pre>
+<h4 id="四、自定义异常"><a href="#四、自定义异常" class="headerlink" title="四、自定义异常"></a>四、自定义异常</h4><p>Java 的异常机制中所定义的所有异常不可能预见所有可能出现的错误，某些特定的情境下，则需要我们自定义异常类型来向上报告某些错误信息。</p>
+<h5 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h5><p>异常本身就是一个类，你可以选择继承 Throwable，Exception 或它们的子类。</p>
+<p><strong>按照规范，自定义的异常应该总是包含如下的构造函数：</strong></p>
+<ul>
+<li>一个无参构造函数</li>
+<li>一个带有String参数的构造函数，并传递给父类的构造函数。</li>
+<li>一个带有String参数和Throwable参数，并都传递给父类构造函数</li>
+<li>一个带有Throwable 参数的构造函数，并传递给父类的构造函数。</li>
+</ul>
+<p>例：</p>
+<pre><code class="java">public class MyError extends Exception &#123;
+
+    public MyError() &#123;
+        super();
+    &#125;
+
+    public MyError(String message) &#123;
+        super(message);
+    &#125;
+
+    public MyError(String message, Throwable cause) &#123;
+        super(message, cause);
+    &#125;
+
+    public MyError(Throwable cause) &#123;
+        super(cause);
+    &#125;
+
+&#125;
+</code></pre>
+<p>使用：</p>
+<pre><code class="java">public static void main(String[] args) throws MyError &#123;
+        if (true) &#123;
+            throw new MyError(&quot;长得太丑了&quot;);
+        &#125;
+    &#125;
+</code></pre>
+<p>效果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2022/08/10/java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/image-20220810160136986.png" alt="image-20220810160136986" class="lazyload"></p>
+<h4 id="五、异常的注意事项"><a href="#五、异常的注意事项" class="headerlink" title="五、异常的注意事项"></a>五、<strong>异常的注意事项</strong></h4><p>1.当子类重写父类带有<code>throws</code>声明的函数的时候，不可大于父类可处理的异常</p>
+<p>2.Java程序可以是多线程的。每一个线程都是一个独立的执行流，独立的函数调用栈。如果程序只有一个线程，那么没有被任何代码处理的异常 会导致程序终止。如果是多线程的，那么没有被任何代码处理的异常仅仅会导致异常所在的线程结束。</p>
+<p>3.不应该把异常吐给用户，这是无意义的。兜底捕获异常返回一个友好提示才是最好的选择。</p>
+
+        </article>
+
+        
+            
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'n2r75MzpGHpVu7oWmnAQjwNx-gzGzoHsz',
+        appKey: 'ukVyTvnQEQ1EdRW3Q2cmtjke'
+    })
+</script>
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw #242424;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh #242424;
+            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard"></div>
+    <div class="qweather-logo">
+
+    </div>
+
+</div>
+<style>
+    .qweather{
+        position: relative;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+  WIDGET = {
+    "CONFIG": {
+      "layout": "2",
+      "width": "260",
+      "height": "220",
+      "background": "5",
+      "dataColor": "e67249",
+      "borderRadius": "15",
+      "key": "f74d1e1690e6432d801e97fa2f05a162"
+    }
+  }
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+            </div>
+        
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1676982952556"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+<!-- hexo injector body_end start -->
+<script src="/js/clock.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/webapp.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/ni-j.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0d9ebcd3.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "0d9ebcd3"
+  });
+  daovoice('update');
+</script>
+
