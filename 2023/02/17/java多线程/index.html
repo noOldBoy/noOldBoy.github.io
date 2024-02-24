@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>java多线程 - </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+
+  <link rel="shortcut icon" href="/images/head/head1.jpeg" type="image/png" />
+  <meta name="description" content="java多线程入门到进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java多线程">
+<meta property="og:url" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="java多线程入门到进阶">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308194229567.png">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308203237927.png">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308213153672-8282315.png">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230309144934319-8344575.png">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230320114310157.png">
+<meta property="og:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231215173400759.png">
+<meta property="article:published_time" content="2023-02-17T06:35:19.000Z">
+<meta property="article:modified_time" content="2023-12-15T09:40:16.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="线程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308194229567.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1708759009648">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/background/15.jpeg)"></div>
+    <div class="nexmoe-small" style="background-image: url(/images/background/lihui8.jpeg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head1.jpeg" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/head/head1.jpeg" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>55 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>37<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:gs990522_010817@163.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/noOldBoy/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://gitee.com/gs990522/" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
+            <i class="nexmoefont icon-mayun"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/c/">c</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/其他/">其他</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/后端/">后端</a>
+          <span class="category-list-count">17</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">12</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">11</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/架构/">架构</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/BigDecimal/" style="font-size: 10px;">BigDecimal</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/cron/" style="font-size: 10px;">cron</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/excal/" style="font-size: 10px;">excal</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/host/" style="font-size: 10px;">host</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/hui/" style="font-size: 12px;">hui</a> <a href="/tags/idea/" style="font-size: 12px;">idea</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/java8/" style="font-size: 10px;">java8</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/jsoup/" style="font-size: 10px;">jsoup</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/odps/" style="font-size: 10px;">odps</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/spring/" style="font-size: 14px;">spring</a> <a href="/tags/springBoot/" style="font-size: 18px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 10px;">springCloud</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/wireguard/" style="font-size: 10px;">wireguard</a> <a href="/tags/%E4%BA%8B%E5%8A%A1/" style="font-size: 12px;">事务</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 12px;">异常</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">自定义注解</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">39</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2024 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
+        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
+        
+        <div style="font-size: 12px">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+        
+        
+    </div> -->
+
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
+            <img data-src="/images/cha/103.jpeg" data-sizes="auto" alt="java多线程" class="lazyload">
+            <h1>java多线程</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年02月17日</a>
+    <a><i class="nexmoefont icon-areachart"></i>7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 33 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+        </div>
+
+        <article>
+            <p>java多线程入门到进阶</p>
+<span id="more"></span>
+
+<h4 id="1-多线程相关概念"><a href="#1-多线程相关概念" class="headerlink" title="1.多线程相关概念"></a>1.多线程相关概念</h4><h5 id="1-1进程跟线程"><a href="#1-1进程跟线程" class="headerlink" title="1.1进程跟线程"></a>1.1进程跟线程</h5><p><strong>进程</strong>：可以理解为是正在运行的程序实体个进程中的执行场景&#x2F;执行单元，一个进程中包含多个进程</p>
+<p><strong>线程</strong>：是操作系统能够进行运算调度的最小单位，是完成进程中的最小执行单位</p>
+<h5 id="1-2并行跟并发"><a href="#1-2并行跟并发" class="headerlink" title="1.2并行跟并发"></a>1.2并行跟并发</h5><p><strong>并行</strong>：指同时发生两个并发事件，具有并发的含义。并发不一定并行，也可以说并发事件之间不一定要同一时刻发生。例如redis集群，把事情分给多个人去做，多线程的方式其实就是一种并行</p>
+<p><strong>并发：</strong>又称共行性，是指处理多个同时性活动的能力。类似抢购同一时间会有大量请求到同一个地方</p>
+<h5 id="1-3线程的生命周期"><a href="#1-3线程的生命周期" class="headerlink" title="1.3线程的生命周期"></a>1.3<strong>线程的生命周期</strong></h5><ol>
+<li><p>新建状态（创建线程的时候）</p>
+</li>
+<li><p>就绪状态（未获取到cpu，等待执行）</p>
+</li>
+<li><p>运行状态（获取到cpu执行权，线程执行）</p>
+</li>
+<li><p>阻塞状态（线程进入阻塞状态，例如是用sleep线程执行暂停）</p>
+</li>
+<li><p>死亡状态（释放cpu线程结束）</p>
+</li>
+</ol>
+<h4 id="2-java实现多线程"><a href="#2-java实现多线程" class="headerlink" title="2.java实现多线程"></a>2.java实现多线程</h4><h5 id="2-1继承-java-lang-Thread，重写-run方法"><a href="#2-1继承-java-lang-Thread，重写-run方法" class="headerlink" title="2.1继承 java.lang.Thread，重写 run方法"></a>2.1继承 <code>java.lang.Thread</code>，重写 <code>run方法</code></h5><p>比较简单，通过实例化这个子类，并调用start()方法来启动线程。这种方式的缺点也十分明显，因为java是单继承的，只能继承一个类局限性很大</p>
+<pre><code class="java">public class ThreadNewDemo extends Thread &#123;
+
+    @Override
+    public void run() &#123;
+        // 编写程序，这段程序运行在分支线程中（分支栈）。
+        for(int i = 0; i &lt; 10; i++)&#123;
+            System.out.println(&quot;分支线程---&gt;&quot; + i);
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        ThreadNewDemo threadNewDemo1 = new ThreadNewDemo();
+        ThreadNewDemo threadNewDemo2 = new ThreadNewDemo();
+        ThreadNewDemo threadNewDemo3 = new ThreadNewDemo();
+        ThreadNewDemo threadNewDemo4 = new ThreadNewDemo();
+        ThreadNewDemo threadNewDemo5 = new ThreadNewDemo();
+        threadNewDemo1.start();
+        threadNewDemo2.start();
+        threadNewDemo3.start();
+        threadNewDemo4.start();
+        threadNewDemo5.start();
+    &#125;
+</code></pre>
+<h5 id="2-2-编写一个类，实现-java-lang-Runnable-接口，实现run方法"><a href="#2-2-编写一个类，实现-java-lang-Runnable-接口，实现run方法" class="headerlink" title="2.2.编写一个类，实现 java.lang.Runnable 接口，实现run方法"></a>2.2.编写一个类，<strong>实现</strong> <strong><code>java.lang.Runnable</code></strong> 接口，实现<code>run方法</code></h5><p>这种方式相比较比继承<code>	Thread</code>类的方式更加灵活，这种方式的优点是灵活性高</p>
+<pre><code>public class RunnableNewDomo implements Runnable &#123;
+
+    @Override
+    public void run() &#123;
+        // 编写程序，这段程序运行在分支线程中（分支栈）。
+        for(int i = 0; i &lt; 10; i++)&#123;
+            System.out.println(&quot;分支线程---&gt;&quot; + i);
+        &#125;
+    &#125;
+
+
+    public static void main(String[] args) &#123;
+        Thread thread1 = new Thread(new RunnableNewDomo());
+        Thread thread2 = new Thread(new RunnableNewDomo());
+        Thread thread3 = new Thread(new RunnableNewDomo());
+        Thread thread4 = new Thread(new RunnableNewDomo());
+        Thread thread5 = new Thread(new RunnableNewDomo());
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+        thread5.start();
+    &#125;
+&#125;
+</code></pre>
+<h5 id="2-3-还有一种是实现Callable接口"><a href="#2-3-还有一种是实现Callable接口" class="headerlink" title="2.3.还有一种是实现Callable接口"></a>2.3.还有一种是实现<code>Callable</code>接口</h5><p>是在java1.5以后才加入的，这种方式与第二种方式类似，不同之处在于实现的是Callable接口而不是Runnable接口。Callable接口的call()方法可以返回一个结果，并且可以抛出异常。你可以使用ExecutorService来执行并返回一个Future对象，该对象可以用来获取任务的结果。这种方式的主要优点是可以返回结果和抛出异常，但它也需要你更多的代码来实现。</p>
+<pre><code>public class CallableNewDomo implements Callable&lt;String&gt; &#123;
+
+    @Override
+    public String call() throws RuntimeException &#123;
+        // 编写程序，这段程序运行在分支线程中（分支栈）。
+        for(int i = 0; i &lt; 10; i++)&#123;
+            System.out.println(&quot;分支线程---&gt;&quot; + i);
+        &#125;
+        return &quot;线程执行完成定义的返回值&quot;;
+    &#125;
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException &#123;
+        //启动方式1FutureTask
+        CallableNewDomo callableNewDomo = new CallableNewDomo();
+        FutureTask task = new FutureTask(callableNewDomo);
+        Thread thread = new Thread(task);
+        thread.start();
+        task.get();
+        //借助线程池启动
+        CallableNewDomo callableNewDomo1 = new CallableNewDomo();
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future&lt;String&gt; submit = executor.submit(callableNewDomo1);
+        submit.get();
+        executor.shutdownNow();
+    &#125;
+</code></pre>
+<h4 id="3-线程常用的方法"><a href="#3-线程常用的方法" class="headerlink" title="3.线程常用的方法"></a>3.线程常用的方法</h4><h5 id="3-1线程名称操作"><a href="#3-1线程名称操作" class="headerlink" title="3.1线程名称操作"></a>3.1线程名称操作</h5><h6 id="currentThread"><a href="#currentThread" class="headerlink" title="currentThread()"></a>currentThread()</h6><p>获取当前线程对象</p>
+<h6 id="getName"><a href="#getName" class="headerlink" title="getName()"></a>getName()</h6><p>获取线程对象名字</p>
+<h6 id="setName-String-name"><a href="#setName-String-name" class="headerlink" title="setName(String name)"></a>setName(String name)</h6><p>修改线程对象名字(当没有设置名称的时候名字为：Thread-0，Thread-2…..类推)</p>
+<p>实例：</p>
+<pre><code class="java">public class ThreadNewDemo extends Thread &#123;
+
+    @Override
+    public void run() &#123;
+        System.out.println(currentThread());
+    &#125;
+
+    public static void main(String[] args) &#123;
+        ThreadNewDemo threadNewDemo1 = new ThreadNewDemo();
+        ThreadNewDemo threadNewDemo2 = new ThreadNewDemo();
+        threadNewDemo1.start();
+        threadNewDemo2.start();
+        threadNewDemo2.setName(&quot;线程2&quot;);
+        System.out.println(threadNewDemo1.getName());
+        System.out.println(threadNewDemo2.getName());
+        System.out.println(currentThread());
+    &#125;
+&#125;
+</code></pre>
+<p>结果：</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308194229567.png" alt="image-20230308194229567" class="lazyload"></p>
+<h5 id="3-2sleep-方法使用"><a href="#3-2sleep-方法使用" class="headerlink" title="3.2sleep()方法使用"></a>3.2sleep()方法使用</h5><p>静态方法，让当前线程放弃占有的CPU资源进入休眠，进入阻塞状态。</p>
+<h5 id="3-3stop-线程终止"><a href="#3-3stop-线程终止" class="headerlink" title="3.3stop()线程终止"></a>3.3stop()线程终止</h5><p><font color="red">注：已过期不建议使用，会有丢失数据的问题</font></p>
+<p>那么怎么合理终止一个线程呢</p>
+<p>例：可以定义一个开关</p>
+<pre><code class="java">public class ThreadNewDemo extends Thread &#123;
+
+    private static  Boolean flg = true;
+    
+    @Override
+    public void run() &#123;
+        while (true) &#123;
+            if (flg) &#123;
+                System.out.println(&quot;当前运行线程为：&quot; + Thread.currentThread().getName() + &quot; - 运行&quot;);
+            &#125; else &#123;
+                System.out.println(&quot;暂停&quot;);
+                return;
+            &#125;
+        &#125;
+    &#125;
+    
+    public static void main(String[] args) throws InterruptedException &#123;
+        ThreadNewDemo threadNewDemo1 = new ThreadNewDemo();
+        threadNewDemo1.setName(&quot;花木兰&quot;);
+        ThreadNewDemo threadNewDemo2 = new ThreadNewDemo();
+        threadNewDemo2.setName(&quot;李白&quot;);
+        threadNewDemo1.start();
+        threadNewDemo2.start();
+        //让线程跑2秒
+        Thread.sleep(2000);
+        //暂停他
+        flg = false;
+    &#125;
+&#125;
+</code></pre>
+<h5 id="3-4线程优先级"><a href="#3-4线程优先级" class="headerlink" title="3.4线程优先级"></a>3.4线程优先级</h5><p>main线程的默认优先级是：<strong>5</strong><br>优先级较高的，只是抢到的<strong>CPU时间片</strong>相对多一些。大概率方向更偏向于优先级比较高的。</p>
+<p>例：</p>
+<pre><code class="java">public class ThreadNewDemo extends Thread &#123;
+    
+    private static  Boolean flg = true;
+    
+    @Override
+    public void run() &#123;
+        while (true) &#123;
+            if (flg) &#123;
+                System.out.println(&quot;当前运行线程为：&quot; + Thread.currentThread().getName() + &quot; - 运行&quot;);
+            &#125; else &#123;
+                System.out.println(&quot;暂停&quot;);
+                return;
+            &#125;
+        &#125;
+    &#125;
+    
+    public static void main(String[] args) throws InterruptedException &#123;
+        ThreadNewDemo threadNewDemo1 = new ThreadNewDemo();
+        threadNewDemo1.setName(&quot;花木兰&quot;);
+        threadNewDemo1.setPriority(1);
+        ThreadNewDemo threadNewDemo2 = new ThreadNewDemo();
+        threadNewDemo2.setName(&quot;李白&quot;);
+        threadNewDemo2.setPriority(10);
+        threadNewDemo1.start();
+        threadNewDemo2.start();
+        Thread.sleep(20);
+        //暂停他
+        flg = false;
+    &#125;
+
+&#125;
+</code></pre>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308203237927.png" alt="image-20230308203237927" class="lazyload"></p>
+<h5 id="3-5线程礼让yield"><a href="#3-5线程礼让yield" class="headerlink" title="3.5线程礼让yield()"></a>3.5线程礼让yield()</h5><p>让位，当前线程暂停，回到就绪状态，让给其它线程。只是放弃当前cpu权，并不是每次都让成功的，有可能它又抢到时间片了。</p>
+<h5 id="3-6线程加入join"><a href="#3-6线程加入join" class="headerlink" title="3.6线程加入join()"></a>3.6线程加入join()</h5><p>一个线程.join()，当前线程会进入”**<code>阻塞状态</code>**“。等待加入线程执行完！</p>
+<pre><code class="java">public class ThreadTest13 &#123;
+    
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;main begin&quot;);
+        Thread t = new Thread(new MyRunnable7());
+        t.setName(&quot;t&quot;);
+        t.start();
+        //合并线程
+        try &#123;
+            t.join(); // t合并到当前线程中，当前线程受阻塞，t线程执行直到结束。
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        System.out.println(&quot;main over&quot;);
+    &#125;
+&#125;
+
+class MyRunnable7 implements Runnable &#123;
+
+    @Override
+    public void run() &#123;
+        for(int i = 0; i &lt; 100; i++)&#123;
+            System.out.println(Thread.currentThread().getName() + &quot;---&gt;&quot; + i);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h5 id="3-7守护线程Daemon"><a href="#3-7守护线程Daemon" class="headerlink" title="3.7守护线程Daemon()"></a>3.7守护线程Daemon()</h5><p><code>Daemon</code>默认是false用户线程，手动设置为true以后就是守护线程，会等待所有的线程执行完再停止</p>
+<pre><code class="java">/**
+ * 测试守护线程
+ * 上帝守护你
+ */
+public class Demo23_DaemonThread &#123;
+    public static void main(String[] args) &#123;
+        God god = new God();
+        You you = new You();
+
+        Thread thread = new Thread(god);
+        //默认false表示是用户线程,正常的线程都是用户线程...
+        thread.setDaemon(true);
+        //上帝守护线程启动
+        thread.start();
+        //你 用户线程启动
+        new Thread(you).start();
+    &#125;
+&#125;
+
+//上帝
+class God implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        while (true)&#123;
+            System.out.println(&quot;上帝保佑着你&quot;);
+        &#125;
+    &#125;
+&#125;
+
+//你
+class You implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        for (int i = 0; i &lt; 36500; i++) &#123;
+            System.out.println(&quot;你一生都开心的活着&quot;);
+        &#125;
+        System.out.println(&quot;====goodbye!world====&quot;);
+    &#125;
+&#125;
+</code></pre>
+<h4 id="4-线程安全"><a href="#4-线程安全" class="headerlink" title="4.线程安全"></a>4.线程安全</h4><p>线程安全是什么，由于多个进程共享同一块存储空间，但是数据不同步，产生的数据安全问题</p>
+<p>示例：抢票问题，由于多个线程之前数据不同步造成的超卖问题</p>
+<pre><code class="java">public class ThreadTest3 &#123;
+
+    public static void main(String[] args) &#123;
+        BuyTicket buyTicket = new BuyTicket();
+        new Thread(buyTicket, &quot;张三&quot;).start();
+        new Thread(buyTicket, &quot;李四&quot;).start();
+        new Thread(buyTicket, &quot;王五&quot;).start();
+    &#125;
+&#125;
+
+class BuyTicket implements Runnable &#123;
+    //票
+    private int ticketNums = 10;
+    boolean flag = true;
+
+    @Override
+    public void run() &#123;
+        //买票
+        while (flag) &#123;
+            try &#123;
+                buy();
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+
+    //买票
+    private void buy() &#123;
+        //判断是否有票
+        if (ticketNums &lt;= 0) &#123;
+            flag = false;
+            return;
+        &#125;
+        //延迟
+        try &#123;
+            Thread.sleep(1);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        //买票
+        System.out.println(Thread.currentThread().getName() + &quot;拿到&quot; + ticketNums--);
+    &#125;
+&#125;
+</code></pre>
+<p>结果:</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230308213153672-8282315.png" alt="image-20230308213153672" class="lazyload"></p>
+<h5 id="4-1解决方式一synchronized同步代码块"><a href="#4-1解决方式一synchronized同步代码块" class="headerlink" title="4.1解决方式一synchronized同步代码块"></a>4.1解决方式一synchronized同步代码块</h5><p>synchronized是Java中的关键字，被Java原生支持，是一种最基本的同步锁,Synchronized 方法控制对对象的访问，每个对象对应一把锁，每个 synchronized 方法都必须获取调用方法的对象的锁才能执行，否则线程会阻塞，方法一旦执行，就独占该锁，直到方法返回才释放锁，后面被阻塞的线程才能获得锁，继续执行；<br><code>synchronized 修饰的方法只能一个对象调用完之后，另一个对象才能调用。锁的是调用该方法的对象。默认锁的this</code></p>
+<p>它修饰的对象有以下几种： </p>
+<pre><code class="apl"> 　　1. 修饰一个代码块，被修饰的代码块称为同步语句块，其作用的范围是大括号&#123;&#125;括起来的代码，作用的对象是调用这个代码块的对象。
+ 　　2. 修饰一个方法，被修饰的方法称为同步方法，其作用的范围是整个方法，作用的对象是调用这个方法的对象。
+ 　　3. 修饰一个静态的方法，其作用的范围是整个静态方法，作用的对象是这个类的所有对象。
+ 　
+</code></pre>
+<pre><code class="java">public class a &#123;
+
+    private String str;
+
+
+    synchronized void demo() &#123;
+
+    &#125;
+
+    static synchronized void demo2() &#123;
+
+    &#125;
+
+    void method() &#123;
+        synchronized (a.class) &#123;
+
+        &#125;
+
+        synchronized (str) &#123;
+            
+        &#125;
+    &#125;
+    
+&#125;
+</code></pre>
+<p><strong>卖票问题解决</strong></p>
+<pre><code class="java"> //买票
+    private synchronized void buy() &#123;
+
+        //判断是否有票
+        if (ticketNums &lt;= 0) &#123;
+            flag = false;
+            return;
+        &#125;
+        //延迟
+        try &#123;
+            Thread.sleep(1);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        //买票
+        System.out.println(Thread.currentThread().getName() + &quot;拿到&quot; + ticketNums--);
+    &#125;
+</code></pre>
+<h5 id="4-2线程不安全的集合"><a href="#4-2线程不安全的集合" class="headerlink" title="4.2线程不安全的集合"></a>4.2线程不安全的集合</h5><pre><code class="java">public class Demo26_UnsafeList &#123;
+    public static void main(String[] args) &#123;
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        for (int i = 0; i &lt;10000; i++) &#123;
+            new Thread(()-&gt;&#123;
+                list.add(Thread.currentThread().getName());
+            &#125;).start();
+        &#125;
+        System.out.println(list.size());
+    &#125;
+&#125;
+</code></pre>
+<p>多次运行输出结果ArrayList是线程不安全的</p>
+<pre><code class="apl">10000
+99996
+10002
+</code></pre>
+<p><strong>CopyOnWriteArrayList线程安全的集合</strong></p>
+<pre><code class="java">public class Demo26_UnsafeList &#123;
+    public static void main(String[] args) &#123;
+        ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        for (int i = 0; i &lt;10000; i++) &#123;
+            new Thread(()-&gt;&#123;
+                list.add(Thread.currentThread().getName());
+            &#125;).start();
+        &#125;
+        //等待三秒让线程跑完
+        try &#123;
+            Thread.sleep(3000);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(list.size());
+    &#125;
+&#125;
+</code></pre>
+<h4 id="5-死锁"><a href="#5-死锁" class="headerlink" title="5.死锁"></a>5.死锁</h4><h5 id="5-1死锁产生的原因"><a href="#5-1死锁产生的原因" class="headerlink" title="5.1死锁产生的原因"></a>5.1死锁产生的原因</h5><p>死锁是由于两个或以上的线程互相持有对方需要的资源，导致这些线程处于等待状态，无法执行。</p>
+<h5 id="5-2示例"><a href="#5-2示例" class="headerlink" title="5.2示例"></a>5.2示例</h5><p>两个Makeup对象分别先后获取口号或镜子一种资源后，加锁锁定资源，休眠1秒后然后再去获得下一个资源</p>
+<pre><code class="java">public class Demo31&#123;
+    public static void main(String[] args) &#123;
+        Makeup makeup = new Makeup(0, &quot;灰姑娘&quot;);
+        Makeup makeup1 = new Makeup(1, &quot;白雪公主&quot;);
+        makeup.start();
+        makeup1.start();
+    &#125;
+&#125;
+
+//口红
+class Lipstick &#123; &#125;
+//镜子
+class Mirror &#123; &#125;
+
+class Makeup extends Thread &#123;
+    //需要的资源只有一份,用static保证只有一份
+    static Lipstick lipstick = new Lipstick();
+    static Mirror mirror = new Mirror();
+    int choice;//选择
+    String girlName;//使用化妆品的人
+
+    public Makeup(int choice, String girlName) &#123;
+        this.choice = choice;
+        this.girlName = girlName;
+    &#125;
+
+    @Override
+    public void run() &#123;
+        //化妆
+        try &#123;
+            makeup();
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    private void makeup() throws InterruptedException &#123;
+        if (choice == 0) &#123;
+            synchronized (lipstick) &#123;//获得口红的锁
+                System.out.println(this.girlName + &quot;获得口红的锁&quot;);
+                Thread.sleep(1000);
+                synchronized (mirror) &#123;//一秒钟后想获得镜子
+                    System.out.println(this.girlName + &quot;获得镜子的锁&quot;);
+                &#125;
+            &#125;
+        &#125; else &#123;
+            synchronized (mirror) &#123;//获得口红镜子
+                System.out.println(this.girlName + &quot;获得镜子的锁&quot;);
+                Thread.sleep(2000);
+                synchronized (lipstick) &#123;//二秒钟后想获得的锁
+                    System.out.println(this.girlName + &quot;获得口红的锁&quot;);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>运行结果</strong></p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230309144934319-8344575.png" alt="image-20230309144934319" class="lazyload"></p>
+<p>可以发现项目还是在运行状态的，白雪公主获得镜子并加锁，去获取口红，但是口红被灰姑娘获取后锁定，灰姑娘再去获取镜子，两个对象互不释放，也不停止，这个时候就产生了死锁</p>
+<h5 id="5-3产生死锁的四个必要条件"><a href="#5-3产生死锁的四个必要条件" class="headerlink" title="5.3产生死锁的四个必要条件"></a>5.3产生死锁的四个必要条件</h5><p>死锁产生的四个必要条件，只要能打破一个就能打破死锁</p>
+<p>一、互斥条件：一个资源只能被一个进程使用。</p>
+<p>二、请求与保持条件：一个进程因请求资源阻塞时候，对已获取的资源保持不放。</p>
+<p>三、不可剥夺条件：对已获得的资源，在未使用完之前，不可剥夺。</p>
+<p>四、循环等待条件：发生死锁时，线程进入死循环，永久阻塞。</p>
+<h5 id="6-Lock（锁）"><a href="#6-Lock（锁）" class="headerlink" title="6.Lock（锁）"></a>6.Lock（锁）</h5><p>Lock是一种显示的锁，可以手动开启跟关闭，<code>ReentrantLock</code>事Lock的一个实现类,最常用</p>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><pre><code class="java">//测试Lock锁
+public class Demo32_ThreadLock &#123;
+    public static void main(String[] args) &#123;
+        TestLock testLock = new TestLock();
+        new Thread(testLock).start();
+        new Thread(testLock).start();
+        new Thread(testLock).start();
+    &#125;
+&#125;
+
+class TestLock implements Runnable &#123;
+    int tickerNums = 10;
+    //定义Lock锁
+    private final ReentrantLock lock = new ReentrantLock();
+
+    @Override
+    public void run() &#123;
+        while (true) &#123;
+            //加锁
+            try &#123;
+                lock.lock();
+                if (tickerNums &lt;= 0) &#123;
+                    break;
+                &#125;
+                try &#123;
+                    Thread.sleep(1000);
+                &#125; catch (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+                System.out.println(tickerNums--);
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125; finally &#123;
+                //解锁
+                lock.unlock();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="7-线程通讯问题"><a href="#7-线程通讯问题" class="headerlink" title="7.线程通讯问题"></a>7.线程通讯问题</h4><h5 id="7-1场景描述"><a href="#7-1场景描述" class="headerlink" title="7.1场景描述"></a><strong>7.1场景描述</strong></h5><p>生产者：Production.class   消费者：Consumer.class   仓库：Container.class</p>
+<p>生产者生产完商品放入仓库</p>
+<p>仓库满10件打包好让消费者取走，怎么在仓库放满以后通知消费者消费呢 </p>
+<h5 id="7-2java提供的api"><a href="#7-2java提供的api" class="headerlink" title="7.2java提供的api"></a>7.2java提供的api</h5><p>线程通讯的api为Object类提供，都只能在同步方法或者是同步类中使用，否则会抛出异常</p>
+<h6 id="wait-wait-long-time"><a href="#wait-wait-long-time" class="headerlink" title="wait()|wait(long time)"></a>wait()|wait(long time)</h6><p>表示线程进入等待，与sleep不同的是，会释放锁  </p>
+<h6 id="notify-notifyAll"><a href="#notify-notifyAll" class="headerlink" title="notify()|notifyAll()"></a>notify()|notifyAll()</h6><p>唤醒一个或者多个正在等待的线程，优先级多的会优先调度</p>
+<p>示例：</p>
+<pre><code class="java">/**
+ * 测试:生产者消费者模型--&gt;利用缓冲区解决:管程法
+ */
+public class Demo33_ThreadPC &#123;
+    public static void main(String[] args) &#123;
+        SynContainer synContainer = new SynContainer();
+        new Producer(synContainer).start();
+        new Consumer(synContainer).start();
+    &#125;
+&#125;
+
+//生产者
+class Producer extends Thread &#123;
+    //容缓冲区
+    SynContainer container;
+
+    public Producer(SynContainer container) &#123;
+        this.container = container;
+    &#125;
+
+    //生产
+    @Override
+    public void run() &#123;
+        for (int i = 0; i &lt; 100; i++) &#123;
+            container.push(new Product(i));
+            System.out.println(&quot;生产了&quot; + i + &quot;件产品&quot;);
+        &#125;
+    &#125;
+&#125;
+
+//消费者
+class Consumer extends Thread &#123;
+    //容缓冲区
+    SynContainer container;
+
+    public Consumer(SynContainer container) &#123;
+        this.container = container;
+    &#125;
+
+    //消费
+    @Override
+    public void run() &#123;
+        for (int i = 0; i &lt; 100; i++) &#123;
+            System.out.println(&quot;消费了--&gt;&quot; + container.pop().id + &quot;件产品&quot;);
+        &#125;
+    &#125;
+&#125;
+
+//产品
+class Product &#123;
+    int id;//产品编号
+
+    public Product(int id) &#123;
+        this.id = id;
+    &#125;
+&#125;
+
+//缓冲区
+class SynContainer &#123;
+    //需要一个容器大小
+    Product[] products = new Product[10];
+    //容器计数器
+    int count = 0;
+
+    //生产者放入产品
+    public synchronized void push(Product product) &#123;
+        //如果容器满了,需要等待消费者消费
+        /*如果是if的话，假如消费者1消费了最后一个，这是index变成0此时释放锁被消费者2拿到而不是生产者拿到，这时消费者的wait是在if里所以它就直接去消费index-1下标越界，如果是while就会再去判断一下index得值是不是变成0了*/
+        while (count == products.length) &#123;
+            //通知消费者消费,等待生产
+            try &#123;
+                this.wait();
+            &#125; catch (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        //如果没有满,需要丢入产品
+        products[count] = product;
+        count++;
+        //通知消费者消费
+        this.notifyAll();
+    &#125;
+
+    //消费者消费产品
+    public synchronized Product pop() &#123;
+        //判断是否能消费
+        while (count &lt;= 0) &#123;
+            //等待生产者生产
+            try &#123;
+                this.wait();
+            &#125; catch (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        //如果可以消费
+        count--;
+        Product product = products[count];
+        //吃完了 通知生产者生产
+        this.notifyAll();
+        return product;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="8-线程池ThreadPoolExecutor"><a href="#8-线程池ThreadPoolExecutor" class="headerlink" title="8.线程池ThreadPoolExecutor"></a>8.线程池<strong>ThreadPoolExecutor</strong></h4><h5 id="8-1为什么要使用线程池"><a href="#8-1为什么要使用线程池" class="headerlink" title="8.1为什么要使用线程池"></a>8.1为什么要使用线程池</h5><p>其实主要作用就是统一管理线程，统一开启关闭,</p>
+<ul>
+<li>降低资源的消耗</li>
+<li>提高响应的速度</li>
+<li>方便管理、</li>
+</ul>
+<h5 id="8-2ThreadPoolExecutor源码"><a href="#8-2ThreadPoolExecutor源码" class="headerlink" title="8.2ThreadPoolExecutor源码"></a>8.2ThreadPoolExecutor源码</h5><p><strong>参数最多的构造方法</strong></p>
+<pre><code class="java">public ThreadPoolExecutor(int corePoolSize,
+                              int maximumPoolSize,
+                              long keepAliveTime,
+                              TimeUnit unit,
+                              BlockingQueue&lt;Runnable&gt; workQueue,
+                              ThreadFactory threadFactory,
+                              RejectedExecutionHandler handler) &#123;
+        if (corePoolSize &lt; 0 ||
+            maximumPoolSize &lt;= 0 ||
+            maximumPoolSize &lt; corePoolSize ||
+            keepAliveTime &lt; 0)
+            throw new IllegalArgumentException();
+        if (workQueue == null || threadFactory == null || handler == null)
+            throw new NullPointerException();
+        this.acc = System.getSecurityManager() == null ?
+                null :
+                AccessController.getContext();
+        this.corePoolSize = corePoolSize;
+        this.maximumPoolSize = maximumPoolSize;
+        this.workQueue = workQueue;
+        this.keepAliveTime = unit.toNanos(keepAliveTime);
+        this.threadFactory = threadFactory;
+        this.handler = handler;
+    &#125;
+</code></pre>
+<h5 id="8-3线程池参数"><a href="#8-3线程池参数" class="headerlink" title="8.3线程池参数"></a>8.3线程池参数</h5><p><strong>corePoolSize</strong>(必须)：</p>
+<p>核心线程数。默认情况下，核心线程会一直存活，但是当将 <strong>allowCoreThreadTimeout</strong> 设置为 true 时，核心线程也会超时回收。</p>
+<p><strong>maximumPoolSize</strong>（必需）：</p>
+<p>线程池所能容纳的最大线程数。当活跃线程数达到该数值后，后续的新任务将会阻塞。</p>
+<p><strong>keepAliveTime</strong>（必需）：</p>
+<p>线程闲置超时时长。如果超过该时长，非核心线程就会被回收。如果将 <strong>allowCoreThreadTimeout</strong> 设置为 true 时，核心线程也会超时回收。</p>
+<p><strong>unit</strong>（必需）：</p>
+<p>指定 keepAliveTime 参数的时间单位。常用的有：<strong>TimeUnit.MILLISECONDS</strong>（毫秒）、<strong>TimeUnit.SECONDS</strong>（秒）、<strong>TimeUnit.MINUTES</strong>（分）。</p>
+<p><strong>workQueue</strong>（必需）：</p>
+<p>任务队列。通过线程池的 execute() 方法提交的 Runnable 对象将存储在该参数中。其采用阻塞队列实现。在 Java 中需要实现 <strong>BlockingQueue</strong> 接口。</p>
+<p> Java 提供的 7 种阻塞队列的实现：</p>
+<h6 id="ArrayBlockingQueue："><a href="#ArrayBlockingQueue：" class="headerlink" title="ArrayBlockingQueue："></a>ArrayBlockingQueue：</h6><p>一个由数组结构组成的有界阻塞队列（数组结构可配合指针实现一个环形队列）。</p>
+<h6 id="LinkedBlockingQueue："><a href="#LinkedBlockingQueue：" class="headerlink" title="LinkedBlockingQueue："></a>LinkedBlockingQueue：</h6><p> 一个由链表结构组成的有界阻塞队列，在未指明容量时，容量默认为 Integer.MAX_VALUE。</p>
+<h6 id="PriorityBlockingQueue："><a href="#PriorityBlockingQueue：" class="headerlink" title="PriorityBlockingQueue："></a>PriorityBlockingQueue：</h6><p> 一个支持优先级排序的无界阻塞队列，对元素没有要求，可以实现 Comparable 接口也可以提供 Comparator 来对队列中的元素进行比较。跟时间没有任何关系，仅仅是按照优先级取任务。</p>
+<h6 id="DelayQueue："><a href="#DelayQueue：" class="headerlink" title="DelayQueue："></a>DelayQueue：</h6><p>类似于PriorityBlockingQueue，是二叉堆实现的无界优先级阻塞队列。要求元素都实现 Delayed 接口，通过执行时延从队列中提取任务，时间没到任务取不出来。</p>
+<h6 id="SynchronousQueue："><a href="#SynchronousQueue：" class="headerlink" title="SynchronousQueue："></a>SynchronousQueue：</h6><p> 一个不存储元素的阻塞队列，消费者线程调用 take() 方法的时候就会发生阻塞，直到有一个生产者线程生产了一个元素，消费者线程就可以拿到这个元素并返回；生产者线程调用 put() 方法的时候也会发生阻塞，直到有一个消费者线程消费了一个元素，生产者才会返回。</p>
+<h6 id="LinkedBlockingDeque："><a href="#LinkedBlockingDeque：" class="headerlink" title="LinkedBlockingDeque："></a>LinkedBlockingDeque：</h6><p> 使用双向队列实现的有界双端阻塞队列。双端意味着可以像普通队列一样 FIFO（先进先出），也可以像栈一样 FILO（先进后出）。</p>
+<h6 id="LinkedTransferQueue："><a href="#LinkedTransferQueue：" class="headerlink" title="LinkedTransferQueue："></a>LinkedTransferQueue：</h6><p> 它是ConcurrentLinkedQueue、LinkedBlockingQueue 和 SynchronousQueue 的结合体，但是把它用在 ThreadPoolExecutor 中，和 LinkedBlockingQueue 行为一致，但是是无界的阻塞队列。</p>
+<p><strong>threadFactory</strong>（可选）：</p>
+<p>线程工厂。用于指定为线程池创建新线程的方式。在 Java 中需要实现 <strong>BlockingQueue</strong> 接口。但 Java 已经为我们提供了 7 种阻塞队列的实现：</p>
+<pre><code class="java">/**
+ * The default thread factory.
+ */
+private static class DefaultThreadFactory implements ThreadFactory &#123;
+    private static final AtomicInteger poolNumber = new AtomicInteger(1);
+    private final ThreadGroup group;
+    private final AtomicInteger threadNumber = new AtomicInteger(1);
+    private final String namePrefix;
+ 
+    DefaultThreadFactory() &#123;
+        SecurityManager s = System.getSecurityManager();
+        group = (s != null) ? s.getThreadGroup() :
+                              Thread.currentThread().getThreadGroup();
+        namePrefix = &quot;pool-&quot; +
+                      poolNumber.getAndIncrement() +
+                     &quot;-thread-&quot;;
+    &#125;
+ 
+    public Thread newThread(Runnable r) &#123;
+        Thread t = new Thread(group, r,
+                              namePrefix + threadNumber.getAndIncrement(),
+                              0);
+        if (t.isDaemon())
+            t.setDaemon(false);
+        if (t.getPriority() != Thread.NORM_PRIORITY)
+            t.setPriority(Thread.NORM_PRIORITY);
+        return t;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>handler</strong>（可选）：</p>
+<p>拒绝策略。当达到最大线程数时需要执行的饱和策略。拒绝策略需要实现 RejectedExecutionHandler 接口，并实现 rejectedExecution(Runnable r, ThreadPoolExecutor executor) 方法。不过 Executors 框架已经为我们实现了 4 种拒绝策略：</p>
+<h6 id="AbortPolicy（默认）："><a href="#AbortPolicy（默认）：" class="headerlink" title="AbortPolicy（默认）："></a><strong>AbortPolicy（默认）：</strong></h6><p>丢弃任务并抛出 RejectedExecutionException 异常。</p>
+<h6 id="CallerRunsPolicy："><a href="#CallerRunsPolicy：" class="headerlink" title="CallerRunsPolicy："></a><strong>CallerRunsPolicy：</strong></h6><p>由调用线程处理该任务。</p>
+<h6 id="DiscardPolicy："><a href="#DiscardPolicy：" class="headerlink" title="DiscardPolicy："></a><strong>DiscardPolicy：</strong></h6><p>丢弃任务，但是不抛出异常。可以配合这种模式进行自定义的处理方式。</p>
+<h6 id="DiscardOldestPolicy："><a href="#DiscardOldestPolicy：" class="headerlink" title="DiscardOldestPolicy："></a>DiscardOldestPolicy：</h6><p>丢弃队列最早的未处理任务，然后重新尝试执行任务。</p>
+<hr>
+<p>版权声明：本文为CSDN博主「孙强 Jimmy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013541140/article/details/95225769">https://blog.csdn.net/u013541140/article/details/95225769</a></p>
+<h5 id="8-4线程池创建示例"><a href="#8-4线程池创建示例" class="headerlink" title="8.4线程池创建示例"></a>8.4线程池创建示例</h5><pre><code class="java">public static void main(String[] args) &#123;
+    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+            10,
+            20,
+            1000,
+            TimeUnit.MICROSECONDS,
+            new LinkedBlockingQueue&lt;&gt;(100),
+            new ThreadPoolExecutor.AbortPolicy());
+&#125;
+</code></pre>
+<p>流程图</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20230320114310157.png" alt="image-20230320114310157" class="lazyload"></p>
+<h4 id="9-java封装好的功能线程池"><a href="#9-java封装好的功能线程池" class="headerlink" title="9.java封装好的功能线程池"></a>9.java封装好的功能线程池</h4><h5 id="定长线程池"><a href="#定长线程池" class="headerlink" title="定长线程池"></a>定长线程池</h5><p><strong>特点</strong>：只有核心线程数，执行完立即回收，任务队列胃链表结构的有界队列。</p>
+<p>应用场景：控制最大并发数</p>
+<pre><code class="java">public class Dede implements Runnable &#123;
+
+    public static void main(String[] args) &#123;
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        Dede dede = new Dede();
+        Thread thread = new Thread(dede);
+        thread.start();
+        executorService.submit(thread);
+    &#125;
+    
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName());
+    &#125;
+&#125;
+</code></pre>
+<h5 id="定时线程池"><a href="#定时线程池" class="headerlink" title="定时线程池"></a>定时线程池</h5><p><strong>特点</strong>：核心线程数固定，非核心线程数量无限，执行完闲置任务回收，任务队列胃延时阻塞队列</p>
+<p>应用场景：需要周期性的执行任务</p>
+<pre><code class="java">public static void main(String[] args) &#123;
+        Dede dede = new Dede();
+        Thread thread = new Thread(dede);
+        ScheduledExecutorService service = Executors.newScheduledThreadPool(10);
+        // 延迟1s后执行任务
+        service.schedule(thread, 1, TimeUnit.SECONDS);
+        // 延迟10ms后、每隔1000ms执行任务
+        service.scheduleAtFixedRate(thread,10,1000,TimeUnit.MILLISECONDS);
+    &#125;
+
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName());
+    &#125;
+</code></pre>
+<h5 id="可缓存线程池"><a href="#可缓存线程池" class="headerlink" title="可缓存线程池"></a>可缓存线程池</h5><p>特点：无核心线程，非核心线程数量无限，执行完闲置60s后回收，任务队列为不储存元素的阻塞队列</p>
+<p>应用场景：大量任务，耗时少的任务</p>
+<pre><code class="java">public class Dede implements Runnable &#123;
+
+    public static void main(String[] args) &#123;
+        Dede dede = new Dede();
+        Thread thread = new Thread(dede);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(thread);
+    &#125;
+
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName());
+    &#125;
+&#125;
+</code></pre>
+<h5 id="单线程化线程池"><a href="#单线程化线程池" class="headerlink" title="单线程化线程池"></a>单线程化线程池</h5><p>特点：只有一个核心线程，无非核心线程，执行完立即回收，任务队列为链表的有界队列。</p>
+<p>应用场景：不适合并发但可能引起 IO 阻塞性及影响 UI 线程响应的操作，如数据库操作、文件操作等。</p>
+<pre><code>public static void main(String[] args) &#123;
+        Dede dede = new Dede();
+        Thread thread = new Thread(dede);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(thread);
+    &#125;
+
+    @Override
+    public void run() &#123;
+        System.out.println(Thread.currentThread().getName());
+    &#125;
+</code></pre>
+<h5 id="9-2使用java预编线程池劣势"><a href="#9-2使用java预编线程池劣势" class="headerlink" title="9.2使用java预编线程池劣势"></a>9.2使用java预编线程池劣势</h5><p>Executors 的 4 个功能线程池虽然方便，但现在已经不建议使用了，而是建议直接通过使用 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<p><strong>FixedThreadPool （定长线程池）和 SingleThreadExecutor（单例线程池）：主要问题是堆积的请求处理队列均采用 LinkedBlockingQueue，可能会耗费非常大的内存，甚至 OOM。</strong><br><strong>CachedThreadPool 和 ScheduledThreadPool：主要问题是线程数最大数是 Integer.MAX_VALUE，可能会创建数量非常多的线程，甚至 OOM。</strong></p>
+<h5 id="线程池相关补充："><a href="#线程池相关补充：" class="headerlink" title="线程池相关补充："></a>线程池相关补充：</h5><p><code>execute()</code> vs <code>submit()</code>的区别</p>
+<p>execute()方法 适合用于不需要返回值的任务</p>
+<p>submit()方法 适用于需要返回值的任务，线程池会返回一个<code>Future</code>类型的对象，通过这个对象可以看返回是否成功</p>
+<h4 id="10-JUC"><a href="#10-JUC" class="headerlink" title="10.JUC"></a>10.JUC</h4><h5 id="10-1JUC是什么"><a href="#10-1JUC是什么" class="headerlink" title="10.1JUC是什么"></a>10.1JUC是什么</h5><p>JUC是java.util.concurrent包的简称，在jdk5添加，是为了更好的支持高并发任务的一些工具</p>
+<h5 id="10-2线程通信"><a href="#10-2线程通信" class="headerlink" title="10.2线程通信"></a>10.2线程通信</h5><p>在原有的基础上支持了精准唤醒</p>
+<p>Condition:信号</p>
+<p>condition.signal()唤醒当前Condition</p>
+<p>condition.await();当前线程挂起</p>
+<p><strong>示例</strong></p>
+<pre><code class="java">public class A1 &#123;
+
+    public static void main(String[] args) &#123;
+        // A英特尔 C主厂商 B组装厂 A生产一个cpu通知C生产一个主板 当有一个主板一个cpu时候 组装厂完成组装
+        Data1 data = new Data1();
+        new Thread(() -&gt; &#123;
+            for (int i = 0; i &lt; 10; i++) &#123;
+                try &#123;
+                    data.addCpu();
+                &#125; catch (InterruptedException e) &#123;
+                    throw new RuntimeException(e);
+                &#125;
+            &#125;
+        &#125;, &quot;A&quot;).start();
+        new Thread(() -&gt; &#123;
+            try &#123;
+                for (int i = 0; i &lt; 10; i++) &#123;
+                    data.addMbd();
+                &#125;
+            &#125; catch (InterruptedException e) &#123;
+                throw new RuntimeException(e);
+            &#125;
+        &#125;, &quot;C&quot;).start();
+        new Thread(() -&gt; &#123;
+            try &#123;
+                for (int i = 0; i &lt; 10; i++) &#123;
+                    data.d();
+                &#125;
+            &#125; catch (InterruptedException e) &#123;
+                throw new RuntimeException(e);
+            &#125;
+        &#125;, &quot;B&quot;).start();
+    &#125;
+&#125;
+class Data1 &#123;
+
+    Lock lock = new ReentrantLock();
+
+    Condition condition1 = lock.newCondition();
+    Condition condition2 = lock.newCondition();
+    Condition condition3 = lock.newCondition();
+
+    int cpuNumber = 0;
+
+    int mbdNumber = 0;
+
+    public  void addCpu() throws InterruptedException &#123;
+        try &#123;
+            lock.lock();
+            while (cpuNumber != 0) &#123;
+                condition1.await();
+            &#125;
+            cpuNumber++;
+            System.out.println(Thread.currentThread().getName() + &quot;生产了一件CPU剩余&quot; + cpuNumber);
+            condition2.signal();
+        &#125; finally &#123;
+            lock.unlock();
+        &#125;
+    &#125;
+
+    public  void addMbd() throws InterruptedException &#123;
+        try &#123;
+            lock.lock();
+            while (mbdNumber != 0) &#123;
+                condition2.await();
+            &#125;
+            mbdNumber++;
+            System.out.println(Thread.currentThread().getName() + &quot;生产了一件主板剩余&quot; + mbdNumber);
+            condition3.signal();
+        &#125; finally &#123;
+            lock.unlock();
+        &#125;
+    &#125;
+
+    public  void d() throws InterruptedException &#123;
+        try &#123;
+            lock.lock();
+            while (cpuNumber == 0 || mbdNumber == 0) &#123;
+                condition3.await();
+            &#125;
+            cpuNumber--;
+            mbdNumber--;
+            System.out.println(Thread.currentThread().getName() + &quot;组装一台主机====剩余cpu 主板&quot; + cpuNumber + mbdNumber);
+            condition1.signal();
+        &#125; finally &#123;
+            lock.unlock();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h5 id="线程安全集合"><a href="#线程安全集合" class="headerlink" title="线程安全集合"></a>线程安全集合</h5><h6 id="线程安全的List-CopyOnWriteArrayList"><a href="#线程安全的List-CopyOnWriteArrayList" class="headerlink" title="线程安全的List**CopyOnWriteArrayList**"></a>线程安全的List**<code>CopyOnWriteArrayList</code>**</h6><p><code>CopyOnWriteArrayList</code> 和 <code>Vector</code> 是两种线程安全的 List 实现，但它们有一些关键的区别。</p>
+<ol>
+<li><strong>线程安全机制：</strong><ul>
+<li><strong><code>CopyOnWriteArrayList</code>：</strong> 使用写时复制（Copy-On-Write）策略，即在对容器进行修改时，不直接修改原始数据，而是复制一份数据副本进行修改，完成后再将引用指向新的数据副本。这样可以保证读取操作的线程不受写入操作的影响，从而实现读写并发。</li>
+<li><strong><code>Vector</code>：</strong> 使用传统的同步方法，通过在每个方法上使用 <code>synchronized</code> 关键字来保证线程安全。这意味着在进行修改操作时，整个对象被锁住，可能导致并发性能下降。</li>
+</ul>
+</li>
+<li><strong>性能：</strong><ul>
+<li><strong><code>CopyOnWriteArrayList</code>：</strong> 适用于读多写少的场景，因为写操作会导致数据的复制，可能在并发写入较频繁的情况下产生较高的开销。</li>
+<li><strong><code>Vector</code>：</strong> 性能相对较低，因为在进行任何修改操作时都需要获取对象级别的锁，可能导致较高的竞争和等待。</li>
+</ul>
+</li>
+</ol>
+<h6 id="线程安全的setCopyOnWriteArraySet"><a href="#线程安全的setCopyOnWriteArraySet" class="headerlink" title="线程安全的setCopyOnWriteArraySet"></a>线程安全的set<code>CopyOnWriteArraySet</code></h6><p>与list同理</p>
+<h6 id="线程安全的mapConcurrentHashMap"><a href="#线程安全的mapConcurrentHashMap" class="headerlink" title="线程安全的mapConcurrentHashMap"></a>线程安全的map<code>ConcurrentHashMap</code></h6><ol>
+<li><strong>同步策略：</strong><ul>
+<li><strong><code>ConcurrentHashMap</code>：</strong> 使用分段锁（Segment）来实现并发控制。不同的段可以独立进行读写操作，从而提高并发性。多个线程可以同时读取，写入操作也可以并行进行，只有在对同一个段进行读写时才需要进行同步。</li>
+<li><strong><code>Hashtable</code>：</strong> 使用单一锁来对整个数据结构进行同步。这意味着一次只有一个线程可以对 <code>Hashtable</code> 进行读写操作，这可能导致性能瓶颈，尤其是在高并发的情况下。</li>
+</ul>
+</li>
+<li><strong>性能：</strong><ul>
+<li><strong><code>ConcurrentHashMap</code>：</strong> 在读取和写入操作上相对高效，尤其在高并发环境下。每个段的锁可以独立操作，从而提高并发性。</li>
+<li><strong><code>Hashtable</code>：</strong> 在写入操作上需要进行整个数据结构的同步，可能导致性能瓶颈，特别是在高并发环境下。</li>
+</ul>
+</li>
+</ol>
+<h5 id="常用的辅助类"><a href="#常用的辅助类" class="headerlink" title="常用的辅助类"></a>常用的辅助类</h5><pre><code class="java">public class Demo3 &#123;
+    public static void main(String[] args) throws Exception &#123;
+        //CountDownLatch
+        System.out.println(&quot;一天只能打豆豆六次&quot;);
+        CountDownLatch countDownLatch = new CountDownLatch(6);
+        for (int i = 0; i &lt; 6; i++) &#123;
+            new Thread(() -&gt; &#123;
+                System.out.println(Thread.currentThread().getName() + &quot;-1&quot;);
+                countDownLatch.countDown();
+            &#125;, &quot;打豆豆&quot;).start();
+        &#125;
+        countDownLatch.await();
+        System.out.println(&quot;已经结束了&quot;);
+
+        //CyclicBarrier
+        System.out.println(&quot;一天要吃三顿饭&quot;);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+
+        for (int i = 0; i &lt; 3; i++) &#123;
+            new Thread(() -&gt; &#123;
+                System.out.println(&quot;吃一顿饭&quot;);
+                try &#123;
+                    cyclicBarrier.await();
+                &#125; catch (InterruptedException e) &#123;
+                    throw new RuntimeException(e);
+                &#125; catch (BrokenBarrierException e) &#123;
+                    throw new RuntimeException(e);
+                &#125;
+            &#125;).start();
+        &#125;
+        cyclicBarrier.await();
+        System.out.println(&quot;吃完了&quot;);
+
+        // Semaphore
+        System.out.println(&quot;只能有两个人玩switch马里奥惊奇&quot;);
+        Semaphore semaphore = new Semaphore(2);
+        List&lt;String&gt; list = Arrays.asList(&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;, &quot;赵六&quot;, &quot;田七&quot;, &quot;郭八&quot;);
+        for (String name : list) &#123;
+            new Thread(() -&gt; &#123;
+                try &#123;
+                    semaphore.acquire();
+                    System.out.println(Thread.currentThread().getName() + &quot;玩上了switch&quot;);
+                    TimeUnit.SECONDS.sleep(3);
+                &#125; catch (InterruptedException e) &#123;
+                    throw new RuntimeException(e);
+                &#125; finally &#123;
+                    semaphore.release();
+                &#125;
+            &#125;, name).start();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h5 id="读写锁ReadWriteLock"><a href="#读写锁ReadWriteLock" class="headerlink" title="读写锁ReadWriteLock"></a>读写锁ReadWriteLock</h5><p>读锁可以共享，写锁为普通的互斥锁</p>
+<p>demo</p>
+<pre><code class="java">
+public class SharedResource &#123;
+    private int data = 0;
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public int readData() &#123;
+        lock.readLock().lock();
+        try &#123;
+            // 执行读取操作
+            return data;
+        &#125; finally &#123;
+            lock.readLock().unlock();
+        &#125;
+    &#125;
+
+    public void writeData(int newData) &#123;
+        lock.writeLock().lock();
+        try &#123;
+            // 执行写入操作
+            data = newData;
+        &#125; finally &#123;
+            lock.writeLock().unlock();
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        SharedResource resource = new SharedResource();
+
+        // 多个线程读取数据
+        for (int i = 0; i &lt; 5; i++) &#123;
+            new Thread(() -&gt; &#123;
+                int value = resource.readData();
+                System.out.println(&quot;Read data: &quot; + value);
+            &#125;).start();
+        &#125;
+
+        // 一个线程写入数据
+        new Thread(() -&gt; &#123;
+            resource.writeData(42);
+            System.out.println(&quot;Write data: 42&quot;);
+        &#125;).start();
+    &#125;
+&#125;
+</code></pre>
+<h5 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h5><p>BlockingQueue（阻塞队列）接口继承了Queue接口。</p>
+<p>常用实现类：</p>
+<p>ArrayBlockingQueue LinkedBlockingQueue SynchronousQueue(同步队列！！！只能放一个数据，一放一出)</p>
+<p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/02/17/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20231215173400759.png" alt="image-20231215173400759" class="lazyload"></p>
+
+        </article>
+
+        
+            
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/java/" rel="tag">java</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'n2r75MzpGHpVu7oWmnAQjwNx-gzGzoHsz',
+        appKey: 'ukVyTvnQEQ1EdRW3Q2cmtjke'
+    })
+</script>
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw #242424;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh #242424;
+            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard"></div>
+    <div class="qweather-logo">
+
+    </div>
+
+</div>
+<style>
+    .qweather{
+        position: relative;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+  WIDGET = {
+    "CONFIG": {
+      "layout": "2",
+      "width": "260",
+      "height": "220",
+      "background": "5",
+      "dataColor": "e67249",
+      "borderRadius": "15",
+      "key": "f74d1e1690e6432d801e97fa2f05a162"
+    }
+  }
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+            </div>
+        
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1708759009648"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+<!-- hexo injector body_end start -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/webapp.js"></script>
+
+<script src="/js/clock.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/ni-j.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0d9ebcd3.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "0d9ebcd3"
+  });
+  daovoice('update');
+</script>
+

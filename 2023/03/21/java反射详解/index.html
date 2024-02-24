@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+  <title>java反射详解 - </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
+
+  <link rel="shortcut icon" href="/images/head/head1.jpeg" type="image/png" />
+  <meta name="description" content="java反射详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java反射详解">
+<meta property="og:url" content="http://example.com/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="java反射详解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321160305747-9385787.png">
+<meta property="og:image" content="http://example.com/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321163608458.png">
+<meta property="og:image" content="http://example.com/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321163717313.png">
+<meta property="article:published_time" content="2023-03-21T06:59:54.000Z">
+<meta property="article:modified_time" content="2023-03-22T07:02:18.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="反射">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321160305747-9385787.png">
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@9.15.8/styles/atom-one-dark.css" crossorigin>
+  <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/lib/fancybox/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1708759009644">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/background/15.jpeg)"></div>
+    <div class="nexmoe-small" style="background-image: url(/images/background/lihui8.jpeg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/head/head1.jpeg" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/head/head1.jpeg" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div class="nexmoe-count-item"><span>文章</span>55 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>标签</span>37<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+        <div class="nexmoe-count-item"><span>分类</span>7<div class="item-radius"></div><div class="item-radius item-right"></div></div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+<!-- 站内搜索 -->
+
+<div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search" >
+        <form id="search-form">
+            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
+            <!-- 清空/重置搜索框 -->
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+        </form>
+    </div>
+    <div id="local-search-result"></div> <!-- 搜索结果区 -->
+    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+</div>
+
+
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="mailto:gs990522_010817@163.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a><a class="mdui-ripple" href="https://github.com/noOldBoy/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://gitee.com/gs990522/" target="_blank" mdui-tooltip="{content: 'gitee'}" style="color: rgb(255, 255, 255);background-color: rgb(199,29,35);">
+            <i class="nexmoefont icon-mayun"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/c/">c</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/其他/">其他</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/后端/">后端</a>
+          <span class="category-list-count">17</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">12</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">11</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/架构/">架构</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/BigDecimal/" style="font-size: 10px;">BigDecimal</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/cron/" style="font-size: 10px;">cron</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dubbo/" style="font-size: 10px;">dubbo</a> <a href="/tags/excal/" style="font-size: 10px;">excal</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/host/" style="font-size: 10px;">host</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/hui/" style="font-size: 12px;">hui</a> <a href="/tags/idea/" style="font-size: 12px;">idea</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/java8/" style="font-size: 10px;">java8</a> <a href="/tags/javaScript/" style="font-size: 10px;">javaScript</a> <a href="/tags/jsoup/" style="font-size: 10px;">jsoup</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/odps/" style="font-size: 10px;">odps</a> <a href="/tags/poi/" style="font-size: 10px;">poi</a> <a href="/tags/postMan/" style="font-size: 10px;">postMan</a> <a href="/tags/spring/" style="font-size: 14px;">spring</a> <a href="/tags/springBoot/" style="font-size: 18px;">springBoot</a> <a href="/tags/springCloud/" style="font-size: 10px;">springCloud</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/wireguard/" style="font-size: 10px;">wireguard</a> <a href="/tags/%E4%BA%8B%E5%8A%A1/" style="font-size: 12px;">事务</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 12px;">异常</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">自定义注解</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">39</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2024 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
+        <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备2021002341号</a><br/>
+        
+        <div style="font-size: 12px">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
+            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+        </div>
+        
+        
+    </div> -->
+
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    
+        <div class="nexmoe-post-cover" style="padding-bottom: 26.666666666666668%;">
+            <img data-src="/images/cha/16.jpeg" data-sizes="auto" alt="java反射详解" class="lazyload">
+            <h1>java反射详解</h1>
+        </div>
+    
+
+        <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年03月21日</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.5k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 12 分钟</a>
+</div>
+
+        <div class="nexmoe-post-right">
+            
+        </div>
+
+        <article>
+            <p>java反射详解</p>
+<span id="more"></span>
+
+<h4 id="一、反射的概念"><a href="#一、反射的概念" class="headerlink" title="一、反射的概念"></a>一、反射的概念</h4><h5 id="1-1动态语言跟静态语言"><a href="#1-1动态语言跟静态语言" class="headerlink" title="1.1动态语言跟静态语言"></a>1.1动态语言跟静态语言</h5><h6 id="动态语言"><a href="#动态语言" class="headerlink" title="动态语言"></a><strong>动态语言</strong></h6><p>是一种可以在运行时可以改变其结构的语言：例如新的函数、代码、对象可以被引进</p>
+<p>例如：html，js，php，python等</p>
+<h6 id="静态语言"><a href="#静态语言" class="headerlink" title="静态语言"></a>静态语言</h6><p>与之相反，就是再运行时结构不可变的静态语言，例如java更改本地代码后你需要重新编译启动</p>
+<p>例如：java、c、c++、</p>
+<h6 id="准动态语言"><a href="#准动态语言" class="headerlink" title="准动态语言"></a>准动态语言</h6><p>严格来说java并不能算一种纯静态语言，因为java有一定的动态性。我们可以利用java反射的机制获得类似动态语言的特性。java的动态性让编程的时候变得更灵活</p>
+<h5 id="1-2java的反射机制概念"><a href="#1-2java的反射机制概念" class="headerlink" title="1.2java的反射机制概念"></a>1.2java的反射机制概念</h5><p>Java 中的反射机制，就是在运行的时候，对于任何一个类，都可以知道这个类里面的所有属性和方法；对于任何一个对象，都可以调用这个对象里面的任意一个方法和属性。这种动态获取信息和动态调用对象方法的功能，就被称为 Java 中的反射机制</p>
+<h5 id="1-3反射可以做什么"><a href="#1-3反射可以做什么" class="headerlink" title="1.3反射可以做什么"></a>1.3反射可以做什么</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321160305747-9385787.png" alt="image-20230321160305747" class="lazyload"></p>
+<h5 id="1-4使用反射的好处跟缺点"><a href="#1-4使用反射的好处跟缺点" class="headerlink" title="1.4使用反射的好处跟缺点"></a>1.4使用反射的好处跟缺点</h5><p><strong>优点</strong>：可以实现动态创建对象和编译，灵活性大大提高</p>
+<p><strong>缺点：</strong>对性能有影响。使用反射基本上是一种解释操作，这类操作慢于相同的直接执行</p>
+<h4 id="二、class对象"><a href="#二、class对象" class="headerlink" title="二、class对象"></a>二、class对象</h4><h5 id="2-1获取class对象的几种方式"><a href="#2-1获取class对象的几种方式" class="headerlink" title="2.1获取class对象的几种方式"></a>2.1获取class对象的几种方式</h5><p><strong><font color="red">注意：在运行期间，一个类，只有一个Class对象产生。</font></strong></p>
+<pre><code class="java">public class GetReflection &#123;
+    public static void main(String[] args) throws ClassNotFoundException &#123;
+        //方式一 通过对象获取class对象
+        GetReflection getReflection = new GetReflection();
+        Class getReflectionClass1 = getReflection.getClass();
+        System.out.println(getReflectionClass1.getName());
+
+        //方式二 通过累的所在路径获取对象
+        Class getReflectionClass2 = Class.forName(&quot;com.GetReflection&quot;);
+        System.out.println(getReflectionClass2.getName());
+
+        //方式三 通过类名 类名class
+        Class getReflectionClass3 = GetReflection.class;
+        System.out.println(getReflectionClass3.getName());
+    &#125;
+&#125;
+</code></pre>
+<h5 id="2-2class类常用的方法"><a href="#2-2class类常用的方法" class="headerlink" title="2.2class类常用的方法"></a>2.2class类常用的方法</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321163608458.png" alt="image-20230321163608458" class="lazyload"></p>
+<h5 id="2-3那些类型可以获得class对象"><a href="#2-3那些类型可以获得class对象" class="headerlink" title="2.3那些类型可以获得class对象"></a>2.3那些类型可以获得class对象</h5><p><img data-fancybox="gallery" data-sizes="auto" data-src="/2023/03/21/java%E5%8F%8D%E5%B0%84%E8%AF%A6%E8%A7%A3/image-20230321163717313.png" alt="image-20230321163717313" class="lazyload"></p>
+<pre><code class="java">//所有类型的Class
+public class Demo06_AllTypeClass &#123;
+    public static void main(String[] args) &#123;
+        Class c1 = Object.class; //类
+        Class c2 = Comparable.class; //接口
+        Class c3 = String[].class; //一维数组
+        Class c4 = int[][].class; //二维数组
+        Class c5 = Override.class; //注解
+        Class c6 = ElementType.class; //美剧
+        Class c7 = Integer.class; //基本数据类型
+        Class c8 = void.class; //void
+        Class c9 = Class.class; //class
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+        System.out.println(c4);
+        System.out.println(c5);
+        System.out.println(c6);
+        System.out.println(c7);
+        System.out.println(c8);
+        System.out.println(c9);
+
+        //只要元素类型与维度一样,就是同一个Class
+        int[] a = new int[10];
+        int[] b = new int[100];
+        System.out.println(a.getClass().hashCode());
+        System.out.println(b.getClass().hashCode());
+    &#125;
+&#125;
+</code></pre>
+<h4 id="三、反射的使用"><a href="#三、反射的使用" class="headerlink" title="三、反射的使用"></a>三、反射的使用</h4><h5 id="3-1反射构造方法"><a href="#3-1反射构造方法" class="headerlink" title="3.1反射构造方法"></a>3.1反射构造方法</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getConstructors()</td>
+<td>获取所有的公共构造方法</td>
+</tr>
+<tr>
+<td>getDeclaredConstructors()</td>
+<td>获取所有的构造方法，（包括私有的，受保护，共有，默认）</td>
+</tr>
+<tr>
+<td>getConstructor()</td>
+<td>获取共有或无参的构造方法，参数为构造方法参数类型例如</td>
+</tr>
+<tr>
+<td>getDeclaredConstructor()</td>
+<td>取私有的构造放饭参数为构造方法的参数类型；（包括私有的，受保护，共有，默认）；getDeclaredConstructor(String.class,int.class)</td>
+</tr>
+<tr>
+<td>构造器对象.newInstance()</td>
+<td>获取class的实例对象</td>
+</tr>
+<tr>
+<td>操作的对象setAccessible(true)</td>
+<td>忽略修饰符校验</td>
+</tr>
+</tbody></table>
+<p><strong>示例</strong></p>
+<pre><code class="java">public class Student &#123;
+
+    //---------------构造方法-------------------
+    //（默认的构造方法）
+    Student(String str)&#123;
+        System.out.println(&quot;(默认)的构造方法 s = &quot; + str);
+    &#125;
+
+    //无参构造方法
+    public Student()&#123;
+        System.out.println(&quot;调用了公有、无参构造方法执行了。。。&quot;);
+    &#125;
+
+    //有一个参数的构造方法
+    public Student(char name)&#123;
+        System.out.println(&quot;姓名：&quot; + name);
+    &#125;
+
+    //有多个参数的构造方法
+    private Student(String name ,int age)&#123;
+        System.out.println(&quot;姓名：&quot;+name+&quot;年龄：&quot;+ age);//这的执行效率有问题，以后解决。
+    &#125;
+
+    //受保护的构造方法
+    protected Student(boolean n)&#123;
+        System.out.println(&quot;受保护的构造方法 n = &quot; + n);
+    &#125;
+
+    //私有构造方法
+    private Student(int age)&#123;
+        System.out.println(&quot;私有的构造方法   年龄：&quot;+ age);
+    &#125;
+
+
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException &#123;
+        Class&lt;Student&gt; studentClass = Student.class;
+        System.out.println(&quot;**********************所有公有构造方法*********************************&quot;);
+        Constructor&lt;?&gt;[] constructors = studentClass.getConstructors();
+        for (Constructor&lt;?&gt; constructor : constructors) &#123;
+            System.out.println(constructor);
+        &#125;
+        System.out.println(&quot;************所有的构造方法(包括：私有、受保护、默认、公有)***************&quot;);
+        Constructor&lt;?&gt;[] declaredConstructors = studentClass.getDeclaredConstructors();
+        for (Constructor&lt;?&gt; declaredConstructor : declaredConstructors) &#123;
+            System.out.println(declaredConstructor);
+        &#125;
+        System.out.println(&quot;*****************获取公有、无参的构造方法*******************************&quot;);
+        Constructor con = studentClass.getConstructor(null);
+        System.out.println(&quot;con = &quot; + con);
+        Object obj = con.newInstance();
+        System.out.println(&quot;******************获取私有构造方法，并调用*******************************&quot;);
+        con = studentClass.getDeclaredConstructor(String.class,int.class);
+        System.out.println(con);
+        //调用构造方法
+        con.setAccessible(true);//暴力访问(忽略掉访问修饰符)
+        obj = con.newInstance(&quot;男&quot;,2);
+    &#125;
+&#125;
+</code></pre>
+<p>结果：</p>
+<pre><code class="tex">**********************所有公有构造方法*********************************
+public com.dto.Student()
+public com.dto.Student(char)
+************所有的构造方法(包括：私有、受保护、默认、公有)***************
+private com.dto.Student(int)
+protected com.dto.Student(boolean)
+private com.dto.Student(java.lang.String,int)
+com.dto.Student(java.lang.String)
+public com.dto.Student()
+public com.dto.Student(char)
+*****************获取公有、无参的构造方法*******************************
+con = public com.dto.Student()
+调用了公有、无参构造方法执行了。。。
+******************获取私有构造方法，并调用*******************************
+private com.dto.Student(java.lang.String,int)
+姓名：男年龄：2
+</code></pre>
+<h5 id="3-2反射成员变量（字段）"><a href="#3-2反射成员变量（字段）" class="headerlink" title="3.2反射成员变量（字段）"></a>3.2反射成员变量（字段）</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getFields()</td>
+<td>获取所有的共有字段</td>
+</tr>
+<tr>
+<td>getDeclaredFields()</td>
+<td>获取所有字段(包括私有、受保护、共有、默认的)）</td>
+</tr>
+<tr>
+<td>getField(参数字段名称)</td>
+<td>示例getField(“name”)，获取公有字段</td>
+</tr>
+<tr>
+<td>getDeclaredField()</td>
+<td>示例getDeclaredField(“phoneNum”)  获取私有字段 （包括私有的，受保护，共有，默认）</td>
+</tr>
+<tr>
+<td>操作的对象setAccessible(true)</td>
+<td>忽略修饰符校验</td>
+</tr>
+</tbody></table>
+<p><strong>示例：</strong></p>
+<pre><code class="java">public class User &#123;
+
+    public String name;
+
+    protected int age;
+
+    char sex;
+
+    private String phoneNum;
+
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &quot;, sex=&quot; + sex +
+                &quot;, phoneNum=&#39;&quot; + phoneNum + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+
+    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException &#123;
+        User user = new User();
+        Class userClass = user.getClass();
+        //获取字段
+        System.out.println(&quot;************获取所有公有的字段********************&quot;);
+        Field[] fields = userClass.getFields();
+        for (Field field : fields) &#123;
+            System.out.println(field);
+        &#125;
+        System.out.println(&quot;************获取所有的字段(包括私有、受保护、默认的)********************&quot;);
+        Field[] declaredFields = userClass.getDeclaredFields();
+        for (Field declaredField : declaredFields) &#123;
+            System.out.println(declaredField);
+        &#125;
+        System.out.println(&quot;*************获取公有字段**并调用***********************************&quot;);
+        Field name1 = userClass.getField(&quot;name&quot;);
+        System.out.println(name1);
+        //获取一个对象 类似于 User user =  new User();
+        Object o = userClass.getConstructor().newInstance();
+        name1.set(o, &quot;李白&quot;);
+        //验证
+        User user1 = (User)o;
+        System.out.println(&quot;验证姓名：&quot; + user1.name);
+        System.out.println(&quot;**************获取私有字段****并调用********************************&quot;);
+        Field phoneNum1 = userClass.getDeclaredField(&quot;phoneNum&quot;);
+        System.out.println(phoneNum1);
+        Object o1 = userClass.getConstructor().newInstance();
+        phoneNum1.setAccessible(true);
+        phoneNum1.set(o1, &quot;15234324237&quot;);
+        User user2 = (User) o1;
+        System.out.println(&quot;验证私有字段手机号&quot;+user2.phoneNum);
+    &#125;
+</code></pre>
+<p>结果：</p>
+<pre><code class="tex">************获取所有公有的字段********************
+public java.lang.String com.dto.User.name
+************获取所有的字段(包括私有、受保护、默认的)********************
+public java.lang.String com.dto.User.name
+protected int com.dto.User.age
+char com.dto.User.sex
+private java.lang.String com.dto.User.phoneNum
+*************获取公有字段**并调用***********************************
+public java.lang.String com.dto.User.name
+验证姓名：李白
+**************获取私有字段****并调用********************************
+private java.lang.String com.dto.User.phoneNum
+验证私有字段手机号15234324237
+</code></pre>
+<h5 id="3-3反射成员方法"><a href="#3-3反射成员方法" class="headerlink" title="3.3反射成员方法"></a>3.3反射成员方法</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getMethods()</td>
+<td>获取所有共有方法</td>
+</tr>
+<tr>
+<td>getDeclaredMethods()</td>
+<td>获取所有私有方法(包括私有、共有、受保护、默认的)</td>
+</tr>
+<tr>
+<td>getMethod()</td>
+<td>示例：aClass.getMethod(“show1”, String.class);获取共有方法</td>
+</tr>
+<tr>
+<td>getDeclaredMethod()</td>
+<td>示例：aClass.getDeclaredMethod(“show4”, Integer.class);获取所有私有方法(包括私有、受保护、默认的)</td>
+</tr>
+<tr>
+<td>Method对象.invoke</td>
+<td>执行当前方法，有返回值</td>
+</tr>
+<tr>
+<td>操作的对象setAccessible(true)</td>
+<td>忽略权限修饰符校验</td>
+</tr>
+</tbody></table>
+<p><strong>示例：</strong></p>
+<pre><code class="java">public class MothodDemo &#123;
+
+    public void show1(String s)&#123;
+        System.out.println(&quot;调用了：公有的，String参数的show1(): s = &quot; + s);
+    &#125;
+    protected void show2()&#123;
+        System.out.println(&quot;调用了：受保护的，无参的show2()&quot;);
+    &#125;
+    void show3()&#123;
+        System.out.println(&quot;调用了：默认的，无参的show3()&quot;);
+    &#125;
+    private String show4(Integer age)&#123;
+        System.out.println(&quot;调用了，私有的，并且有返回值的，int参数的show4(): age = &quot; + age);
+        return &quot;abcd&quot;;
+    &#125;
+
+    public static void main(String[] args) throws Exception &#123;
+        Class&lt;?&gt; aClass = Class.forName(&quot;com.demo.MothodDemo&quot;);
+        System.out.println(&quot;***************获取所有的”公有“方法*******************&quot;);
+        Method[] methods = aClass.getMethods();
+        for (Method method : methods) &#123;
+            System.out.println(method);
+        &#125;
+        System.out.println(&quot;***************获取所有的方法，包括私有的*******************&quot;);
+        Method[] declaredMethods = aClass.getDeclaredMethods();
+        for (Method declaredMethod : declaredMethods) &#123;
+            System.out.println(declaredMethod);
+        &#125;
+        System.out.println(&quot;***************获取公有方法并调用*******************&quot;);
+        Method show1 = aClass.getMethod(&quot;show1&quot;, String.class);
+        System.out.println(show1);
+        MothodDemo mothodDemo = new MothodDemo();
+        show1.invoke(mothodDemo, &quot;李白&quot;);
+        System.out.println(&quot;***************获取私有的show4()方法******************&quot;);
+        Method show3 = aClass.getDeclaredMethod(&quot;show4&quot;, Integer.class);
+        show3.setAccessible(true);
+        Object o = aClass.getConstructor().newInstance();
+        Object invoke = show3.invoke(o, 25);
+        System.out.println(&quot;返回值：&quot; + invoke);
+    &#125;
+&#125;
+</code></pre>
+<p>结果：</p>
+<pre><code class="tex">***************获取所有的”公有“方法*******************
+public void com.demo.MothodDemo.show1(java.lang.String)
+public static void com.demo.MothodDemo.main(java.lang.String[]) throws java.lang.Exception
+public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+public final native void java.lang.Object.wait(long) throws java.lang.InterruptedException
+public final void java.lang.Object.wait() throws java.lang.InterruptedException
+public boolean java.lang.Object.equals(java.lang.Object)
+public java.lang.String java.lang.Object.toString()
+public native int java.lang.Object.hashCode()
+public final native java.lang.Class java.lang.Object.getClass()
+public final native void java.lang.Object.notify()
+public final native void java.lang.Object.notifyAll()
+***************获取所有的方法，包括私有的*******************
+public void com.demo.MothodDemo.show1(java.lang.String)
+protected void com.demo.MothodDemo.show2()
+void com.demo.MothodDemo.show3()
+private java.lang.String com.demo.MothodDemo.show4(java.lang.Integer)
+public static void com.demo.MothodDemo.main(java.lang.String[]) throws java.lang.Exception
+***************获取公有方法并调用*******************
+public void com.demo.MothodDemo.show1(java.lang.String)
+调用了：公有的，String参数的show1(): s = 李白
+***************获取私有的show4()方法******************
+调用了，私有的，并且有返回值的，int参数的show4(): age = 25
+返回值：abcd
+</code></pre>
+<h5 id="3-4反射main-方法"><a href="#3-4反射main-方法" class="headerlink" title="3.4反射main()方法"></a>3.4反射main()方法</h5><p>其实就是成员反射,但是比较特殊</p>
+<p><strong>示例:</strong></p>
+<pre><code class="java">public class MainMethodDemo &#123;
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;MainMethodDemo.main()方法执行了。。。&quot;);
+    &#125;
+&#125;
+
+public class MainMethodDemoTwo &#123;
+    public static void main(String[] args) throws Exception &#123;
+        Class aClass = Class.forName(&quot;com.demo.MainMethodDemo&quot;);
+        Method main = aClass.getMethod(&quot;main&quot;, String[].class);
+        main.invoke(null, (Object) new String[]&#123;&#125;);
+    &#125;
+&#125;
+</code></pre>
+<p>结果：</p>
+<p>MainMethodDemo.main()方法执行了。。。</p>
+
+        </article>
+
+        
+            
+
+        
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/java/" rel="tag">java</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a>
+    
+</div>
+
+    <div class="nexmoe-post-footer">
+        <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'n2r75MzpGHpVu7oWmnAQjwNx-gzGzoHsz',
+        appKey: 'ukVyTvnQEQ1EdRW3Q2cmtjke'
+    })
+</script>
+</section>
+    </div>
+</div>
+
+
+        <div class="nexmoe-post-right">
+          
+        </div>
+    </div>
+  </div>
+  <div id="nexmoe-pendant">
+    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
+        
+            <div class="nexmoe-pd-item">
+                <div class="clock">
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="memory"></div>
+        <div class="needle" id="hours"></div>
+        <div class="needle" id="minutes"></div>
+        <div class="needle" id="seconds"></div>
+        <div class="clock_logo">
+
+        </div>
+
+    </div>
+<style>
+    .clock {
+        background-color: #ffffff;
+        width: 70vw;
+        height: 70vw;
+        max-width: 70vh;
+        max-height: 70vh;
+        border: solid 2.8vw #242424;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-sizing: border-box;
+        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
+        zoom:0.2
+    }
+
+    .memory {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .memory:nth-child(1) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
+    }
+
+    .memory:nth-child(2) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(3) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(4) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(5) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(6) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
+    }
+
+    .memory:nth-child(7) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(8) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(9) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(10) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(11) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
+    }
+
+    .memory:nth-child(12) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(13) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(14) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(15) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(16) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
+    }
+
+    .memory:nth-child(17) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(18) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(19) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(20) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(21) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
+    }
+
+    .memory:nth-child(22) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(23) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(24) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(25) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(26) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
+    }
+
+    .memory:nth-child(27) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(28) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(29) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(30) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(31) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
+    }
+
+    .memory:nth-child(32) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(33) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(34) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(35) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(36) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
+    }
+
+    .memory:nth-child(37) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(38) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(39) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(40) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(41) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
+    }
+
+    .memory:nth-child(42) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(43) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(44) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(45) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(46) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
+    }
+
+    .memory:nth-child(47) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(48) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(49) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(50) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(51) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
+    }
+
+    .memory:nth-child(52) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(53) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(54) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(55) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(56) {
+        background-color: #424242;
+        width: 2%;
+        height: 8%;
+        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
+    }
+
+    .memory:nth-child(57) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(58) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(59) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
+    }
+
+    .memory:nth-child(60) {
+        background-color: #949494;
+        width: 1%;
+        height: 3%;
+        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
+    }
+
+    .needle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+    }
+
+    .needle#hours {
+        background-color: #1f1f1f;
+        width: 4%;
+        height: 30%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#hours.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#hours:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#minutes {
+        background-color: #1f1f1f;
+        width: 2%;
+        height: 45%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#minutes.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#minutes:after {
+        content: '';
+        background-color: #1f1f1f;
+        width: 4vw;
+        height: 4vw;
+        max-width: 4vh;
+        max-height: 4vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .needle#seconds {
+        background-color: #cb2f2f;
+        width: 1%;
+        height: 50%;
+        transform-origin: center 75%;
+        transform: translate(-50%, -75%);
+    }
+
+    .needle#seconds.moving {
+        transition: transform 150ms ease-out;
+    }
+
+    .needle#seconds:after {
+        content: '';
+        background-color: #cb2f2f;
+        width: 2.5vw;
+        height: 2.5vw;
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+        display: block;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .clock_logo{
+        width: 10vw;
+        height: 10vw;
+        max-width: 10vh;
+        max-height: 10vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    @media (min-width: 100vh) {
+        .clock {
+            border: solid 2.8vh #242424;
+            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
+        }
+    }
+
+</style>
+
+
+
+
+
+            </div>
+        
+            <div class="nexmoe-pd-item">
+                <div class="qweather" >
+    <div id="he-plugin-standard"></div>
+    <div class="qweather-logo">
+
+    </div>
+
+</div>
+<style>
+    .qweather{
+        position: relative;
+    }
+    .qweather-logo{
+        position: absolute;
+        right: 0;
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+  WIDGET = {
+    "CONFIG": {
+      "layout": "2",
+      "width": "260",
+      "height": "220",
+      "background": "5",
+      "dataColor": "e67249",
+      "borderRadius": "15",
+      "key": "f74d1e1690e6432d801e97fa2f05a162"
+    }
+  }
+</script>
+<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+            </div>
+        
+</div>
+<style>
+    .nexmoe-pd {
+        left: auto;
+        top: 40px;
+        right: 0;
+    }
+    .nexmoe-pd-item{
+       display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+  </div>
+  <script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/app.js?v=1708759009645"></script>
+
+<script src="https://unpkg.com/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+<!-- hexo injector body_end start -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
+
+<script src="https://unpkg.com/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<script src="/lib/codeBlock/codeBlockFuction.js"></script>
+
+<script src="/lib/codeBlock/codeLang.js"></script>
+
+<script src="/lib/codeBlock/codeCopy.js"></script>
+
+<script src="/lib/codeBlock/codeShrink.js"></script>
+
+<link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="/js/webapp.js"></script>
+
+<script src="/js/clock.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/ni-j.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0d9ebcd3.js","daovoice")</script>
+<script>
+  daovoice('init', {
+    app_id: "0d9ebcd3"
+  });
+  daovoice('update');
+</script>
+
