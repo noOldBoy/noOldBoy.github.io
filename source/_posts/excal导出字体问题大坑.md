@@ -5,7 +5,7 @@ tags:
 - excal
 categories:
 - 后端
-cover: /images/cha/14.jpeg
+cover: /images/background/14.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

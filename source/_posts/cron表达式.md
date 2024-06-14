@@ -5,7 +5,7 @@ tags:
 - cron
 categories:
 - 工具
-cover: /images/cha/l.jpeg
+cover: /images/background/fa407816f71148527e49d301011d9a35.jpeg
 coverWidth: 1200
 coverHeight: 320
 author: 不二

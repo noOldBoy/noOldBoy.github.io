@@ -5,7 +5,7 @@ tags:
 - mysql
 categories:
 - 数据库
-cover: /images/cha/3.jpeg
+cover: /images/background/3.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

@@ -5,7 +5,7 @@ tags:
 - javaScript
 categories:
 - 前端
-cover: /images/cha/1.jpeg
+cover: /images/background/1.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

@@ -5,7 +5,7 @@ tags:
 - postMan
 categories:
 - 工具
-cover: /images/cha/10.jpeg
+cover: /images/background/10.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

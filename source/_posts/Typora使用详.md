@@ -8,7 +8,7 @@ categories:
 - 技能
 description: 随笔
 keywords: Typora
-top_img: /images/cha/11.jpeg
+cover: /images/background/d43219aa123e83c415170e5a56281d79.jpeg
 ai: 
 ---
 

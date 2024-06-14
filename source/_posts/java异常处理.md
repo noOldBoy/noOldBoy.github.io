@@ -5,7 +5,7 @@ tags:
 - 异常
 categories:
 - 后端
-cover: /images/cha/16.jpeg
+cover: /images/background/16.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

@@ -5,7 +5,7 @@ tags:
 - java8
 categories:
 - 后端
-cover: /images/cha/20.jpeg
+cover: /images/background/20.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

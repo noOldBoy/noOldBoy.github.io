@@ -6,7 +6,7 @@ tags:
 - 事务
 categories:
 - 后端
-cover: /images/cha/15.jpeg
+cover: /images/background/15.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

@@ -6,7 +6,7 @@ tags:
 - 自定义注解
 categories:
 - 后端
-cover: /images/cha/lzh1.jpeg
+cover: /images/background/b384ee3b4655dff7e9411aa6eefdf3e1.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

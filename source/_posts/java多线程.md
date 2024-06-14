@@ -6,7 +6,7 @@ tags:
 - 线程
 categories:
 - 后端
-cover: /images/cha/103.jpeg
+cover: /images/background/103.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

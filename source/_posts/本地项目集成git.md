@@ -5,7 +5,7 @@ tags:
 - git
 categories:
 - 工具
-cover: /images/cha/2.jpeg
+cover: /images/background/2.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

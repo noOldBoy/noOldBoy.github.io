@@ -6,7 +6,7 @@ tags:
 - BigDecimal
 categories:
 - 后端
-cover: /images/cha/109.jpeg
+cover: /images/background/73c82d82621ed5909def63ab4723f610.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

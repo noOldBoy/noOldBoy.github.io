@@ -5,7 +5,7 @@ tags:
 - host
 categories:
 - 工具
-cover: /images/cha/18.jpeg
+cover: /images/background/18.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

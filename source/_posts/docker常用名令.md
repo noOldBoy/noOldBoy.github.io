@@ -5,7 +5,7 @@ tags:
 - docker
 categories:
 - 工具
-cover: /images/cha/23.jpeg
+cover: /images/background/7714970095cf64702de2c9adb677ff00.jpeg
 coverWidth: 1200
 coverHeight: 320
 author: 不二

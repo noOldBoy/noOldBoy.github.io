@@ -5,7 +5,7 @@ tags:
 - java
 categories:
 - 后端
-cover: /images/cha/g3.jpeg
+cover: /images/background/43c00a62d43d586bd9f2c7fa2b40d6d0.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---

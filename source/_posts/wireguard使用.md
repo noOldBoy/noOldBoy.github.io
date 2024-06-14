@@ -5,7 +5,7 @@ tags:
 - wireguard
 categories:
 - 工具
-cover: /images/cha/17.jpeg
+cover: /images/background/17.jpeg
 coverWidth: 1200
 coverHeight: 320
 ---
