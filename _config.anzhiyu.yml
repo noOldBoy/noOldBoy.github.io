@@ -134,6 +134,10 @@ katex:
 
 # Image (图片设置)
 # --------------------------------------
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 
 # Favicon（网站图标）
 favicon: /favicon.ico
@@ -1316,3 +1320,4 @@ deploy:
   type: git
   repo: git@github.com:noOldBoy/noOldBoy.github.io.git
   branch: master
+

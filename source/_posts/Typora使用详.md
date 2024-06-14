@@ -5,10 +5,11 @@ date: 2022-07-15 15:41:30
 tags:
 - Typora
 categories:
-- 工具
-cover: /images/cha/11.jpeg
-coverWidth: 1200
-coverHeight: 320
+- 技能
+description: 随笔
+keywords: Typora
+top_img: /images/cha/11.jpeg
+ai: 
 ---
 
 Typora使用详细
@@ -28,7 +29,7 @@ Typora官网： https://typora.io/
 在Typora中，也可以使用快捷键command+1（2，3，4，5，6）表示相对应的标题。command+0表示段落。标题快捷键信息可在菜单栏中的段落选项下查看。
 ##### 例
 
-![image-20220715155550280](/image-20220715155550280.png)
+![image-20220715155550280](/Typora使用详/image-20220715155550280.png)
 
 ##### #后面加入空格效果
 
