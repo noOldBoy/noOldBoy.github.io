@@ -31,7 +31,7 @@ nav:
         - name: 博客
           link: https://blog.anheyu.com/
           icon: /img/favicon.ico
-    - title: 项目
+    # - title: 项目
       # item:
       #   - name: 安知鱼图床
       #     link: https://image.anheyu.com/
@@ -160,7 +160,7 @@ favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://bu.dusays.com/2023/04/27/64496e511b09c.jpg
+  img: https://gs0522.oss-cn-beijing.aliyuncs.com/head1.jpeg?Expires=1718360930&OSSAccessKeyId=TMP.3Kkbxfn7EbryULmzXFouvU22Fajxe84958fpT9o6cKQ5ZEkjCys1JP3V7tP327VaSuXMZNoX19pXy1aN2efnrxECndpEqE&Signature=gaZZf1qsHkr8bNF0yCKz1u9Lt%2FM%3D
   effect: false
 
 # Disable all banner image
@@ -254,7 +254,7 @@ post_copyright:
   enable: true
   decode: false
   author_href:
-  location: 长沙
+  location: 杭州
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
   avatarSinks: false # hover时头像下沉
@@ -1060,17 +1060,17 @@ home_top:
   siteText: anheyu.com
   category:
     - name: 前端
-      path: /categories/前端开发/
+      path: /categories/前端/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: 后端
+      path: /categories/后端/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
-    - name: 生活
-      path: /categories/生活日常/
+    - name: 工具
+      path: /categories/工具/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book
@@ -1079,11 +1079,11 @@ home_top:
     enable: false
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
-  banner:
-    tips: 新品主题
-    title: Theme-AnZhiYu
-    image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://docs.anheyu.com/
+  # banner:
+  #   tips: 新品主题
+  #   title: Theme-AnZhiYu
+  #   image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
+  #   link: https://docs.anheyu.com/
 
 # 朋友圈配置
 friends_vue:
