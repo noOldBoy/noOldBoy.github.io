@@ -45,11 +45,11 @@ sqLite数据库SpringBoot整合&二进制文件存储读取
 
 官网：https://www.sqlite.org/index.html
 
-![image-20220531101801314](/image-20220531101801314.png)
+![image-20220531101801314](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220531101801314.png)
 
 解压即可使用，打开当前位置的控制台，嫌麻烦可以配一个环境变量
 
-![](sqLite本地化数据库/image-20220531102657917.png)
+![](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220531102657917.png)
 
 ### 四.sqLite的使用
 
@@ -63,7 +63,7 @@ sqLite数据库SpringBoot整合&二进制文件存储读取
 
 可以使用 SQLite **.quit** 命令退出 sqlite 提示符
 
-![image-20220531112538357](/image-20220531112538357.png)
+![image-20220531112538357](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220531112538357.png)
 
 ##### 2.数据库创建
 
@@ -71,7 +71,7 @@ sqLite数据库SpringBoot整合&二进制文件存储读取
 sqlite3 "数据库名字"
 ```
 
-![image-20220531113042477](/image-20220531113042477.png)
+![image-20220531113042477](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220531113042477.png)
 
 另外我们也可以使用 **.open** 来建立新的数据库文件：打开已存在数据库也是用 **.open** 命令，以上命令如果 **test.db** 存在则直接会打开，不存在就创建它
 
@@ -83,7 +83,7 @@ sqlite>.open test.db
 
 在**sqlite>** 提示符下使用 .databases
 
-![image-20220531113607077](/image-20220531113607077.png)
+![image-20220531113607077](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220531113607077.png)
 
 ###### .dump 命令 数据库导出
 
@@ -157,7 +157,7 @@ CREATE TABLE "user" (
   PRIMARY KEY ("user_id")
 );
 
-![image-20220613181253881](/image-20220613181253881.png)
+![image-20220613181253881](./sqLite%E6%9C%AC%E5%9C%B0%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/image-20220613181253881.png)
 
 ##### 5.2增删改查
 

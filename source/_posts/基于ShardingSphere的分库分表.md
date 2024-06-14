@@ -474,15 +474,15 @@ users.add(new User(10,"张百万",99));
 
 Ds1
 
-![image-20220527185409203](/images/img/image-20220527185409203.png)
+![image-20220527185409203](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220527185409203.png)
 
-![image-20220527185444131](/images/img/image-20220527185444131.png)
+![image-20220527185444131](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220527185444131.png)
 
 ds0
 
-![image-20220527185620441](/images/img/image-20220527185620441.png)
+![image-20220527185620441](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220527185620441.png)
 
-![image-20220527185648616](/images/img/image-20220527185648616.png)
+![image-20220527185648616](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220527185648616.png)
 
 ### 7.查询分析
 
@@ -509,7 +509,7 @@ public List<User> getUserList(User user) {
 
 直接http调用http://localhost:8888/select?name=ceshi
 
-![image-20220530153015914](/images/img/image-20220530153015914.png)
+![image-20220530153015914](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220530153015914.png)
 
 查询了我们的2个数据库and每个数据库下面的两张表
 
@@ -517,7 +517,7 @@ public List<User> getUserList(User user) {
 
 查询链接and参数http://localhost:8888/select?id=2
 
-![image-20220530153428164](/images/img/image-20220530153428164.png)
+![image-20220530153428164](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220530153428164.png)
 
 查询了当前id所在库的两个表
 
@@ -525,7 +525,7 @@ public List<User> getUserList(User user) {
 
 链接参数http://localhost:8888/select?id=2&age=27
 
-![image-20220530154057941](/images/img/image-20220530154057941.png)
+![image-20220530154057941](./%E5%9F%BA%E4%BA%8EShardingSphere%E7%9A%84%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/image-20220530154057941.png)
 
 准确查询到了这条数据所在的库跟表
 
@@ -580,8 +580,4 @@ CAP 三者是不能共有的，只能同时满足其中两点。基于 AP，我�
 ### 9.项目地址
 
 https://gitee.com/guo0817/split-db.git
-
-
-
-
 

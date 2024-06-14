@@ -29,11 +29,11 @@ Typora官网： https://typora.io/
 在Typora中，也可以使用快捷键command+1（2，3，4，5，6）表示相对应的标题。command+0表示段落。标题快捷键信息可在菜单栏中的段落选项下查看。
 ##### 例
 
-![image-20220715155550280](/Typora使用详/image-20220715155550280.png)
+![image-20220715155550280](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715155550280.png)
 
 ##### #后面加入空格效果
 
-![image-20220715155657206](/image-20220715155657206.png)
+![image-20220715155657206](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715155657206.png)
 
 #### 字体
 
@@ -50,7 +50,7 @@ Typora官网： https://typora.io/
 
 ##### 例
 
-![image-20220715160404892](/image-20220715160404892.png)
+![image-20220715160404892](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715160404892.png)
 
 #### 各种线
 
@@ -68,11 +68,11 @@ Typora官网： https://typora.io/
 
 ##### 例
 
-![image-20220715160832180](/image-20220715160832180.png)
+![image-20220715160832180](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715160832180.png)
 
 command+/关闭源码模式效果
 
-![image-20220715162754057](/Users/guoshuai/Documents/life/pre/blog/source/_posts/Typora使用详/image-20220715162754057.png)
+![image-20220715162754057](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715162754057.png)
 
 ### 列表
 
@@ -86,11 +86,11 @@ command+/关闭源码模式效果
 
 ##### 例
 
-![image-20220715163141893](/Users/guoshuai/Documents/life/pre/blog/source/_posts/Typora使用详/image-20220715163141893.png)
+![image-20220715163141893](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715163141893.png)
 
 ##### 退出源码效果
 
-![image-20220715163215263](/Users/guoshuai/Documents/life/pre/blog/source/_posts/Typora使用详/image-20220715163215263.png)
+![image-20220715163215263](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715163215263.png)
 
 #### 代码
 
@@ -195,7 +195,7 @@ https://www.baidu.com/
 
 点击文件 --> 偏好设置 --> 图像，如下：
 
-![image-20220715165118458](/image-20220715165118458.png)
+![image-20220715165118458](./Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/image-20220715165118458.png)
 
 可以自行设置选择将图片复制到哪个文件夹。
 
@@ -367,3 +367,4 @@ Markdown 区块引用是在段落开头使用 **>** 符号 ，然后后面紧跟
 > 最外层
 > > 第一层嵌套
 > > > 第三层
+
