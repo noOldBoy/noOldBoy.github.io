@@ -22,7 +22,7 @@ menu:
 
 # nav相关配置
 nav:
-  enable: true
+  enable: false
   travelling: true
   clock: true
   menu:
@@ -89,7 +89,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://gs0522.oss-cn-beijing.aliyuncs.com/head1.jpeg?Expires=1718346678&OSSAccessKeyId=TMP.3KhRNYRjxiNeKTv8EvjLtD1Ed1z8Uyy2XTjD58fPninqX6vxZFQMpnfJKDigAuJNuFygHqya6aqoukArdC8XYuB9UHgb2k&Signature=let5XLKiD9fAxzoxfDoIATCeEp4%3D"
+  statusImg: "https://gs0522.oss-cn-beijing.aliyuncs.com/head1.jpeg"
   skills:
     - 🤖️ 数码科技爱好者
     # - 🔍 分享与热心帮助
@@ -156,11 +156,11 @@ marked:
   postAsset: true
 
 # Favicon（网站图标）
-favicon: /favicon.ico
+favicon: img/favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://gs0522.oss-cn-beijing.aliyuncs.com/head1.jpeg?Expires=1718360930&OSSAccessKeyId=TMP.3Kkbxfn7EbryULmzXFouvU22Fajxe84958fpT9o6cKQ5ZEkjCys1JP3V7tP327VaSuXMZNoX19pXy1aN2efnrxECndpEqE&Signature=gaZZf1qsHkr8bNF0yCKz1u9Lt%2FM%3D
+  img: img/favicon.ico
   effect: false
 
 # Disable all banner image
@@ -1155,33 +1155,33 @@ ptool:
 
 # 欢迎语配置
 greetingBox:
-  enable: false #开启后必须配置下面的list对应的时间段，不然会出现小白条
+  enable: true #开启后必须配置下面的list对应的时间段，不然会出现小白条
   default: 晚上好👋
   list:
-    # - greeting: 晚安😴
-    #   startTime: 0
-    #   endTime: 5
-    # - greeting: 早上好鸭👋, 祝你一天好心情！
-    #   startTime: 6
-    #   endTime: 9
-    # - greeting: 上午好👋, 状态很好，鼓励一下～
-    #   startTime: 10
-    #   endTime: 10
-    # - greeting: 11点多啦, 在坚持一下就吃饭啦～
-    #   startTime: 11
-    #   endTime: 11
-    # - greeting: 午安👋, 宝贝
-    #   startTime: 12
-    #   endTime: 14
-    # - greeting: 🌈充实的一天辛苦啦！
-    #   startTime: 14
-    #   endTime: 18
-    # - greeting: 19点喽, 奖励一顿丰盛的大餐吧🍔。
-    #   startTime: 19
-    #   endTime: 19
-    # - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
-    #   startTime: 20
-    #   endTime: 24
+    - greeting: 晚安😴
+      startTime: 0
+      endTime: 5
+    - greeting: 早上好鸭👋, 祝你一天好心情！
+      startTime: 6
+      endTime: 9
+    - greeting: 上午好👋, 状态很好，鼓励一下～
+      startTime: 10
+      endTime: 10
+    - greeting: 11点多啦, 在坚持一下就吃饭啦～
+      startTime: 11
+      endTime: 11
+    - greeting: 午安👋, 宝贝
+      startTime: 12
+      endTime: 14
+    - greeting: 🌈充实的一天辛苦啦！
+      startTime: 14
+      endTime: 18
+    - greeting: 19点喽, 奖励一顿丰盛的大餐吧🍔。
+      startTime: 19
+      endTime: 19
+    - greeting: 晚上好👋, 在属于自己的时间好好放松😌~
+      startTime: 20
+      endTime: 24
 
 # 文章顶部ai摘要
 post_head_ai_description:
