@@ -89,7 +89,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://gs0522.oss-cn-beijing.aliyuncs.com/head1.jpeg"
+  statusImg: favicon.ico
   skills:
     - 🤖️ 数码科技爱好者
     # - 🔍 分享与热心帮助
@@ -251,7 +251,7 @@ toc:
   style_simple: false # for post
 
 post_copyright:
-  enable: true
+  enable: false
   decode: false
   author_href:
   location: 杭州
@@ -589,10 +589,10 @@ microsoft_clarity:
 # Google Adsense (谷歌广告)
 google_adsense:
   enable: false
-  auto_ads: true
+  auto_ads: false
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client:
-  enable_page_level_ads: true
+  enable_page_level_ads: false
 
 # Insert ads manually (手动插入广告)
 # ad:
@@ -1079,11 +1079,11 @@ home_top:
     enable: false
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
-  # banner:
-  #   tips: 新品主题
-  #   title: Theme-AnZhiYu
-  #   image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-  #   link: https://docs.anheyu.com/
+  banner:
+    tips: 使用Typora,玩转md语法
+    title: MD博客语法
+    image: img/8310b288cb58521d9bee08b48338ed97.jpeg
+    link: https://nooldboy.github.io/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/
 
 # 朋友圈配置
 friends_vue:
