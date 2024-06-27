@@ -4,7 +4,7 @@
 
 # Site
 title: buer
-subtitle: '现在就很好，明天也会很好'
+subtitle: '生活明朗，万物可爱'
 description: '不如吃茶去'
 keywords:
 author: buer
@@ -142,5 +142,5 @@ aplayer:
 search:
   path: search.xml
   field: post
-  format: html
-  limit: 10000
+  content: true
+  template: public/search.xml

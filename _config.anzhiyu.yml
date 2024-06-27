@@ -4,21 +4,24 @@ menu:
     分类: /categories/ || anzhiyu-icon-shapes
     标签: /tags/ || anzhiyu-icon-tags
 
-  友链:
-    友人帐: /link/ || anzhiyu-icon-link
-    朋友圈: /fcircle/ || anzhiyu-icon-artstation
-    留言板: /comments/ || anzhiyu-icon-envelope
+  # 友链:
+  #   友人帐: /link/ || anzhiyu-icon-link
+  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
+    # 留言板: /comments/ || anzhiyu-icon-envelope
 
   我的:
     音乐馆: /music/ || anzhiyu-icon-music
-    追番页: /bangumis/ || anzhiyu-icon-bilibili
-    相册集: /album/ || anzhiyu-icon-images
+    留言板: /comments/ || anzhiyu-icon-envelope
+    # 追番页: /bangumis/ || anzhiyu-icon-bilibili
+    # 相册集: /album/ || anzhiyu-icon-images
     小空调: /air-conditioner/ || anzhiyu-icon-fan
 
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+  工具集: http://165.154.134.66:8000 || anzhiyu-icon-link
+
 
 # nav相关配置
 nav:
@@ -66,24 +69,10 @@ copy:
 # formal:
 #   name: link || icon
 social:
-  QQ: http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes ||  anzhiyu-icon-bilibili
-  # mail:
-  #   - mailto:gs990522_010817@163.com
-  #   - icon-mail-fill
-  #   - rgb(249,8,8)
-  #   - rgba(249,8,8,.1)
-  # GitHub:
-  #   - https://github.com/noOldBoy/
-  #   - icon-github
-  #   - rgb(25, 23, 23)
-  #   - rgba(25, 23, 23, .15)
-  # gitee:
-  #   - https://gitee.com/gs990522/
-  #   - icon-mayun
-  #   - rgb(255, 255, 255)
-  #   - rgb(199,29,35)
+  QQ: http://wpa.qq.com/msgrd?v=3&uin=3198492124&site=qq&menu=yes ||  anzhiyu-icon-QQ
+  mail: mailto:gs990522_010817@163.com ||  anzhiyu-icon-envelope
+  gitee: https://gitee.com/gs990522/ || anzhiyu-icon-灯泡
   Github: https://github.com/noOldBoy || anzhiyu-icon-github
-  # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
 
 # 作者卡片 状态
 author_status:
@@ -1082,7 +1071,7 @@ home_top:
   banner:
     tips: 使用Typora,玩转md语法
     title: MD博客语法
-    image: img/8310b288cb58521d9bee08b48338ed97.jpeg
+    image: /images/background/21.jpeg
     link: https://nooldboy.github.io/2022/07/15/Typora%E4%BD%BF%E7%94%A8%E8%AF%A6/
 
 # 朋友圈配置
