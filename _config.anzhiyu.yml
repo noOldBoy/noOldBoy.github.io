@@ -20,7 +20,7 @@ menu:
     关于本人: /about/ || anzhiyu-icon-paper-plane
     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
-  工具集: http://165.154.134.66:8000 || anzhiyu-icon-link
+  项目平台: http://165.154.134.66:8000 || anzhiyu-icon-link
 
 
 # nav相关配置
@@ -81,8 +81,8 @@ author_status:
   statusImg: favicon.ico
   skills:
     - 🤖️ 数码科技爱好者
-    # - 🔍 分享与热心帮助
-    - 🏠 智能家居小能手
+    - 🔍 性格怪异夜猫子
+    - 🏠 善良可救赎自己
     - 🔨 设计开发一条龙
     # - 🤝 专修交互与设计
     - 🏃 脚踏实地行动派
@@ -1215,7 +1215,7 @@ rightClickMenu:
 
 # 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
 peoplecanvas:
-  enable: true
+  enable: false
   img: https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png
 
 # 动效

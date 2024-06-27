@@ -5,7 +5,7 @@
   buttonLink: /about/
   limit: 30
   home_essay: true
-  top_background: https://img02.anheyu.com/adminuploads/1/2022/08/21/630249e2df20f.jpg
+  top_background: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/IMG_5070%20%281%29.jpeg
   essay_list:
     - content: 音乐支持了参数设置自定义歌单
       date: 2023/01/02
@@ -15,5 +15,5 @@
       aplayer:
         server: tencent
         id: 001FGQba3i10mw
-    - content: 做了一个噩梦, 梦到从楼顶坠下去了。😷
+    - content: 996.icu 勇敢对996说不
       date: 2022/09/24

@@ -1,6 +1,6 @@
 - class_name: 关于页
-  subtitle: 生活明朗，万物可爱✨
-  avatarImg: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/img/avatar.webp
+  subtitle: 好好照顾自己
+  avatarImg: img/favicon.ico
   avatarSkills:
     left:
       - 🤖️ 数码科技爱好者
@@ -13,7 +13,7 @@
       - 团队小组发动机 🧱
       - 壮汉人狠话不多 💢
   name: buer
-  description: 不二大叔
+  description: 不二大叔，每个人都独一无二
   aboutsiteTips:
     tips: 追求
     title1: 源于
@@ -23,6 +23,14 @@
       - 生活
       - 程序
       - 体验
+    list:
+     - desc: 缘分码农
+       color: "#357ef5"
+     - desc: 索性喜欢
+       color: "#357ef5"
+     - desc: 做自己喜欢的事
+       color: "#357ef5"
+    img: https://bu.dusays.com/2023/04/21/644287166329b.png
   helloAbout: Hello there!
   skillsTips:
     tips: 技能
@@ -30,6 +38,14 @@
   careers:
     tips: 生涯
     title: 无限进步
+    list:
+      - desc: 大约业余人士
+        color: "#357ef5"
+      - desc: 大约业余人士
+        color: "#357ef5"
+      - desc: 大约业余人士
+        color: "#357ef5"
+    img: https://bu.dusays.com/2023/04/21/644287166329b.png
   statistic:
     link: /archives
     text: 文章隧道
@@ -43,31 +59,46 @@
     selfInfoTips1: 生于
     selfInfoContentYear: 199X
   personalities:
-    author_name: 执政官
+    author_name: 独行爱好者
     personality_type: ESFJ-A
     photo_url: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
     personality_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/ESFJ-A.svg
     name_url: https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC
   maxim:
     maxim_tips: 座右铭
-    maxim_top: 人生很长
-    maxim_bottom: 及时行乐
+    maxim_top: 不要被生活拖累
+    maxim_bottom: 做自己喜欢做的事情，不追逐不着边际的泡沫
   buff:
     buff_tips: 特长
-    buff_top: 脑回路新奇的 酸菜鱼
-    buff_bottom: 二次元指数 MAX
+    buff_top: 曾经引以为傲的象棋小天才
+    buff_bottom: 不如做作业
   game:
     game_tips: 爱好游戏
     game_title: 塞尔达传说
     game_uid: "UID: 125766904"
-    game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
+    game_bg: img/siaedai.jpg
   comic:
-    comic_tips: 爱好番剧
-    comic_title: 追番
+    comic_tips: 爱好电视剧
+    comic_title: 乱翻
     comic_list:
-      - name: 约定的梦幻岛
+      - name: 迪迦
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1  
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/eqweqw.jpeg
+      - name: 虹猫蓝兔七侠传
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1      
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/t01f8be3715f34a7004.jpg
+      - name: 琅琊榜
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1  
+        cover:https://gs0522.oss-cn-beijing.aliyuncs.com/blog/R.jpeg
+      - name: 爱情公寓
         href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/27/647166c44b414.webp
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/xgyd6mjl7vo6kpb.jpg
+      - name: 西游记
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1         
+        cover:https://gs0522.oss-cn-beijing.aliyuncs.com/blog/u%3D1629725526%2C1410168796%26fm%3D253%26gp%3D0.png
+      - name: 亮剑
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/R%20%281%29.jpeg
   like:
     like_tips: 关注偏好
     like_title: 数码科技
@@ -75,54 +106,7 @@
     like_bottom: 手机、电脑软硬件
   music:
     music_tips: 音乐偏好
-    music_title: 许嵩、民谣、华语流行
+    music_title: 许嵩
     music_bg: https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg
     music_link: /music
   reward_list:
-    - name: 海阔蓝
-      amount: 8.8
-      datatime: 2023-03-28
-    - name: LK66
-      amount: 66.6
-      datatime: 2023-03-24
-    - name: 张时貳
-      amount: 6.6
-      datatime: 2023-01-22
-    - name: ZeroAf
-      amount: 9.9
-      datatime: 2022-12-14
-    - name: LuckyWangXi
-      amount: 6.6
-      datatime: 2022-12-14
-    - name: 刀中日月长
-      amount: 10
-      datatime: 2022-11-16
-    - name: 鹿啵包
-      amount: 10
-      datatime: 2022-11-08
-    - name: 疾速k
-      amount: 50
-      datatime: 2022-09-20
-    - name: 伴舟先生大霖子
-      amount: 4.03
-      datatime: 2022-10-27
-      suffix: 贝壳
-    - name: Magica_0x0
-      amount: 3.36
-      datatime: 2022-10-07
-      suffix: 贝壳
-    - name: 名字就是要短像这样
-      amount: 3.36
-      datatime: 2022-08-25
-      suffix: 贝壳
-    - name: Leviathan520
-      amount: 1.34
-      datatime: 2022-08-23
-      suffix: 贝壳
-    - name: 托马斯
-      amount: 10
-      datatime: 2022-08-19
-    - name: 哇是猫猫欸
-      amount: 1.34
-      datatime: 2022-08-19
-      suffix: 贝壳
