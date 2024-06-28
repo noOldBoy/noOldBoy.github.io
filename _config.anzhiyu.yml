@@ -8,7 +8,6 @@ menu:
   #   友人帐: /link/ || anzhiyu-icon-link
   #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
     # 留言板: /comments/ || anzhiyu-icon-envelope
-
   我的:
     音乐馆: /music/ || anzhiyu-icon-music
     留言板: /comments/ || anzhiyu-icon-envelope
@@ -20,7 +19,9 @@ menu:
     关于本人: /about/ || anzhiyu-icon-paper-plane
     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
-  项目平台: http://165.154.134.66:8000 || anzhiyu-icon-link
+  应用箱:
+    项目平台: http://165.154.134.66:8000 || anzhiyu-icon-stopwatch
+    AI: http://165.154.134.66:8000 || anzhiyu-icon-paper-plane
 
 
 # nav相关配置
@@ -32,13 +33,8 @@ nav:
     - title: 网页
       item:
         - name: 博客
-          link: https://blog.anheyu.com/
+          link: https://nooldboy.github.io/
           icon: /img/favicon.ico
-    # - title: 项目
-      # item:
-      #   - name: 安知鱼图床
-      #     link: https://image.anheyu.com/
-      #     icon: https://image.anheyu.com/favicon.ico
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -432,15 +428,6 @@ footer:
     offduty_description: 下班了就该开开心心的玩耍，嘿嘿~
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
-  bdageitem:
-    enable: false
-    list:
-      - link: https://hexo.io/ #徽标指向网站链接
-        shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
-        message: 博客框架为Hexo_v5.4.0 #徽标提示语
-      - link: https://blog.anheyu.com/
-        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
-        message: 本站使用AnZhiYu主题
       # - link: https://www.dogecloud.com/
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
       #   message: 本站使用多吉云为静态资源提供CDN加速
@@ -524,10 +511,6 @@ footer:
     linkList:
       - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
         text: 主题
-      # - link: https://image.anheyu.com
-      #   text: 图床
-      # - link: https://beian.miit.gov.cn/
-      #   text: 湘ICP备-xxxxxxx号
     subTitle:
       enable: false
       # Typewriter Effect (打字效果)
