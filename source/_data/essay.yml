@@ -7,6 +7,10 @@
   home_essay: true
   top_background: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/IMG_5070%20%281%29.jpeg
   essay_list:
+    - content: 从出生就是上班机器,没有意义,没有价值,是一个有性价比的廉价劳动力.
+      date: 2023/09/24
+     - content: 结婚与我之隔200w
+      date: 2023/01/02
     - content: 音乐支持了参数设置自定义歌单
       date: 2023/01/02
       # link: https://blog.anheyu.com/music/?id=7269231710&server=tencent
@@ -17,5 +21,5 @@
         id: 001FGQba3i10mw
     - content: 游戏买了好几个，但是一个都没玩超过2小时，坚持玩完一个在开始下一个可能会好一点
       date: 2022/04/25
-    - content: 996.icu 勇敢对996说不
+    - content: 996.icu
       date: 2022/09/24
