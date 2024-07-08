@@ -21,7 +21,7 @@ menu:
     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
   应用箱:
     项目平台: http://165.154.134.66:8000 || anzhiyu-icon-stopwatch
-    AI: http://165.154.134.66:8000 || anzhiyu-icon-paper-plane
+    AI: http://165.154.134.66:3000 || anzhiyu-icon-paper-plane
 
 
 # nav相关配置
@@ -509,7 +509,7 @@ footer:
       enable: false
       link: /copyright
     linkList:
-      - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+      - link: https://nooldboy.github.io/
         text: 主题
     subTitle:
       enable: false
