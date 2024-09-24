@@ -5,7 +5,7 @@ date: 2022-07-15 15:41:30
 tags:
 - Typora
 categories:
-- 技能
+- 工具
 description: 随笔
 keywords: Typora
 cover: /images/background/d43219aa123e83c415170e5a56281d79.jpeg
