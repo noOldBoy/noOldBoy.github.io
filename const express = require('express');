@@ -1,0 +1,33 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const { exec } = require('child_process');
+
+const app = express();
+app.use(bodyParser.json());
+
+app.post('/deploy', (req, res) => {
+
+  exec('sh /usr/app/noOldBoy.github.io/deploy2.sh', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return res.status(500).send('Deploy failed');
+    }
+    console.log(stdout);
+    res.send('Deploy succeeded');
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+
+node /usr/app/server.js
+
+
+
+*/30 * * * * /usr/app/noOldBoy.github.io/deploy2.sh >> /usr/app/noOldBoy.github.io/deploy2.sh 2>&1
+
+
+nohup
+
