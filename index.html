@@ -59,7 +59,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-07-09 14:49:43',
+  postUpdate: '2025-11-14 11:25:46',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -297,21 +297,49 @@ yield作为返回的关键字
 
 
 Callable线程创建的几种方式，继承Thread类，实现Callable接口或Runnable接口。只有Callable接口支持返回值，可以拿到线程的状态，这也是线程异步任务编排的基础。
-12345678910111213141516public class CallableDemo implements Callable &#123;    @Override    public String call() throws Exception &#123;        System.out.println(Thread.currentThread().getName() + &quot;线程执行执行&quot;);        return Thread.currentThread().getName() + &quot;over&quot;;    &#125;    public static void main(String[] args) throws ExecutionException, InterruptedEx ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/')"><div class="post_cover left"><a href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/images/background/xiaomai10.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户认证" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">后端</div><a class="unvisited-post" href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证">未读</a></div><a class="article-title" href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证">用户认证</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-26T22:02:52.000Z" title="发表于 2024-07-27 06:02:52" time="2024-07-27 06:02:52">2024-07-27</time><time class="time_hidden" datetime="2025-07-09T06:47:56.636Z" title="更新于 2025-07-09 14:47:56" time="2025-07-09 14:47:56">2025-07-09</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>java</span></a><a class="article-meta__tags" href="/tags/jwt/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>jwt</span></a><a class="article-meta__tags" href="/tags/token/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>token</span></a><a class="article-meta__tags" href="/tags/Cookie/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Cookie</span></a><a class="article-meta__tags" href="/tags/Session/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Session</span></a></span></div><div class="content">用户认证相关
+12345678910111213141516public class CallableDemo implements Callable &#123;    @Override    public String call() throws Exception &#123;        System.out.println(Thread.currentThread().getName() + &quot;线程执行执行&quot;);        return Thread.currentThread().getName() + &quot;over&quot;;    &#125;    public static void main(String[] args) throws ExecutionException, InterruptedEx ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/')"><div class="post_cover left"><a href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/images/background/xiaomai10.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户认证" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">后端</div><a class="unvisited-post" href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证">未读</a></div><a class="article-title" href="/2024/07/27/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" title="用户认证">用户认证</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-26T22:02:52.000Z" title="发表于 2024-07-27 06:02:52" time="2024-07-27 06:02:52">2024-07-27</time><time class="time_hidden" datetime="2025-07-09T09:50:52.767Z" title="更新于 2025-07-09 17:50:52" time="2025-07-09 17:50:52">2025-07-09</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/java/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>java</span></a><a class="article-meta__tags" href="/tags/jwt/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>jwt</span></a><a class="article-meta__tags" href="/tags/token/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>token</span></a><a class="article-meta__tags" href="/tags/Cookie/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Cookie</span></a><a class="article-meta__tags" href="/tags/Session/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Session</span></a></span></div><div class="content">用户认证相关
 
 
-一、跨域认证的问题互联网服务离不开用户认证。一般流程是下面这样。
+了解认证我们应该清楚几个最基本的概念：cookie,session,token
+Cookie cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。 每个 cookie 都会绑定单一的域名，无法在别的域名下获取使用，一级域名和二级域名之间是允许共享使用的（靠的是 domain）。
+常用的属性
 
-1、用户向服务器发送用户名和密码。
-2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。
-3、服务器向用户返回一个 session_id，写入用户的 Cookie。
-4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。
-5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。
 
-这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。
-举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？
-一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。
-另一种方案是服务 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/05/14/mysql/')"><div class="post_cover left"><a href="/2023/05/14/mysql/" title="mysql" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/images/background/30.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">数据库</div><a class="unvisited-post" href="/2023/05/14/mysql/" title="mysql">未读</a></div><a class="article-title" href="/2023/05/14/mysql/" title="mysql">mysql</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-14T07:36:58.000Z" title="发表于 2023-05-14 15:36:58" time="2023-05-14 15:36:58">2023-05-14</time><time class="time_hidden" datetime="2024-06-14T03:22:49.380Z" title="更新于 2024-06-14 11:22:49" time="2024-06-14 11:22:49">2024-06-14</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/mysql/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>mysql</span></a></span></div><div class="content">msyql
+属性
+含义
+示例
+说明
+
+
+
+name=value
+必须字段，键值对
+JSESSIONID=ABC123
+表示设置的 Cookie 内容
+
+
+Path
+指定 Cookie 有效路径
+Path=/user
+限定在哪些路径下携带 Cookie
+
+
+Domain
+指定 Cookie 有效的域名
+Domain=example.com
+可跨子域共享（如 .example.com）
+
+
+Max-Age
+指定 Cookie 存活时间（秒）
+Max-Age=3600
+比 Expires 更推荐
+
+
+Expires
+过期时间（绝对时间）
+Expires=Wed, 09 Jul 2025 12:00:00 GMT
+老浏览器 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2023/05/14/mysql/')"><div class="post_cover left"><a href="/2023/05/14/mysql/" title="mysql" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/images/background/30.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">数据库</div><a class="unvisited-post" href="/2023/05/14/mysql/" title="mysql">未读</a></div><a class="article-title" href="/2023/05/14/mysql/" title="mysql">mysql</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-14T07:36:58.000Z" title="发表于 2023-05-14 15:36:58" time="2023-05-14 15:36:58">2023-05-14</time><time class="time_hidden" datetime="2024-06-14T03:22:49.380Z" title="更新于 2024-06-14 11:22:49" time="2024-06-14 11:22:49">2024-06-14</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/mysql/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>mysql</span></a></span></div><div class="content">msyql
 
 
 进入linuxdocker容器中的mysqldocker exec -it {容器id｜容器名称} bash
