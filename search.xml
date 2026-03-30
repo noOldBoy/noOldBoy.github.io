@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>ClaudeCode笔记</title>
+      <link href="/2026/03/30/ClaudeCode%E7%AC%94%E8%AE%B0/"/>
+      <url>/2026/03/30/ClaudeCode%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>Claude Code从入门到精通</p><span id="more"></span><h5 id="Claude-Code-概述"><a href="#Claude-Code-概述" class="headerlink" title="Claude Code 概述"></a>Claude Code 概述</h5><p>引入自官网   <a href="https://claude.com/product/claude-code">https://claude.com/product/claude-code</a></p><blockquote><p>Claude Code 是一个代理编码工具，可以读取你的代码库、编辑文件、运行命令，并与你的开发工具集成。可在终端、IDE、桌面应用和浏览器中使用。</p></blockquote><blockquote><p> Claude Code 是一个由 AI 驱动的编码助手，可帮助你构建功能、修复错误和自动化开发任务。它理解你的整个代码库，可以跨多个文件和工具工作以完成任务。</p></blockquote><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p><strong>脚本</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://claude.ai/install.sh | bash</span><br></pre></td></tr></table></figure><p><strong>环境变量</strong></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc &amp;&amp; <span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure><img src="/2026/03/30/ClaudeCode%E7%AC%94%E8%AE%B0/image-20260330215819200.png" alt="image-20260330215819200" style="zoom:50%;"><h5 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h5><p>选择喜欢的主题颜色</p><h5 id="付费方式"><a href="#付费方式" class="headerlink" title="付费方式"></a>付费方式</h5><p>😂还是到了这一步，最便宜的选项一20$,大概会限制在每周100w<code>token</code>，注意这个数据是实时的，他可能会根据使用去动态调整。可以尝试，但是没钱哇，烧不起根本，我们知道<code>claude code</code>本身其实只是一个代码管理工具我们可以使用国内的一些模型，或者是别的付费模型。</p><p><img src="/2026/03/30/ClaudeCode%E7%AC%94%E8%AE%B0/image-20260330222757374.png" alt="image-20260330222757374"></p><h6 id="cc-switch"><a href="#cc-switch" class="headerlink" title="cc switch"></a>cc switch</h6><p>开源项目：<a href="https://github.com/farion1231/cc-switch">https://github.com/farion1231/cc-switch</a></p><p>简单来说，<code>cc-switch</code> 是一个专门为 Claude Code 开发的<strong>开源补丁&#x2F;切换工具</strong>。它的核心逻辑是：<strong>“挟天子以令诸侯”</strong>。</p><p>注意：⚠️如果你选择这种方式的话，那么你的Claude Code付费模式应该选择<code>Anthropic Console account</code>,这并不难理解， cc switch帮你接管了请求，它会直接跳过真实的官方验证，或者通过你配置好的中转 key 进行伪装登录。</p><p><strong>下载地址</strong>：<a href="https://github.com/farion1231/cc-switch/tags">https://github.com/farion1231/cc-switch/tags</a></p><p>下载对应版本之后配置你的模型吧</p><img src="/2026/03/30/ClaudeCode%E7%AC%94%E8%AE%B0/image-20260330225634741.png" alt="image-20260330225634741" style="zoom:50%;"><h5 id="剩下的配置部分"><a href="#剩下的配置部分" class="headerlink" title="剩下的配置部分"></a>剩下的配置部分</h5><p>可以一直回车，但是最后一步授权claude code工作区的时候，建议选择一个独立的文件夹，不要授权过大的权限。</p><h5 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h5><p><strong>claude</strong></p><p>启动进入claude</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springBoot </tag>
+            
+            <tag> bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI名词探索01</title>
       <link href="/2026/03/30/AI%E5%90%8D%E8%AF%8D%E6%8E%A2%E7%B4%A201/"/>
       <url>/2026/03/30/AI%E5%90%8D%E8%AF%8D%E6%8E%A2%E7%B4%A201/</url>
