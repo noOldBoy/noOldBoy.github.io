@@ -1,0 +1,112 @@
+- class_name: 关于页
+  subtitle: 好好照顾自己
+  avatarImg: img/favicon.ico
+  avatarSkills:
+    left:
+      - 🤖️ 数码科技爱好者
+      - 🔍 分享与热心帮助
+      - 🏠 智能家居小能手
+      - 🔨 设计开发一条龙
+    right:
+      - 专修交互与设计 🤝
+      - 脚踏实地行动派 🏃
+      - 团队小组发动机 🧱
+      - 壮汉人狠话不多 💢
+  name: buer
+  description: 不二大叔，每个人都独一无二
+  aboutsiteTips:
+    tips: 追求
+    title1: 源于
+    title2: 热爱而去 感受
+    word:
+      - 学习
+      - 生活
+      - 程序
+      - 体验
+    list:
+     - desc: 缘分码农
+       color: "#357ef5"
+     - desc: 索性喜欢
+       color: "#357ef5"
+     - desc: 做自己喜欢的事
+       color: "#357ef5"
+    img: https://bu.dusays.com/2023/04/21/644287166329b.png
+  helloAbout: Hello there!
+  skillsTips:
+    tips: 技能
+    title: 开启创造力
+  careers:
+    tips: 生涯
+    title: 无限进步
+    list:
+      - desc: 大约业余人士
+        color: "#357ef5"
+      - desc: 大约业余人士
+        color: "#357ef5"
+      - desc: 大约业余人士
+        color: "#357ef5"
+    img: https://bu.dusays.com/2023/04/21/644287166329b.png
+  statistic:
+    link: /archives
+    text: 文章隧道
+    cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
+  map:
+    title: 我现在住在
+    StrengthenTitle: 中国，杭州
+    background: https://bu.dusays.com/2023/07/05/64a4c61cb20ef.jpg
+    backgroundDark: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
+  selfInfo:
+    selfInfoTips1: 生于
+    selfInfoContentYear: 199X
+  personalities:
+    author_name: 独行爱好者
+    personality_type: ESFJ-A
+    photo_url: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
+    personality_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/ESFJ-A.svg
+    name_url: https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC
+  maxim:
+    maxim_tips: 座右铭
+    maxim_top: 不要被生活拖累
+    maxim_bottom: 做自己喜欢做的事情，不追逐不着边际的泡沫
+  buff:
+    buff_tips: 特长
+    buff_top: 曾经引以为傲的象棋小天才
+    buff_bottom: 不如做作业
+  game:
+    game_tips: 爱好游戏
+    game_title: 塞尔达传说
+    game_uid: "UID: 125766904"
+    game_bg: img/siaedai.jpg
+  comic:
+    comic_tips: 爱好电视剧
+    comic_title: 乱翻
+    comic_list:
+      - name: 迪迦
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1  
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/eqweqw.jpeg
+      - name: 虹猫蓝兔七侠传
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1      
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/t01f8be3715f34a7004.jpg
+      - name: 琅琊榜
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1  
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/R.jpeg
+      - name: 爱情公寓
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/xgyd6mjl7vo6kpb.jpg
+      - name: 西游记
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1         
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/u%3D1629725526%2C1410168796%26fm%3D253%26gp%3D0.png
+      - name: 亮剑
+        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
+        cover: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/R%20%281%29.jpeg
+  like:
+    like_tips: 关注偏好
+    like_title: 数码科技
+    like_bg: https://bu.dusays.com/2022/12/06/638f5f05ce1f7.jpg
+    like_bottom: 手机、电脑软硬件
+  music:
+    music_tips: 音乐偏好
+    music_title: 许嵩
+    music_bg: https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg
+    music_link: /music
+  reward_list:

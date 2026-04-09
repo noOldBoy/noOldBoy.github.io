@@ -1,0 +1,33 @@
+- title: 即刻短文
+  subTitle: 理想飞人的日常生活。
+  tips: 随时随地，分享生活
+  buttonText: 关于我
+  buttonLink: /about/
+  limit: 30
+  home_essay: true
+  top_background: https://gs0522.oss-cn-beijing.aliyuncs.com/blog/IMG_5070%20%281%29.jpeg
+  essay_list:
+    - content: 每一次都可以是新的开始，每次开始都有希望，不为自己设限，每次开始都是新的自己
+      date: 2025/12/18
+    - content: 照顾好自己的人，才是一个值得交往的人，负面情绪的输出本质是对另一个人的伤害
+      date: 2024/11/03
+    - content: 旅游比起预算更考验的是耐心，没有耐心会让一起旅游的人糟糕。要跟想出去玩，跟想跟她一起玩的人出去，耐心比预算更加重要
+      date: 2024/07/03
+    - content: 我还年轻，生活无限可能，不能埋葬在没意义的工作
+      date: 2024/07/03
+    - content: 时好时坏的天气消耗了我为数不多的精力，可能一个人在家日子里可以更加随心所欲
+      date: 2023/09/24
+    - content: 工作没有意义,喜欢做的事才有价值
+      date: 2023/07/24
+    - content: 音乐支持了参数设置自定义歌单
+      date: 2023/01/02
+      # link: https://blog.anheyu.com/music/?id=7269231710&server=tencent
+    - content: 歌曲推荐
+      date: 2022/09/25
+      aplayer:
+        server: tencent
+        id: 001FGQba3i10mw
+    - content: 游戏买了好几个，但是一个都没玩超过2小时，坚持玩完一个在开始下一个可能会好一点
+      date: 2022/04/25
+    - content: 996.icu
+      date: 2022/09/24
